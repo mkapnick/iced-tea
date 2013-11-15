@@ -1,4 +1,4 @@
-package visual.dynamic;
+package scene.visual.dynamic;
 
 import visual.dynamic.described.RuleBasedSprite;
 import visual.statik.TransformableContent;

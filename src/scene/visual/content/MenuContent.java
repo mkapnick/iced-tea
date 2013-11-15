@@ -1,4 +1,4 @@
-package visual.content;
+package scene.visual.content;
 
 public class MenuContent {
 

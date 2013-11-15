@@ -1,4 +1,4 @@
-package scene;
+package scene.visual;
 
 import io.ResourceFinder;
 import data.Environment;

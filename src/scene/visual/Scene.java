@@ -1,9 +1,9 @@
-package scene;
+package scene.visual;
 
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 
-import visual.content.MenuContent;
+import scene.visual.content.MenuContent;
 import visual.dynamic.described.RuleBasedSprite;
 import visual.statik.sampled.ContentFactory;
 import data.Environment;
