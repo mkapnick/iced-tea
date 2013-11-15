@@ -1,18 +1,36 @@
-package scene.visual;
+package scene;
 
+import java.awt.image.BufferedImage;
+import java.util.HashMap;
+
+import visual.content.MenuContent;
 import visual.dynamic.described.RuleBasedSprite;
+import visual.statik.sampled.ContentFactory;
+import data.Environment;
 
-/**
- * Created with IntelliJ IDEA.
- * User: michaelk18
- * Date: 11/15/13
- * Time: 6:02 PM
- * To change this template use File | Settings | File Templates.
- */
-public class Scene {
+public abstract class Scene {
 
-    private RuleBasedSprite [] addedSprites;
-    private RuleBasedSprite [] slidingSprites;
-
-
+	private RuleBasedSprite[] addedSprites;
+	private RuleBasedSprite[] slidingSprites;
+	private Environment environment;
+	private HashMap<RuleBasedSprite, Integer> slidingMap;
+	private MenuContent[] menuContent;
+	
+	public Scene(BufferedImage... slidingImages)
+	{
+		
+	}
+	
+	public RuleBasedSprite[] getAddedSprites()
+	{
+		return this.addedSprites;
+	}
+	
+	public RuleBasedSprite[] getSlidingSprites()
+	{
+		return this.slidingSprites;
+	}
+	
+	
+	
 }
