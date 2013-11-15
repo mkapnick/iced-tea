@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="multimedia">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/multimedia.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
