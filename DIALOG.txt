@@ -1,0 +1,11 @@
+Dialog Tree?
+
+Root:
+0/0-mountains;topdown;
+David: What a long day's work... Those kids sure are morons.
+David: I could sure use a coffee before grading these midterms. Maybe one of my collegues could accompany me?
+1/0-mountains;topdown;
+David: Who should I pick up?
+Choice: Christopher | Nathan | Nancy | Michael | Steve
+
+//WE NEED TO TALK ABOUT WHO TO HAVE 
