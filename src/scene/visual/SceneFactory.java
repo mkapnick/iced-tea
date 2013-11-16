@@ -1,8 +1,8 @@
 package scene.visual;
 
 import io.ResourceFinder;
-import data.Environment;
-import data.View;
+import model.Environment;
+import model.View;
 
 public class SceneFactory {
 

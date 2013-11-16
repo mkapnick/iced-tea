@@ -1,11 +1,11 @@
+package scene.visual;
+
+import model.Environment;
+import scene.visual.content.MenuContent;
+import visual.dynamic.described.RuleBasedSprite;
 
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
-
-import scene.visual.content.MenuContent;
-import visual.dynamic.described.RuleBasedSprite;
-import visual.statik.sampled.ContentFactory;
-import data.Environment;
 
 public abstract class Scene {
 

@@ -1,5 +1,7 @@
 package controller;
 
-public class MenuController {
+public class MenuController implements Controller
+
+{
 
 }
