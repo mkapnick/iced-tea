@@ -1,5 +1,9 @@
 package scene.visual.content;
 
-public class MenuContent {
+import visual.statik.SimpleContent;
 
+public abstract class MenuContent {
+
+	
+	
 }
