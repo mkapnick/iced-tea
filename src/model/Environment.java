@@ -12,17 +12,19 @@ package model;
  */
 public enum Environment {
 
-	CITY("","",""),
-	FOREST("","",""),
-	MOUNTAINS("","",""),
-	SNOW("","","");
-	//TODO Add more environments here
+    INTRO("","","", ""),
+    CITY("","","",""),
+	FOREST("","","",""),
+	MOUNTAINS("","","",""),
+	SNOW("","","","");
+    //TODO Add more environments here
 	
-	private String background, ground;
+	private String fileName, background, ground;
 	private String[] foreground;
 	
-	Environment(String background, String ground, String... foreground)
+	Environment( String fileName, String background, String ground, String... foreground)
 	{
+        this.fileName = fileName;
 		this.background = background;
 		this.ground = ground;
 		this.foreground = foreground;
@@ -42,4 +44,24 @@ public enum Environment {
 	{
 		return this.ground;
 	}
+
+    public void setForeground(String [] foreground)
+    {
+        this.foreground = foreground;
+    }
+
+    public void setGround(String ground)
+    {
+        this.ground = ground;
+    }
+
+    public void setFileName(String fileName)
+    {
+        this.fileName = fileName;
+    }
+
+    public String getFileName()
+    {
+        return this.fileName;
+    }
 }

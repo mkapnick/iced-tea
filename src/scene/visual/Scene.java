@@ -5,6 +5,7 @@ import scene.visual.content.MenuContent;
 import visual.dynamic.described.RuleBasedSprite;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public abstract class Scene {
@@ -19,6 +20,11 @@ public abstract class Scene {
 	{
 		
 	}
+
+    public Scene (ArrayList<BufferedImage> bi)
+    {
+
+    }
 	
 	public RuleBasedSprite[] getAddedSprites()
 	{

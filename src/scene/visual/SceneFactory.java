@@ -1,13 +1,43 @@
 package scene.visual;
 
+import io.FileImageReader;
 import io.ResourceFinder;
 import model.Environment;
 import model.View;
 
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+
 public class SceneFactory {
 
-	public static Scene createScene(Environment env, View view, ResourceFinder finder)
+	public static Scene createScene(Environment env, View view, ResourceFinder finder, String sceneFileName)
 	{
-		return null;
+        Scene scene;
+        env.setFileName(sceneFileName);
+        scene = null;
+
+        switch (env)
+        {
+            case INTRO:
+                scene = helperIntro(finder, sceneFileName);
+                break;
+            case CITY:
+                break;
+            case FOREST:
+                break;
+            case MOUNTAINS:
+                break;
+            case SNOW:
+                break;
+        }
+        return scene;
 	}
+
+    private static Scene helperIntro(ResourceFinder finder,String sceneFileName)
+    {
+        ArrayList<BufferedImage> sceneParts = FileImageReader.readFile(sceneFileName, finder);
+        return null;
+        //return
+
+    }
 }
