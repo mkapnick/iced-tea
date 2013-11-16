@@ -3,6 +3,7 @@ package scene.visual;
 import model.Environment;
 import scene.visual.content.MenuContent;
 import visual.dynamic.described.RuleBasedSprite;
+import visual.dynamic.described.Sprite;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -15,15 +16,16 @@ public abstract class Scene {
 	private Environment environment;
 	private HashMap<RuleBasedSprite, Integer> slidingMap;
 	private MenuContent[] menuContent;
+    private ArrayList<Sprite> sprites;
 	
 	public Scene(BufferedImage... slidingImages)
 	{
 		
 	}
 
-    public Scene (ArrayList<BufferedImage> bi)
+    public Scene (ArrayList<Sprite> sprites)
     {
-
+        this.sprites = sprites;
     }
 	
 	public RuleBasedSprite[] getAddedSprites()

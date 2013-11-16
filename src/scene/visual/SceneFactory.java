@@ -4,8 +4,8 @@ import io.FileImageReader;
 import io.ResourceFinder;
 import model.Environment;
 import model.View;
+import visual.dynamic.described.Sprite;
 
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 public class SceneFactory {
@@ -35,9 +35,9 @@ public class SceneFactory {
 
     private static Scene helperIntro(ResourceFinder finder,String sceneFileName)
     {
-        ArrayList<BufferedImage> sceneParts = FileImageReader.readFile(sceneFileName, finder);
-        return null;
-        //return
+        ArrayList<Sprite> sceneParts = FileImageReader.readFile(sceneFileName, finder);
+
+        return  null
 
     }
 }

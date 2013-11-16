@@ -1,2 +1,2 @@
-intro_scene_no_car_BIRDSEYE.png
-main_car.png
+SlidingSprite,4,640,480,intro_scene_no_car_BIRDSEYE.png
+MovingSprite, Vehicle, main_car.png
