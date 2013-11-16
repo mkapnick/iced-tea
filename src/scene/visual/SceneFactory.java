@@ -36,8 +36,7 @@ public class SceneFactory {
     private static Scene helperIntro(ResourceFinder finder,String sceneFileName)
     {
         ArrayList<Sprite> sceneParts = FileImageReader.readFile(sceneFileName, finder);
-
-        return  null
+        return  null;
 
     }
 }
