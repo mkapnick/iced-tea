@@ -20,9 +20,14 @@ public class SceneNode {
 
     }
 
-    public void add (Scene scene)
+    public void addScene(Scene scene)
     {
         this.scene = scene;
+    }
+    
+    public void addNode(SceneNode node)
+    {
+    	this.nodes.add(node);
     }
 
     public Scene getScene()
