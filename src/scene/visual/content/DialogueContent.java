@@ -22,7 +22,7 @@ import visual.statik.SimpleContent;
  * 11/17/13
  *
  */
-public class DialogueContent implements Sprite, SimpleContent {
+public class DialogueContent implements Sprite {
 
 	private TextSprite[] dialogue;
 	private long curTime;
@@ -103,7 +103,8 @@ public class DialogueContent implements Sprite, SimpleContent {
 
 	@Override
 	public void setLocation(double arg0, double arg1) {
-		// TODO Auto-generated method stub
+		this.x = arg0;
+		this.y = arg1;
 		
 	}
 
