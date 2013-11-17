@@ -12,23 +12,29 @@ import java.awt.geom.Rectangle2D;
 import visual.dynamic.described.Sprite;
 
 /**
- * Created with IntelliJ IDEA.
- * User: michaelk18
- * Date: 11/16/13
- * Time: 9:13 AM
- * To change this template use File | Settings | File Templates.
+ * Dynamic text. As time passes, more of the text is rendered.
+ * 
+ * @author Daniel Hardgrove
+ * @version 1.0
+ * 
+ * This work complies with the JMU Honor Code.
+ * 11/16/13
  */
 public class TextSprite implements Sprite
 {
-	public final int SCROLL_SPEED = 5;
-	private boolean isScrolling;
 	private int numLettersPrinted;
 	private String text;
 	private Font font;
+	private Shape shape;
+	private double x,y;
 	
+	/**
+	 * @param text - the text to be rendered
+	 * @param isScrolling - controls if the text will appear at once 
+	 * 						or over time.
+	 */
 	public TextSprite(String text, boolean isScrolling)
 	{
-		this.isScrolling = isScrolling;
 		this.text = text; 
 		if (isScrolling)
 			numLettersPrinted = 1;
@@ -38,6 +44,10 @@ public class TextSprite implements Sprite
 		this.font = new Font("Arial", Font.PLAIN, 18);
 	}
 	
+	/**
+	 * The number of letters rendered is incremented for each
+	 * time the method is called.
+	 */
 	public void handleTick(int time)
 	{
 		if (numLettersPrinted < text.length())
@@ -55,8 +65,9 @@ public class TextSprite implements Sprite
 		this.font = font;
 	}
 	@Override
-	public void setLocation(double arg0, double arg1) {
-		// TODO Auto-generated method stub
+	public void setLocation(double x, double y) {
+		this.x = x;
+		this.y = y;
 		
 	}
 
@@ -67,8 +78,8 @@ public class TextSprite implements Sprite
 	}
 
 	@Override
-	public void setScale(double arg0, double arg1) {
-		// TODO Auto-generated method stub
+	public void setScale(double horiz, double vert) {
+		
 		
 	}
 
@@ -79,7 +90,7 @@ public class TextSprite implements Sprite
 		
 		FontRenderContext fc = g2.getFontRenderContext();
 		GlyphVector glyphs = font.createGlyphVector(fc, text.substring(0, numLettersPrinted));
-		Shape s = glyphs.getOutline(0.0f,100.0f);
+		Shape s = glyphs.getOutline((float)x,(float)y + font.getSize());
 		g2.setColor(Color.BLACK);
 		g2.fill(s);
 		g2.draw(s);
