@@ -1,5 +1,6 @@
 package scene.visual.dynamic.described;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -23,21 +24,24 @@ public class TextSprite implements Sprite
 	private boolean isScrolling;
 	private int numLettersPrinted;
 	private String text;
+	private Font font;
 	
 	public TextSprite(String text, boolean isScrolling)
 	{
 		this.isScrolling = isScrolling;
-		this.text = text;
-		
+		this.text = text; 
 		if (isScrolling)
 			numLettersPrinted = 1;
 		else
 			numLettersPrinted = text.length();
+		
+		this.font = new Font("Arial", Font.PLAIN, 18);
 	}
 	
 	public void handleTick(int time)
 	{
-		numLettersPrinted++;
+		if (numLettersPrinted < text.length())
+			numLettersPrinted++;
 	}
 
 	@Override
@@ -46,6 +50,10 @@ public class TextSprite implements Sprite
 		return null;
 	}
 
+	public void setFont(Font font)
+	{
+		this.font = font;
+	}
 	@Override
 	public void setLocation(double arg0, double arg1) {
 		// TODO Auto-generated method stub
@@ -70,9 +78,11 @@ public class TextSprite implements Sprite
 		Graphics2D g2 = (Graphics2D) g;
 		
 		FontRenderContext fc = g2.getFontRenderContext();
-		Font f = new Font("Arial",Font.BOLD, 18);
-		GlyphVector glyphs = f.createGlyphVector(fc, text.substring(0, numLettersPrinted));
+		GlyphVector glyphs = font.createGlyphVector(fc, text.substring(0, numLettersPrinted));
 		Shape s = glyphs.getOutline(0.0f,100.0f);
+		g2.setColor(Color.BLACK);
+		g2.fill(s);
+		g2.draw(s);
 		
 	}
 }
