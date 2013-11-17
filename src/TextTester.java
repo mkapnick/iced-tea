@@ -28,9 +28,9 @@ public class TextTester extends AbstractMultimediaApp {
 		
 		ChoiceSprite choice = new ChoiceSprite("Blue");
 		
-		DialogueContent dialogue = new DialogueContent(5000, spr, spr2, spr3, choice);
+		DialogueContent dialogue = new DialogueContent(1000, spr, spr2, spr3, choice);
 		stage.add(dialogue);
-		//choice.addMouseListener(choice);
+		stage.addMouseListener(choice);
 		VisualizationView view = stage.getView();
 		
 		view.setBounds(new Rectangle(400,600));
