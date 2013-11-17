@@ -56,6 +56,7 @@ public class ChoiceSprite extends TextSprite implements MouseListener{
 	@Override
 	public void mouseEntered(MouseEvent event) {
 //TODO Messed up.
+		System.out.println("In mouse entered");
 		double x, y;
 		x = event.getLocationOnScreen().getX();
 		y = event.getLocationOnScreen().getY();

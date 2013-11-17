@@ -1,12 +1,14 @@
 package scene.visual.content;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
 
 import scene.visual.dynamic.described.TextSprite;
 import visual.dynamic.described.Sprite;
-import event.Metronome;
+import visual.statik.SimpleContent;
 
 /**
  * Encapsulates TextSprite objects and controls when each
@@ -20,7 +22,7 @@ import event.Metronome;
  * 11/17/13
  *
  */
-public class DialogueContent implements Sprite {
+public class DialogueContent implements Sprite, SimpleContent {
 
 	private TextSprite[] dialogue;
 	private long curTime;
@@ -61,7 +63,10 @@ public class DialogueContent implements Sprite {
 	public void render(Graphics g) {
 
 		Graphics2D g2 = (Graphics2D) g;
-		
+		g2.setColor(Color.black);
+		g2.draw(new Rectangle(600, 200));
+		g2.setColor(Color.green);
+		g2.fill(new Rectangle(600, 200));
 		//Sets the starting position for each piece
 		for (int i = 0; i < numToRender; i++) {
 			dialogue[i].setLocation(0, i * dialogue[i].getFont().getSize());
@@ -97,9 +102,8 @@ public class DialogueContent implements Sprite {
 	}
 
 	@Override
-	public void setLocation(double x, double y) {
-		this.x = x;
-		this.y = y;
+	public void setLocation(double arg0, double arg1) {
+		// TODO Auto-generated method stub
 		
 	}
 
@@ -114,6 +118,7 @@ public class DialogueContent implements Sprite {
 		// TODO Auto-generated method stub
 		
 	}
+
 
 
 }
