@@ -10,6 +10,7 @@ import java.awt.font.GlyphVector;
 import java.awt.geom.Rectangle2D;
 
 import visual.dynamic.described.Sprite;
+import visual.statik.described.AggregateContent;
 
 /**
  * Dynamic text. As time passes, more of the text is rendered.
@@ -20,7 +21,7 @@ import visual.dynamic.described.Sprite;
  * This work complies with the JMU Honor Code.
  * 11/16/13
  */
-public class TextSprite implements Sprite
+public class TextSprite extends AggregateContent implements Sprite
 {
 	private int numLettersPrinted;
 	private String text;
@@ -42,6 +43,11 @@ public class TextSprite implements Sprite
 			numLettersPrinted = text.length();
 		
 		this.font = new Font("Arial", Font.PLAIN, 18);
+	}
+	
+	public Font getFont()
+	{
+		return this.font;
 	}
 	
 	/**
@@ -87,7 +93,7 @@ public class TextSprite implements Sprite
 	public void render(Graphics g) {
 
 		Graphics2D g2 = (Graphics2D) g;
-		
+		//System.out.println("Num letters printed: " + numLettersPrinted);
 		FontRenderContext fc = g2.getFontRenderContext();
 		GlyphVector glyphs = font.createGlyphVector(fc, text.substring(0, numLettersPrinted));
 		Shape s = glyphs.getOutline((float)x,(float)y + font.getSize());
