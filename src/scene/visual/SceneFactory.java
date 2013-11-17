@@ -19,7 +19,7 @@ public class SceneFactory {
 		
 		switch(view)
 		{
-			case SIDEVIEW:
+			case SIDEVIEW: //Foregrounds are always sliding 
 				
 				foregrounds = new BufferedImage[foreground.length];
 				
@@ -31,15 +31,15 @@ public class SceneFactory {
 				}
 				break;
 				
-			case BIRDSEYE:
+			case BIRDSEYE: //Only takes into account the ground and foreground(road, trees)
 				break;
 			case INCAR:
 				break;
 			default:
 				break;
 		}
-		
-		
+		ContentFactory ...
+		SlidingSprite road = new SlidingSprite()
 		
 		return scene;
 	}
