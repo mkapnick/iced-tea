@@ -8,9 +8,11 @@ import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.font.FontRenderContext;
 import java.awt.font.GlyphVector;
+import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
 import visual.dynamic.described.Sprite;
+import visual.statik.SimpleContent;
 import visual.statik.described.AggregateContent;
 
 /**
@@ -22,13 +24,15 @@ import visual.statik.described.AggregateContent;
  * This work complies with the JMU Honor Code.
  * 11/16/13
  */
-public class TextSprite extends AggregateContent implements Sprite
+public class TextSprite extends AggregateContent implements Sprite, SimpleContent
 {
 	private int numLettersPrinted;
 	private String text;
 	private Font font;
 	private Shape shape;
-	private double x,y;
+	protected double x;
+	protected double y;
+	private Color color;
 	
 	/**
 	 * @param text - the text to be rendered
@@ -44,6 +48,7 @@ public class TextSprite extends AggregateContent implements Sprite
 			numLettersPrinted = text.length();
 		
 		this.font = new Font("Arial", Font.PLAIN, 18);
+		this.color = Color.black;
 	}
 	
 	public Font getFont()
@@ -67,6 +72,10 @@ public class TextSprite extends AggregateContent implements Sprite
 		return null;
 	}
 
+	public void setColor(Color color)
+	{
+		this.color = color;
+	}
 	public void setFont(Font font)
 	{
 		this.font = font;
@@ -76,6 +85,11 @@ public class TextSprite extends AggregateContent implements Sprite
 		this.x = x;
 		this.y = y;
 		
+	}
+	
+	public Point2D.Double getLocation()
+	{
+		return new Point2D.Double(x,y);
 	}
 
 	@Override
@@ -98,7 +112,7 @@ public class TextSprite extends AggregateContent implements Sprite
 		FontRenderContext fc = g2.getFontRenderContext();
 		GlyphVector glyphs = font.createGlyphVector(fc, text.substring(0, numLettersPrinted));
 		Shape s = glyphs.getOutline((float)x,(float)y + font.getSize());
-		g2.setColor(Color.BLACK);
+		g2.setColor(color);
 		g2.setStroke(new BasicStroke());
 		g2.fill(s);
 		g2.draw(s);
