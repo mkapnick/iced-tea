@@ -1,5 +1,6 @@
 package scene.visual.dynamic.described;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -98,6 +99,7 @@ public class TextSprite extends AggregateContent implements Sprite
 		GlyphVector glyphs = font.createGlyphVector(fc, text.substring(0, numLettersPrinted));
 		Shape s = glyphs.getOutline((float)x,(float)y + font.getSize());
 		g2.setColor(Color.BLACK);
+		g2.setStroke(new BasicStroke());
 		g2.fill(s);
 		g2.draw(s);
 		
