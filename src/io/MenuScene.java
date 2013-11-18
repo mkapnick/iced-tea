@@ -1,4 +1,6 @@
-package scene.visual;
+package io;
+
+import scene.visual.Scene;
 
 public class MenuScene extends Scene {
 

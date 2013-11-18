@@ -12,23 +12,24 @@ package model;
  */
 public enum Environment {
 
-	CITY("","",""),
+    INTRO("","birds_eye_view_first_scene_no_car.png","main_car.png"),
+	CITY("city_theme_base.png","",""),
 	FOREST("","",""),
 	MOUNTAINS("","",""),
-	SNOW("","","");
+	SNOW("","",""),
+    FINAL("coffee_shop.png", "", "");
 	//TODO Add more environments here
 	
-	private String background, ground;
-	private String[] foreground;
+	private String background, ground, foreground;  //delimit foreground with a comma
 	
-	Environment(String background, String ground, String... foreground)
+	Environment(String background, String ground, String foreground)
 	{
 		this.background = background;
 		this.ground = ground;
 		this.foreground = foreground;
 	}
 	
-	public String[] getForeground()
+	public String getForeground()
 	{
 		return this.foreground;
 	}
