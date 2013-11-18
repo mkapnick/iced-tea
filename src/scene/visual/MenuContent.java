@@ -9,4 +9,6 @@ package scene.visual;
  */
 public class MenuContent {
 
+	private String[] dialogue;
+	
 }

@@ -1,42 +1,82 @@
 package model;
 
-import scene.visual.Scene;
 import java.util.ArrayList;
+import scene.visual.Scene;
+
 
 /**
- * Created with IntelliJ IDEA.
- * User: michaelk18
- * Date: 11/16/13
- * Time: 9:40 AM
- * To change this template use File | Settings | File Templates.
+ * @author brianbrown
+ * 
+ * A class for containing Scenes as a tree structure.
  */
 public class SceneNode {
 
-    private ArrayList<SceneNode> nodes;
-    private Scene scene;
-
-    public SceneNode()
-    {
-
-    }
-
-    public void add (Scene scene)
-    {
-        this.scene = scene;
-    }
-
-    public Scene getScene()
-    {
-        return this.scene;
-    }
-
-    public int getNumScenes()
-    {
-        return this.nodes.size();
-    }
-
-    public SceneNode getChild (int index) throws Exception
-    {
-        return this.nodes.get(index);
-    }
+	private Scene scene;
+	private ArrayList<SceneNode> children;
+	
+	/**
+	 * Constructs a SceneNode with no children.
+	 * 
+	 * @param scene	
+	 * The scene to be contained by this node.
+	 */
+	public SceneNode(Scene scene)
+	{
+		this.scene = scene;
+		this.children = new ArrayList<SceneNode>();
+	}
+	
+	/**
+	 * @return
+	 * Returns the Scene contained by this node.
+	 */
+	public Scene getScene()
+	{
+		return this.scene;
+	}
+	
+	/**
+	 * Use this method to add a Scene's children. Child indexes will be
+	 * respective to the order that they are added.
+	 * 
+	 * @param node
+	 * The child node to be added.
+	 */
+	public void addNode(SceneNode node)
+	{
+		children.add(node);
+	}
+	
+	
+	/**
+	 * Returns the child node at the specified index.
+	 * 
+	 * @param index
+	 * The index of the child.
+	 * 
+	 * @return
+	 * The child at the index in the parameter.
+	 */
+	public SceneNode getChild(int index)
+	{
+		if (children.size() == 0)
+		{
+			throw new IndexOutOfBoundsException("Node has no children.");
+		}
+		
+		return children.get(index);
+	}
+	
+	
+	
+	/**
+	 * @return
+	 * Returns the number of child nodes stored in this node.
+	 */
+	public int getNumChildren()
+	{
+		return children.size();
+	}
+	
+	
 }

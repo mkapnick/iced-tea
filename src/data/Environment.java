@@ -1,7 +1,7 @@
-package model;
+package data;
 
 /**
- * Stores model for particular environments. The strings
+ * Stores data for particular environments. The strings
  * represent the file-names.
  * 
  * @author Daniel Hardgrove
@@ -12,25 +12,23 @@ package model;
  */
 public enum Environment {
 
-    INTRO("","birds_eye_view_first_scene_no_car.png",new String [] {"main_car.png"}),
-	CITY("city_theme_base.png","",""),
+	CITY("","",""),
 	FOREST("","",""),
 	MOUNTAINS("","",""),
-	SNOW("","",""),
-    FINAL("coffee_shop.png", "", "");
+	SNOW("","","");
 	//TODO Add more environments here
 	
-	private String      background, ground;
-    private String []   foreground;
+	private String background, ground;
+	private String[] foreground;
 	
-	Environment(String background, String ground, String ... foreground)
+	Environment(String background, String ground, String... foreground)
 	{
 		this.background = background;
 		this.ground = ground;
 		this.foreground = foreground;
 	}
 	
-	public String [] getForeground()
+	public String[] getForeground()
 	{
 		return this.foreground;
 	}

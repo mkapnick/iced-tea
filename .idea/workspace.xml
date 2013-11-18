@@ -2,23 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08fc825b-b34c-4e20-8d85-256100c7fc19" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/scene/visual/MenuScene.java" afterPath="$PROJECT_DIR$/src/io/MenuScene.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/scene/visual/dynamic/described/BasicTextSprite.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/scene/visual/content/ChoiceContent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/scene/visual/dynamic/described/ChoiceSprite.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DIALOG.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/scene/visual/content/DialogueContent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/data/Environment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/scene/visual/dynamic/described/ScrollingTextSprite.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/TextTester.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/data/View.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Environment.java" afterPath="$PROJECT_DIR$/src/model/Environment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FinalApp.java" afterPath="$PROJECT_DIR$/src/FinalApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/io/ImageReader.java" afterPath="$PROJECT_DIR$/src/io/ImageReader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scene/visual/MenuContent.java" afterPath="$PROJECT_DIR$/src/scene/visual/MenuContent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scene/visual/content/MenuContent.java" afterPath="$PROJECT_DIR$/src/scene/visual/content/MenuContent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scene/visual/Scene.java" afterPath="$PROJECT_DIR$/src/scene/visual/Scene.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/SceneController.java" afterPath="$PROJECT_DIR$/src/controller/SceneController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scene/visual/SceneFactory.java" afterPath="$PROJECT_DIR$/src/scene/visual/SceneFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/SceneNode.java" afterPath="$PROJECT_DIR$/src/model/SceneNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scene/visual/dynamic/described/TextSprite.java" afterPath="$PROJECT_DIR$/src/scene/visual/dynamic/described/TextSprite.java" />
     </list>
     <ignored path="FinalProject349.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Test.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1383704016900" ignored="false" />
     <file path="/fragment.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1384556505626" ignored="false" />
-    <file path="/Scene.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1384744485839" ignored="false" />
-    <file path="/Environment.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1384731955152" ignored="false" />
+    <file path="/Scene.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1384747221133" ignored="false" />
+    <file path="/Environment.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1384746090598" ignored="false" />
     <file path="/Dummy.txt" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1384730386632" ignored="false" />
-    <file path="/SceneFactory.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1384745189978" ignored="false" />
+    <file path="/SceneFactory.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1384747269463" ignored="false" />
     <file path="/FinalApp.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1384745492953" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +89,7 @@
     <favorites_list name="FinalProject349" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6135693">
+    <splitter split-orientation="horizontal" split-proportion="0.5154867">
       <split-first>
         <leaf>
           <file leaf-file-name="FinalApp.java" pinned="false" current="false" current-in-tab="false">
@@ -93,10 +103,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="SceneController.java" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="SceneController.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/controller/SceneController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="13" column="22" selection-start="236" selection-end="236" vertical-scroll-proportion="0.22941177">
+                <state line="19" column="31" selection-start="426" selection-end="426" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -105,7 +115,7 @@
           <file leaf-file-name="SceneNode.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/model/SceneNode.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="12" column="13" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0">
+                <state line="11" column="13" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -114,16 +124,16 @@
           <file leaf-file-name="Environment.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/model/Environment.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="22" column="61" selection-start="545" selection-end="545" vertical-scroll-proportion="0.0">
+                <state line="32" column="20" selection-start="765" selection-end="765" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Scene.java" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="Scene.java" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/scene/visual/Scene.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="33" column="61" selection-start="1014" selection-end="1014" vertical-scroll-proportion="0.0">
+                <state line="20" column="5" selection-start="575" selection-end="575" vertical-scroll-proportion="0.36855036">
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -144,11 +154,13 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="SceneFactory.java" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="SceneFactory.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/scene/visual/SceneFactory.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="99" column="50" selection-start="3799" selection-end="3799" vertical-scroll-proportion="0.75268817">
-                  <folding />
+                <state line="35" column="18" selection-start="1219" selection-end="1219" vertical-scroll-proportion="0.4623656">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -179,11 +191,11 @@
         <option value="$PROJECT_DIR$/src/scene/Scene.java" />
         <option value="$PROJECT_DIR$/src/scene/visual/MenuContent.java" />
         <option value="$PROJECT_DIR$/src/scene/visual/Environment.java" />
-        <option value="$PROJECT_DIR$/src/model/Environment.java" />
         <option value="$PROJECT_DIR$/src/io/ImageReader.java" />
-        <option value="$PROJECT_DIR$/src/scene/visual/Scene.java" />
-        <option value="$PROJECT_DIR$/src/scene/visual/SceneFactory.java" />
         <option value="$PROJECT_DIR$/src/FinalApp.java" />
+        <option value="$PROJECT_DIR$/src/model/Environment.java" />
+        <option value="$PROJECT_DIR$/src/scene/visual/SceneFactory.java" />
+        <option value="$PROJECT_DIR$/src/scene/visual/Scene.java" />
       </list>
     </option>
   </component>
@@ -636,13 +648,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/scene/visual/MenuContent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scene/auditory/sampled/Audio.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="92" selection-start="215" selection-end="215" vertical-scroll-proportion="0.19208382" />
@@ -706,32 +711,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Environment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="61" selection-start="545" selection-end="545" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/SceneNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scene/visual/Scene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="61" selection-start="1014" selection-end="1014" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scene/visual/SceneFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="50" selection-start="3799" selection-end="3799" vertical-scroll-proportion="0.75268817">
+        <state line="11" column="13" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -745,10 +727,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Environment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="20" selection-start="765" selection-end="765" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/SceneController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="22" selection-start="236" selection-end="236" vertical-scroll-proportion="0.22941177">
+        <state line="19" column="31" selection-start="426" selection-end="426" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="13" selection-start="72" selection-end="72" vertical-scroll-proportion="0.054413542">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scene/visual/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="5" selection-start="575" selection-end="575" vertical-scroll-proportion="0.36855036">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scene/visual/SceneFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="18" selection-start="1219" selection-end="1219" vertical-scroll-proportion="0.4623656">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
