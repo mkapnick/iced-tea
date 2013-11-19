@@ -4,8 +4,10 @@ import io.ImageReader;
 import io.ResourceFinder;
 import model.Environment;
 import model.View;
+import scene.visual.dynamic.sampled.MovingSprite;
 import scene.visual.dynamic.sampled.SlidingSprite;
 import visual.dynamic.described.RuleBasedSprite;
+import visual.dynamic.described.SampledSprite;
 import visual.statik.sampled.Content;
 import visual.statik.sampled.ContentFactory;
 
@@ -17,71 +19,84 @@ public class SceneFactory {
 	public static Scene createScene(Environment env, View view, ResourceFinder finder)
 	{
         String              background, ground;
-        String []           foreground;
-        BufferedImage []    foregroundImages;
+        String []           foreground, movingSprites;
+        BufferedImage []    foregroundImages, movingSpriteImages;
         BufferedImage       backgroundImage, groundImage;
         Scene               scene;
 
-        scene       = null;
-        background  = env.getBackground();
-        foreground  = env.getForeground();
-        ground      = env.getGround();
+        scene           = null;
+        background      = env.getBackground();
+        foreground      = env.getForeground();
+        ground          = env.getGround();
+        movingSprites   = env.getMovingSprites();
 
         switch (view)
         {
             case BIRDSEYE:
-                foregroundImages    = parseForeGround(foreground, finder);  //Always a sliding sprite
+                foregroundImages    = parseArrayOfImages(foreground, finder);  //Always a sliding sprite
+                movingSpriteImages  = parseArrayOfImages(movingSprites, finder); //Always a moving sprite
                 groundImage         = ImageReader.readFile(ground, finder); //Always a sliding sprite
-                scene               = turnIntoSprites(foregroundImages, groundImage, null, finder);
+                scene               = turnIntoScene(foregroundImages, movingSpriteImages, groundImage,
+                                                    null, finder);
                 break;
             case SIDEVIEW:
-                foregroundImages    = parseForeGround(foreground, finder);
-                backgroundImage     = ImageReader.readFile(background, finder);
+                foregroundImages    = parseArrayOfImages(foreground, finder);
+                movingSpriteImages  = parseArrayOfImages(movingSprites, finder);
+                backgroundImage     = ImageReader.readFile(background, finder); //Always a sliding sprite
                 groundImage         = ImageReader.readFile(ground, finder);
-                scene               = turnIntoSprites(foregroundImages, groundImage, backgroundImage, finder);
+                scene               = turnIntoScene(foregroundImages, movingSpriteImages, groundImage,
+                                                    backgroundImage, finder);
                 break;
             case INCAR:
-                backgroundImage     = ImageReader.readFile(background, finder); //Always a sliding sprite
-                scene               = turnIntoSprites(null, null, backgroundImage, finder);
+                movingSpriteImages  = parseArrayOfImages(movingSprites, finder);
+                backgroundImage     = ImageReader.readFile(background, finder);
+                scene               = turnIntoScene(null, movingSpriteImages, null, backgroundImage, finder);
                 break;
         }
 		return scene;
 	}
 
-    private static BufferedImage [] parseForeGround(String [] foreground, ResourceFinder finder)
+    private static BufferedImage [] parseArrayOfImages(String [] arrayOfImages, ResourceFinder finder)
     {
         BufferedImage       image;
-        BufferedImage []    foregrounds;
+        BufferedImage []    images;
 
-        foregrounds = new BufferedImage[foreground.length];
+        images = new BufferedImage[arrayOfImages.length];
 
-        for (int i =0; i < foreground.length; i++)
+        for (int i =0; i < arrayOfImages.length; i++)
         {
-            image = ImageReader.readFile(foreground[i], finder);
-            foregrounds[i] = image;
+            image = ImageReader.readFile(arrayOfImages[i], finder);
+            images[i] = image;
         }
 
-        return foregrounds;
+        return images;
     }
 
-    private static Scene turnIntoSprites(BufferedImage [] foregroundImages, BufferedImage groundImage,
-                                        BufferedImage backgroundImage, ResourceFinder finder)
+    private static Scene turnIntoScene(BufferedImage [] foregroundImages, BufferedImage [] movingSpriteImages,
+                                         BufferedImage groundImage,BufferedImage backgroundImage, ResourceFinder finder)
     {
         ContentFactory      contentFactory;
         Content             content;
         RuleBasedSprite     rbSprite;
+        SampledSprite       sampledSprite;
         Scene               scene;
         RuleBasedSprite []  slidingSprites;
-        RuleBasedSprite []  addedSprites;
+        RuleBasedSprite []  movingSprites;
         int                 i;
 
-        //ArrayList<RuleBasedSprite>  slidingSprites, addedSprites;
 
         scene               = null;
         i                   = 0;
-        slidingSprites      = new RuleBasedSprite [foregroundImages.length +2];
-        addedSprites        = new RuleBasedSprite [2];
+        movingSprites       = new RuleBasedSprite [movingSpriteImages.length];
         contentFactory      = new ContentFactory(finder);
+
+        if(foregroundImages == null && groundImage == null)
+            slidingSprites  = new RuleBasedSprite [1]; //IN-CAR only has a background
+        else if (backgroundImage == null)
+            slidingSprites  = new RuleBasedSprite [foregroundImages.length +1]; //BIRDSEYE only has foreground and ground
+        else
+            slidingSprites  = new RuleBasedSprite [foregroundImages.length +2]; //SIDEVIEW has foreground, ground, and background
+
 
         if (foregroundImages != null)
         {
@@ -93,9 +108,6 @@ public class SceneFactory {
             }
         }
 
-        /* Wasn't sure if groundImage and backgroundImage are always sliding sprites, in this case,
-           I just decided to add both of them as sliding sprite. This can be easily changed though
-         */
         if (groundImage != null)
         {
             content             = contentFactory.createContent(groundImage, false);
@@ -108,6 +120,13 @@ public class SceneFactory {
             content             = contentFactory.createContent(backgroundImage, false);
             rbSprite            = new SlidingSprite(content, 4, 640,480);
             slidingSprites[i++] = rbSprite;
+        }
+
+        for (int j =0; j < movingSprites.length; j++)
+        {
+            content             = contentFactory.createContent(movingSpriteImages[i], false);
+            sampledSprite       = new MovingSprite(content);
+            //movingSprites[i]    = sampledSprite; //Design flaw here
         }
 
         //scene = new Scene(...);

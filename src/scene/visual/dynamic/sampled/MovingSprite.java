@@ -1,6 +1,7 @@
 package scene.visual.dynamic.sampled;
 
 import visual.dynamic.described.SampledSprite;
+import visual.statik.TransformableContent;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,5 +12,10 @@ import visual.dynamic.described.SampledSprite;
  */
 public class MovingSprite extends SampledSprite
 {
+    public MovingSprite(TransformableContent content)
+    {
+        //addKeyTime
+
+    }
 
 }

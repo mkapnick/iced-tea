@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class Scene {
 
-	private RuleBasedSprite []                  addedSprites;
+	private RuleBasedSprite []                  movingSprites;
 	private RuleBasedSprite []                  slidingSprites;
 	private Environment                         environment;
 	private HashMap<RuleBasedSprite, Integer>   slidingMap;
@@ -20,19 +20,19 @@ public class Scene {
 		
 	}
 
-    public Scene (RuleBasedSprite [] addedSprites, RuleBasedSprite [] slidingSprites)
-                  //Environment env, HashMap<RuleBasedSprite, Integer> slidingMap, MenuContent [] menuContent)
+    public Scene (RuleBasedSprite [] movingSprites, RuleBasedSprite [] slidingSprites,
+                  Environment env, HashMap<RuleBasedSprite, Integer> slidingMap, MenuContent [] menuContent)
     {
-        this.addedSprites   = addedSprites;
+        this.movingSprites  = movingSprites;
         this.slidingSprites = slidingSprites;
-        //this.environment    = env;
-        //this.slidingMap     = slidingMap;
-        //this.menuContent    = menuContent;
+        this.environment    = env;
+        this.slidingMap     = slidingMap;
+        this.menuContent    = menuContent;
     }
 	
-	public RuleBasedSprite [] getAddedSprites()
+	public RuleBasedSprite [] getMovingSprites()
 	{
-		return this.addedSprites;
+		return this.movingSprites;
 	}
 	
 	public RuleBasedSprite [] getSlidingSprites()
