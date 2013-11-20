@@ -11,7 +11,7 @@ import java.awt.event.MouseListener;
 import java.awt.font.FontRenderContext;
 import java.awt.font.GlyphVector;
 
-public class ChoiceSprite extends TextSprite implements MouseListener{
+public class ChoiceSprite extends TextSprite implements MouseListener {
 
 	private Color defaultColor, hoverColor, curColor;
 	private boolean wasClicked;
@@ -61,19 +61,12 @@ public class ChoiceSprite extends TextSprite implements MouseListener{
 		System.out.println("In mouse entered");
 		
 		
-		if (event != null) {
+		
 			xPart = event.getLocationOnScreen().getX();
 			yPart = event.getLocationOnScreen().getY();
-		}
+		
 		
 		int tolerance = 20;
-		if (((this.x + tolerance) > xPart && this.x - tolerance < x) && (this.y + tolerance) > yPart && (this.y - tolerance < y))
-		{
-			System.out.println("tolerant");
-			curColor = hoverColor;
-		}
-		else
-			mouseExited(event);
 		
 	}
 
@@ -99,7 +92,16 @@ public class ChoiceSprite extends TextSprite implements MouseListener{
 	@Override
 	public void handleTick(int time) {
 		
+		double mouseX, mouseY;
 		
+		mouseX = MouseInfo.getPointerInfo().getLocation().getX();
+		mouseY = MouseInfo.getPointerInfo().getLocation().getY();
+		
+		System.out.println(this.y + "\t" + mouseY);
+		if (mouseX <= this.x + 40 && mouseX >= this.x && mouseY >= this.y + 24 && mouseY <= this.y + 44)
+			curColor = Color.gray;
+		else
+			curColor = Color.black;
 		
 	}
 

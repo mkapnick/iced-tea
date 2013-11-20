@@ -69,7 +69,7 @@ public class DialogueContent implements Sprite {
 		g2.fill(new Rectangle(600, 200));
 		//Sets the starting position for each piece
 		for (int i = 0; i < numToRender; i++) {
-			dialogue[i].setLocation(0, i * dialogue[i].getFont().getSize());
+			dialogue[i].setLocation(0, (i) * dialogue[i].getFont().getSize());
 			dialogue[i].render(g2);
 		}
 	}

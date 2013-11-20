@@ -7,6 +7,8 @@ import java.awt.Shape;
 import java.awt.font.FontRenderContext;
 import java.awt.font.GlyphVector;
 
+import visual.statik.TransformableContent;
+
 public class BasicTextSprite extends TextSprite {
 
 	public BasicTextSprite(String text)
@@ -32,4 +34,5 @@ public class BasicTextSprite extends TextSprite {
 		// TODO Auto-generated method stub
 		
 	}
+
 }
