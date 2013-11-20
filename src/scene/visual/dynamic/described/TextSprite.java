@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Shape;
+import java.awt.font.GlyphVector;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
@@ -22,6 +23,7 @@ public abstract class TextSprite implements Sprite
 {
 	
 	protected String text;
+	protected GlyphVector glyphText;
 	protected Font font;
 	protected Shape shape;
 	protected double x;
@@ -41,9 +43,17 @@ public abstract class TextSprite implements Sprite
 		this.color = Color.black;
 	}
 	
+	/**
+	 * @return this font
+	 */
 	public Font getFont()
 	{
 		return this.font;
+	}
+	
+	public GlyphVector getGlyphText()
+	{
+		return this.glyphText;
 	}
 	
 	public Point2D.Double getLocation()

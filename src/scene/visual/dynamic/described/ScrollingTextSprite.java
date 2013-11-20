@@ -33,8 +33,8 @@ public class ScrollingTextSprite extends TextSprite {
 
 		Graphics2D g2 = (Graphics2D) g;
 		FontRenderContext fc = g2.getFontRenderContext();
-		GlyphVector glyphs = font.createGlyphVector(fc, text.substring(0, numLettersPrinted));
-		Shape s = glyphs.getOutline((float)x,(float)y + font.getSize());
+		glyphText = font.createGlyphVector(fc, text.substring(0, numLettersPrinted));
+		Shape s = glyphText.getOutline((float)x,(float)y + font.getSize());
 		g2.setColor(color);
 		g2.setStroke(new BasicStroke());
 		g2.fill(s);

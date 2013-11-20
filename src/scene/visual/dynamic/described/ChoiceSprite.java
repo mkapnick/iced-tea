@@ -35,11 +35,13 @@ public class ChoiceSprite extends TextSprite implements MouseMotionListener, Mou
 	{
 		boolean result = false;
 		double mouseX, mouseY;
+		double width;
 		
+		width = this.glyphText.getOutline().getBounds().getMaxX();
 		mouseX = evt.getX();
 		mouseY = evt.getY();
 		
-		if (mouseX >= this.x && mouseX <= this.x + 50 &&
+		if (mouseX >= this.x && mouseX <= this.x + width &&
 			mouseY >= this.y && mouseY <= this.y + this.getFont().getSize())
 			result = true;
 		
@@ -54,8 +56,8 @@ public class ChoiceSprite extends TextSprite implements MouseMotionListener, Mou
 		setColor(curColor);
 
 		FontRenderContext fc = g2.getFontRenderContext();
-		GlyphVector glyphs = font.createGlyphVector(fc, text);
-		Shape s = glyphs.getOutline((float)x,(float)y + font.getSize());
+		glyphText = font.createGlyphVector(fc, text);
+		Shape s = glyphText.getOutline((float)x,(float)y + font.getSize());
 		g2.setColor(color);
 		g2.setStroke(new BasicStroke());
 		g2.fill(s);

@@ -5,7 +5,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.font.FontRenderContext;
-import java.awt.font.GlyphVector;
 
 public class SlidingTextSprite extends TextSprite {
 
@@ -23,7 +22,7 @@ public class SlidingTextSprite extends TextSprite {
 		this.direction = direction;
 		this.speed = speed;
 	}
-
+	
 	@Override
 	public void handleTick(int time) {
 		switch(direction)
@@ -52,8 +51,8 @@ public class SlidingTextSprite extends TextSprite {
 
 		Graphics2D g2 = (Graphics2D) g;
 		FontRenderContext fc = g2.getFontRenderContext();
-		GlyphVector glyphs = font.createGlyphVector(fc, text);
-		Shape s = glyphs.getOutline((float)x,(float)y + font.getSize());
+		glyphText = font.createGlyphVector(fc, text);
+		Shape s = glyphText.getOutline((float)x,(float)y + font.getSize());
 		g2.setColor(color);
 		g2.setStroke(new BasicStroke());
 		g2.fill(s);
