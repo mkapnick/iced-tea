@@ -7,7 +7,7 @@ public class Application extends MultimediaApplication {
 	
 	public static void main(String[] args) throws Exception
 	{
-		SwingUtilities.invokeAndWait(new Application(args, 400,600));
+		SwingUtilities.invokeAndWait(new Application(args, 600,400));
 	}
 	
 	public Application(String[] args, int height, int width)
