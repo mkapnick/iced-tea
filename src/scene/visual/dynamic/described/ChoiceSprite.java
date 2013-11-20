@@ -51,7 +51,8 @@ public class ChoiceSprite extends TextSprite implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		
-		wasClicked = true;
+		if (curColor == Color.gray)
+			System.out.println(this.text);
 		
 	}
 
@@ -96,9 +97,9 @@ public class ChoiceSprite extends TextSprite implements MouseListener {
 		
 		mouseX = MouseInfo.getPointerInfo().getLocation().getX();
 		mouseY = MouseInfo.getPointerInfo().getLocation().getY();
-		
-		System.out.println(this.y + "\t" + mouseY);
-		if (mouseX <= this.x + 40 && mouseX >= this.x && mouseY >= this.y + 24 && mouseY <= this.y + 44)
+	
+		if (mouseX <= this.x + 40 && mouseX >= this.x && 
+			mouseY >= this.y + 24 && mouseY <= this.y + this.getFont().getSize() + 24)
 			curColor = Color.gray;
 		else
 			curColor = Color.black;

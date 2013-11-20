@@ -6,9 +6,10 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
 
+import javax.swing.JComponent;
+
 import scene.visual.dynamic.described.TextSprite;
 import visual.dynamic.described.Sprite;
-import visual.statik.SimpleContent;
 
 /**
  * Encapsulates TextSprite objects and controls when each
@@ -22,13 +23,11 @@ import visual.statik.SimpleContent;
  * 11/17/13
  *
  */
-public class DialogueContent implements Sprite {
+public class DialogueContent extends MenuContent implements Sprite {
 
-	private TextSprite[] dialogue;
 	private long curTime;
 	private long delay;
 	private int numToRender;
-	private double x, y;
 	
 	/**
 	 * 
@@ -39,20 +38,14 @@ public class DialogueContent implements Sprite {
 	 */
 	public DialogueContent(long delayForText, TextSprite ... sprites)
 	{
-		this.dialogue = sprites;
+		super(sprites);
 		curTime = 0;
 		delay = delayForText;
 		numToRender = 1;
+		
 	}
 	
-	/**
-	 * 
-	 * @return the collection of text
-	 */
-	public TextSprite[] getDialogue()
-	{
-		return this.dialogue;
-	}
+	
 
 	/**
 	 * Renders the dialogue depending on how many should be
@@ -69,8 +62,8 @@ public class DialogueContent implements Sprite {
 		g2.fill(new Rectangle(600, 200));
 		//Sets the starting position for each piece
 		for (int i = 0; i < numToRender; i++) {
-			dialogue[i].setLocation(0, (i) * dialogue[i].getFont().getSize());
-			dialogue[i].render(g2);
+			text[i].setLocation(0, (i) * text[i].getFont().getSize() + 20 * i);
+			text[i].render(g2);
 		}
 	}
 	
@@ -87,50 +80,14 @@ public class DialogueContent implements Sprite {
 		
 		numToRender = (int)(curTime / delay) + 1;
 		
-		if (numToRender >= dialogue.length)
-			numToRender = dialogue.length;
+		if (numToRender >= text.length)
+			numToRender = text.length;
 		
 		for (int i = 0; i < numToRender; i++)
-			dialogue[i].handleTick(time);
+			text[i].handleTick(time);
 		
 	}
 
-	@Override
-	public Rectangle2D getBounds2D(boolean arg0) {
-		
-		Rectangle2D.Double bounds;
-		double x, y, width, height;
-		
-		x = this.x;
-		y = this.y;
-		height = dialogue.length * 20;
-		width = getWidth();
-		
-		bounds = new Rectangle2D.Double(x, y, height, width);
-		
-		return bounds;
-		
-	}
-
-	public double getWidth()
-	{
-		double longest = 0;
-		
-		for (TextSprite i : dialogue)
-		{
-			if (i.getText().length() >= longest)
-				longest = i.getText().length();
-		}
-		
-		return longest;
-	}
-	
-	@Override
-	public void setLocation(double arg0, double arg1) {
-		this.x = arg0;
-		this.y = arg1;
-		
-	}
 
 	@Override
 	public void setRotation(double arg0, double arg1, double arg2) {
