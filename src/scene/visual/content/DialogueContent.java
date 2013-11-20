@@ -62,7 +62,7 @@ public class DialogueContent extends MenuContent implements Sprite {
 		g2.fill(new Rectangle(600, 200));
 		//Sets the starting position for each piece
 		for (int i = 0; i < numToRender; i++) {
-			text[i].setLocation(0, (i) * text[i].getFont().getSize() + 20 * i);
+			//text[i].setLocation(0, (i) * text[i].getFont().getSize() + 20 * i);
 			text[i].render(g2);
 		}
 	}
