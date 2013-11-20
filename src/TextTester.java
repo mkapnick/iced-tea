@@ -57,6 +57,7 @@ public class TextTester extends AbstractMultimediaApp {
 		//otherView.addMouseListener((ChoiceSprite)choice);
 		VisualizationView view = stage.getView();
 		view.addMouseMotionListener((ChoiceSprite)choice);
+		view.addMouseListener((ChoiceSprite)choice);
 		view.addMouseMotionListener((ChoiceSprite) choice2);
 		view.setBounds(new Rectangle(600,300));
 		
