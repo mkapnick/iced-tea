@@ -4,6 +4,7 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.MouseInfo;
 import java.awt.Shape;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -14,6 +15,7 @@ public class ChoiceSprite extends TextSprite implements MouseListener{
 
 	private Color defaultColor, hoverColor, curColor;
 	private boolean wasClicked;
+	private double xPart, yPart;
 	
 	public ChoiceSprite(String choice)
 	{
@@ -57,15 +59,21 @@ public class ChoiceSprite extends TextSprite implements MouseListener{
 	public void mouseEntered(MouseEvent event) {
 //TODO Messed up.
 		System.out.println("In mouse entered");
-		double x, y;
-		x = event.getLocationOnScreen().getX();
-		y = event.getLocationOnScreen().getY();
 		
-		int tolerance = 100;
-		if (((this.x + tolerance) > x && this.x - tolerance < x) && (this.y + tolerance) > y && (this.y - tolerance < y))
+		
+		if (event != null) {
+			xPart = event.getLocationOnScreen().getX();
+			yPart = event.getLocationOnScreen().getY();
+		}
+		
+		int tolerance = 20;
+		if (((this.x + tolerance) > xPart && this.x - tolerance < x) && (this.y + tolerance) > yPart && (this.y - tolerance < y))
+		{
+			System.out.println("tolerant");
 			curColor = hoverColor;
+		}
 		else
-			curColor = defaultColor;
+			mouseExited(event);
 		
 	}
 
@@ -90,7 +98,8 @@ public class ChoiceSprite extends TextSprite implements MouseListener{
 
 	@Override
 	public void handleTick(int time) {
-		// TODO Auto-generated method stub
+		
+		
 		
 	}
 

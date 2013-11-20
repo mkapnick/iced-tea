@@ -1,13 +1,9 @@
 package scene.visual.dynamic.described;
 
-import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Shape;
-import java.awt.font.FontRenderContext;
-import java.awt.font.GlyphVector;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
@@ -52,6 +48,16 @@ public abstract class TextSprite extends AggregateContent implements Sprite, Sim
 		return this.font;
 	}
 	
+	public Point2D.Double getLocation()
+	{
+		return new Point2D.Double(x, y);
+	}
+	
+	public String getText()
+	{
+		return this.text;
+	}
+	
 	/**
 	 * The number of letters rendered is incremented for each
 	 * time the method is called.
@@ -79,10 +85,6 @@ public abstract class TextSprite extends AggregateContent implements Sprite, Sim
 		
 	}
 	
-	public Point2D.Double getLocation()
-	{
-		return new Point2D.Double(x,y);
-	}
 
 	public void setRotation(double arg0, double arg1, double arg2) {}
 	public void setScale(double horiz, double vert) {}

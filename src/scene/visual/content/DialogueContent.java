@@ -97,10 +97,34 @@ public class DialogueContent implements Sprite {
 
 	@Override
 	public Rectangle2D getBounds2D(boolean arg0) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Rectangle2D.Double bounds;
+		double x, y, width, height;
+		
+		x = this.x;
+		y = this.y;
+		height = dialogue.length * 20;
+		width = getWidth();
+		
+		bounds = new Rectangle2D.Double(x, y, height, width);
+		
+		return bounds;
+		
 	}
 
+	public double getWidth()
+	{
+		double longest = 0;
+		
+		for (TextSprite i : dialogue)
+		{
+			if (i.getText().length() >= longest)
+				longest = i.getText().length();
+		}
+		
+		return longest;
+	}
+	
 	@Override
 	public void setLocation(double arg0, double arg1) {
 		this.x = arg0;

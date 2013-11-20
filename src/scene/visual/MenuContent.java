@@ -9,6 +9,17 @@ package scene.visual;
  */
 public class MenuContent {
 
-	private String[] dialogue;
+	private String [] options;
+	private double width, height, x, y;
+	
+	public MenuContent(double width, double height, double x, double y)
+	{
+		this.width = width;
+		this.height = height;
+		this.x = x;
+		this.y = y;
+	}
+	
+	
 	
 }

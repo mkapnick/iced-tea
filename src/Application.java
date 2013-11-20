@@ -1,6 +1,6 @@
-import app.MultimediaApplication;
+import javax.swing.SwingUtilities;
 
-import javax.swing.*;
+import app.MultimediaApplication;
 
 
 public class Application extends MultimediaApplication {

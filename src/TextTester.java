@@ -2,6 +2,7 @@ import java.awt.Rectangle;
 
 import javax.swing.JPanel;
 
+import scene.visual.content.ChoiceContent;
 import scene.visual.content.DialogueContent;
 import scene.visual.dynamic.described.ChoiceSprite;
 import scene.visual.dynamic.described.ScrollingTextSprite;
@@ -30,16 +31,18 @@ public class TextTester extends AbstractMultimediaApp {
 		TextSprite spr3 = new ScrollingTextSprite("The above sentence is defiantly spelled wrong.", true);
 		
 		TextSprite choice = new ChoiceSprite("Blue");
-		
+		ChoiceContent contentChoice = new ChoiceContent(1, new ChoiceSprite("Green"));
 		DialogueContent dialogue = new DialogueContent(3000, spr, spr2, spr3, choice);
 		//dialogue.addMouseListener((ChoiceSprite)choice);
 		stage.add(dialogue);
+		
 		VisualizationView view = stage.getView();
 		view.addMouseListener((ChoiceSprite)choice);
 		view.setBounds(new Rectangle(600,400));
 		
 		
 		contentPane.add(view);
+		contentPane.add(contentChoice.getView());
 		contentPane.setVisible(true);
 		stage.start();
 		
