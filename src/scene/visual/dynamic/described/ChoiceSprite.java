@@ -31,6 +31,11 @@ public class ChoiceSprite extends TextSprite implements MouseMotionListener, Mou
 		wasClicked = false;
 	}
 	
+	/**
+	 * 
+	 * @param evt
+	 * @return true if the mouse position is within the glyph vector.
+	 */
 	private boolean mouseInBounds(MouseEvent evt)
 	{
 		boolean result = false;

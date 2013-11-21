@@ -13,8 +13,12 @@ public class Scene {
 	private RuleBasedSprite []                  slidingSprites;
 	private Environment                         environment;
 	private HashMap<RuleBasedSprite, Integer>   slidingMap;
-	private MenuContent[]                       menuContent;
-	
+	private MenuContent[]                       menuContent; //Change?
+	//private TreeNode<MenuContent>				menuContent;
+	//TODO Instead of an array of MenuContents, how about a TreeNode<MenuContent>?
+	//Each scene will have a part of the conversation, but more than one question/answer.
+	//From the look of SceneNode, it acts very similarly to TreeNode, so why not just use
+	//that for Scenes as well? - Daniel
 	public Scene(BufferedImage... slidingImages)
 	{
 		
