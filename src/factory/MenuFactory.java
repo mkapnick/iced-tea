@@ -12,7 +12,7 @@ import scene.visual.content.DialogueContent;
 import scene.visual.content.MenuContent;
 import scene.visual.dynamic.described.BasicTextSprite;
 
-public class DialogueFactory 
+public class MenuFactory 
 {
 	
 	
