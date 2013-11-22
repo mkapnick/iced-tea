@@ -12,29 +12,60 @@ import scene.visual.content.DialogueContent;
 import scene.visual.content.MenuContent;
 import scene.visual.dynamic.described.BasicTextSprite;
 
+/**
+ * Factory which both creates the EventNode tree, and constructs it
+ * by creating MenuContent objects as we parse a provided xml file
+ * with a format of:
+ * 
+ * <content> : <dialogue> | <choice>
+ * <dialogue>: <bern> | <prof>
+ * <choice>	 : <option>
+ * <bern>	 : text...
+ * <prof>	 : text...
+ * <option>	 : text...
+ * 
+ * @author Daniel Hardgrove
+ * @version 1.0
+ * 
+ * This work complies with the JMU Honor Code
+ * 11/22/13
+ */
 public class MenuFactory 
 {
 	
-	
+	/**
+	 * Entry point of the parse of the xml file and constructs
+	 * an EventNode<MenuContent> tree. Makes use of a private
+	 * recursive method for constructing the tree.
+	 * 
+	 * @param xml - the xml document to parse
+	 * @return parent - the root EventNode, which contains all
+	 * 					children.
+	 */
 	public static EventNode<MenuContent> createDialogue(Document xml)
 	{
-		MenuContent curContent;
-		
+		//Initialize the parent at "Root".
 		EventNode<MenuContent> parent = 
 				new EventNode<MenuContent>(new DialogueContent
 						(0, new BasicTextSprite("Root")));
 		
+		//Get the child nodes of the roor of the document
 		NodeList startingList;
 		startingList = xml.getChildNodes();
 		
-		//xml.normalize();
+		//Begin the parse, and construct the EventNode tree.
 		buildChildren(parent, startingList);
-		System.out.println(parent);
 		
 		return parent;
-		
 	}
 	
+	/**
+	 * Recursively creates the EventNode<MenuContent> tree
+	 * 
+	 * @param parent - originally root, but updates depending on
+	 * 				   this previous active node.
+	 * @param nodeList - the children of the parent.
+	 */
 	private static void buildChildren(EventNode<MenuContent> parent, NodeList nodeList)
 	{
 		//Create method variables here----------------------------------------
@@ -88,14 +119,7 @@ public class MenuFactory
 				if (currentNode.getNodeType() == Node.ELEMENT_NODE) {
 					if (list.getLength() > 0)
 						buildChildren(parent, list);
-					
 				}
-			
-			
-		
 		}
-		
-		
-		
 	}
 }
