@@ -14,12 +14,14 @@ public class EventNode<E> {
 
 	private ArrayList<EventNode<E>> children;
 	private EventNode<E> parent;
+	private E element;
 	
 	/**
 	 * Constructs the children collection
 	 */
-	public EventNode()
+	public EventNode(E element)
 	{
+		this.element = element;
 		children = new ArrayList<EventNode<E>>();
 	}
 	
@@ -61,6 +63,10 @@ public class EventNode<E> {
 		return children.size();
 	}
 
+	public E getElement()
+	{
+		return this.element;
+	}
 	/**
 	 * 
 	 * @param node
@@ -85,5 +91,10 @@ public class EventNode<E> {
 	 */
 	public EventNode<E> getParent() {
 		return parent;
+	}
+	
+	public void setElement(E element)
+	{
+		this.element = element;
 	}
 }

@@ -1,19 +1,30 @@
+<content>
     <dialogue>
-    <bern>Hey there, Chris.</bern>
-    <prof>Hey there, David.</prof>
-    <bern>Do you still hate everyone?</bern>
-    <prof>Sure do.</prof>
-    <bern>Why do you hate them?</bern>
-    <prof>Because...</prof>
-    <select>
-        <option id="0">They don't look like me.
-        	   
-        </option>
-        <option id="1">They don't use T.
-        	   
-        </option>
-        <option id="2">They aren't all computer scientists.
-        	  
-        </option>
-    </select>
+	    <bern>Hey there, Chris.</bern>
+	    <prof>Hey there, David.</prof>
+	    <bern>Do you still hate everyone?</bern>
+	    <prof>Sure do.</prof>
+	    <bern>Why do you hate them?</bern>
+	    <prof>Because...</prof>
     </dialogue>
+    <choice>
+        <option value="They don't look like me.">
+       		<dialogue>
+       		    <bern>Sheesh, they don't?</bern>
+       		    <prof>Yeah, they don't.</prof>
+       		</dialogue>
+        </option>
+        <option value="They don't use T.">
+            <dialogue>
+                <bern>Nobody knows what that is...</bern>
+                <prof>IT'S IMPORTANT!</prof>
+            </dialogue>
+        </option>
+        <option value="They aren't all computer scientists">
+            <dialogue>
+                <bern>So that must mean you like me :)</bern>
+                <prof>No...You are an exception.</prof>
+            </dialogue>
+        </option>
+    </choice>
+</content>
