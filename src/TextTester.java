@@ -1,15 +1,22 @@
-import java.awt.Color;
+import factory.DialogueFactory;
+import io.ResourceFinder;
+
 import java.awt.Rectangle;
+import java.io.IOException;
 
 import javax.swing.JPanel;
+import javax.xml.parsers.ParserConfigurationException;
 
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+import scene.io.DialogueReader;
 import scene.visual.content.ChoiceContent;
 import scene.visual.content.DialogueContent;
 import scene.visual.dynamic.described.ChoiceSprite;
 import scene.visual.dynamic.described.MergingTextSprite;
 import scene.visual.dynamic.described.ScrollingTextSprite;
 import scene.visual.dynamic.described.TextSprite;
-import visual.PlainVisualizationRenderer;
 import visual.VisualizationView;
 import visual.dynamic.described.Stage;
 import app.AbstractMultimediaApp;
@@ -17,9 +24,11 @@ import app.AbstractMultimediaApp;
 
 public class TextTester extends AbstractMultimediaApp {
 
-	public TextTester()
+	public TextTester() throws ParserConfigurationException, SAXException, IOException
 	{
-		
+		DialogueReader reader = new DialogueReader("Chris", ResourceFinder.createInstance());
+		Document xml = reader.readXML();
+		DialogueFactory.createDialogue(xml);
 	}
 	
 	public void init()

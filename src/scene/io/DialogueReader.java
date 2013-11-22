@@ -30,7 +30,7 @@ public class DialogueReader{
 
     public Document readXML() throws ParserConfigurationException, SAXException, IOException
     {
-    	File dialogueFile = new File("/Users/mkyong/staff.xml");
+    	File dialogueFile = new File("dialogueTree.xml");
     	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
     	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
     	Document doc = dBuilder.parse(dialogueFile);
