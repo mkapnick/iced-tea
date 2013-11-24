@@ -6,7 +6,7 @@ import scene.visual.Scene;
 
 /**
  * @author brianbrown
- * 
+ * @deprecated Use EventNode<Scene> for scenes.
  * A class for containing Scenes as a tree structure.
  */
 public class SceneNode {

@@ -1,3 +1,4 @@
+
 import app.AbstractMultimediaApp;
 import io.ResourceFinder;
 import model.Environment;
@@ -19,6 +20,7 @@ import java.io.InputStream;
  * Time: 6:00 PM
  * To change this template use File | Settings | File Templates.
  */
+
 public class FinalApp extends AbstractMultimediaApp
 {
     private Stage stage;
@@ -62,8 +64,5 @@ public class FinalApp extends AbstractMultimediaApp
         //mountainScene = SceneFactory.createScene(Environment.MOUNTAINS, View.SIDEVIEW, finder, "MountainSceneFile.txt");
         //snowScene = SceneFactory.createScene(Environment.SNOW, View.SIDEVIEW, finder, "SnowSceneFile.txt");
     }
-
-
-
-
 }
+

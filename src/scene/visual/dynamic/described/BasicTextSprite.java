@@ -7,6 +7,8 @@ import java.awt.Shape;
 import java.awt.font.FontRenderContext;
 import java.awt.font.GlyphVector;
 
+import visual.statik.TransformableContent;
+
 public class BasicTextSprite extends TextSprite {
 
 	public BasicTextSprite(String text)
@@ -19,8 +21,8 @@ public class BasicTextSprite extends TextSprite {
 		Graphics2D g2 = (Graphics2D) g;
 		
 		FontRenderContext fc = g2.getFontRenderContext();
-		GlyphVector glyphs = font.createGlyphVector(fc, text);
-		Shape s = glyphs.getOutline((float)x,(float)y + font.getSize());
+		glyphText = font.createGlyphVector(fc, text);
+		Shape s = glyphText.getOutline((float)x,(float)y + font.getSize());
 		g2.setColor(color);
 		g2.setStroke(new BasicStroke());
 		g2.fill(s);
@@ -32,4 +34,5 @@ public class BasicTextSprite extends TextSprite {
 		// TODO Auto-generated method stub
 		
 	}
+
 }

@@ -1,19 +1,14 @@
 package scene.visual.dynamic.described;
 
-import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Shape;
-import java.awt.font.FontRenderContext;
 import java.awt.font.GlyphVector;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
 import visual.dynamic.described.Sprite;
-import visual.statik.SimpleContent;
-import visual.statik.described.AggregateContent;
 
 /**
  * Abstract representation of text.
@@ -24,10 +19,11 @@ import visual.statik.described.AggregateContent;
  * This work complies with the JMU Honor Code.
  * 11/16/13
  */
-public abstract class TextSprite extends AggregateContent implements Sprite, SimpleContent
+public abstract class TextSprite implements Sprite
 {
 	
 	protected String text;
+	protected GlyphVector glyphText;
 	protected Font font;
 	protected Shape shape;
 	protected double x;
@@ -43,13 +39,31 @@ public abstract class TextSprite extends AggregateContent implements Sprite, Sim
 	{
 		this.text = text; 
 		
-		this.font = new Font("Arial", Font.PLAIN, 18);
+		this.font = new Font("Arial", Font.PLAIN, 20);
 		this.color = Color.black;
 	}
 	
+	/**
+	 * @return this font
+	 */
 	public Font getFont()
 	{
 		return this.font;
+	}
+	
+	public GlyphVector getGlyphText()
+	{
+		return this.glyphText;
+	}
+	
+	public Point2D.Double getLocation()
+	{
+		return new Point2D.Double(x, y);
+	}
+	
+	public String getText()
+	{
+		return this.text;
 	}
 	
 	/**
@@ -60,7 +74,12 @@ public abstract class TextSprite extends AggregateContent implements Sprite, Sim
 
 	@Override
 	public Rectangle2D getBounds2D(boolean arg0) {
-		return null;
+
+		Rectangle2D.Double bounds;
+		
+		bounds = new Rectangle2D.Double(x, y, font.getSize(), this.text.length());
+
+		return bounds;
 	}
 
 	public void setColor(Color color)
@@ -79,10 +98,6 @@ public abstract class TextSprite extends AggregateContent implements Sprite, Sim
 		
 	}
 	
-	public Point2D.Double getLocation()
-	{
-		return new Point2D.Double(x,y);
-	}
 
 	public void setRotation(double arg0, double arg1, double arg2) {}
 	public void setScale(double horiz, double vert) {}

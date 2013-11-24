@@ -7,13 +7,15 @@ import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.font.FontRenderContext;
 import java.awt.font.GlyphVector;
 
-public class ChoiceSprite extends TextSprite implements MouseListener{
+public class ChoiceSprite extends TextSprite implements MouseMotionListener, MouseListener {
 
 	private Color defaultColor, hoverColor, curColor;
 	private boolean wasClicked;
+	private double xPart, yPart;
 	
 	public ChoiceSprite(String choice)
 	{
@@ -28,6 +30,29 @@ public class ChoiceSprite extends TextSprite implements MouseListener{
 		curColor = defaultColor;
 		wasClicked = false;
 	}
+	
+	/**
+	 * 
+	 * @param evt
+	 * @return true if the mouse position is within the glyph vector.
+	 */
+	private boolean mouseInBounds(MouseEvent evt)
+	{
+		boolean result = false;
+		double mouseX, mouseY;
+		double width;
+		
+		width = this.glyphText.getOutline().getBounds().getMaxX();
+		mouseX = evt.getX();
+		mouseY = evt.getY();
+		
+		if (mouseX >= this.x && mouseX <= this.x + width &&
+			mouseY >= this.y && mouseY <= this.y + this.getFont().getSize())
+			result = true;
+		
+		return result;
+		
+	}
 
 	@Override
 	public void render(Graphics g) {
@@ -36,8 +61,8 @@ public class ChoiceSprite extends TextSprite implements MouseListener{
 		setColor(curColor);
 
 		FontRenderContext fc = g2.getFontRenderContext();
-		GlyphVector glyphs = font.createGlyphVector(fc, text);
-		Shape s = glyphs.getOutline((float)x,(float)y + font.getSize());
+		glyphText = font.createGlyphVector(fc, text);
+		Shape s = glyphText.getOutline((float)x,(float)y + font.getSize());
 		g2.setColor(color);
 		g2.setStroke(new BasicStroke());
 		g2.fill(s);
@@ -46,23 +71,9 @@ public class ChoiceSprite extends TextSprite implements MouseListener{
 		
 	}
 
-	@Override
-	public void mouseClicked(MouseEvent arg0) {
+	public void mouseMoved(MouseEvent evt) {
 		
-		wasClicked = true;
-		
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent event) {
-//TODO Messed up.
-		System.out.println("In mouse entered");
-		double x, y;
-		x = event.getLocationOnScreen().getX();
-		y = event.getLocationOnScreen().getY();
-		
-		int tolerance = 100;
-		if (((this.x + tolerance) > x && this.x - tolerance < x) && (this.y + tolerance) > y && (this.y - tolerance < y))
+		if (mouseInBounds(evt))
 			curColor = hoverColor;
 		else
 			curColor = defaultColor;
@@ -70,28 +81,36 @@ public class ChoiceSprite extends TextSprite implements MouseListener{
 	}
 
 	@Override
-	public void mouseExited(MouseEvent arg0) {
-		
-		curColor = defaultColor;
-		
+	public void handleTick(int time) {	
 	}
 
 	@Override
-	public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void mouseDragged(MouseEvent arg0) {
 	}
 
 	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void mouseClicked(MouseEvent e) {
+	
+		if (mouseInBounds(e))
+			wasClicked = true;
+		else
+			wasClicked = false;
 	}
 
 	@Override
-	public void handleTick(int time) {
-		// TODO Auto-generated method stub
-		
+	public void mouseEntered(MouseEvent e) {
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
 	}
 
 }

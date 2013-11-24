@@ -19,6 +19,7 @@ public class Scene extends AbstractSprite {
 	private MenuContent[]                       menuContent;
 
 
+
     public Scene (RuleBasedSprite [] slidingSprites, ArrayList<Sprite> movingSprites,
                   Environment env, HashMap<RuleBasedSprite, Integer> slidingMap, MenuContent [] menuContent)
     {
