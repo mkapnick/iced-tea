@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<scene>
+
+    <slidingSprites>
+
+        <foreground>
+            <image>city_theme_base.png</image>
+        </foreground>
+
+        <background>
+            <image>TBD.png</image>
+        </background>
+
+        <ground>
+            <image>side_road_dashed_white.png</image>
+        </ground>
+
+    </slidingSprites>
+
+    <movingSprites>
+
+        <professors>
+            <professor>professor_bernstein.png
+                <keyTime></keyTime>
+                <keyTime></keyTime>
+                <keyTime></keyTime>
+                <keyTime></keyTime>
+                <keyTime></keyTime>
+            </professor>
+            <professor>professor_fox.png
+                <keyTime></keyTime>
+                <keyTime></keyTime>
+                <keyTime></keyTime>
+                <keyTime></keyTime>
+                <keyTime></keyTime>
+            </professor>
+        </professors>
+
+        <transportation>
+            <vehicle>main_car.png</vehicle>
+        </transportation>
+
+    </movingSprites>
+
+</scene>
