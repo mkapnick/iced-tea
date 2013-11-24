@@ -2,13 +2,13 @@ package scene.io;
 
 import io.ImageReader;
 import io.ResourceFinder;
-import model.Environment;
-import model.Script;
+import data.Environment;
+import data.Script;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import scene.visual.dynamic.sampled.MovingSprite;
+import scene.visual.dynamic.described.MovingSprite;
 import visual.dynamic.described.Sprite;
 import visual.statik.sampled.Content;
 import visual.statik.sampled.ContentFactory;

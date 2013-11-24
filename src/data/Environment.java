@@ -1,10 +1,12 @@
 package data;
 
+import java.util.ArrayList;
+
 /**
- * Stores data for particular environments. The strings
+ * Stores model for particular environments. The strings
  * represent the file-names.
  * 
- * @author Daniel Hardgrove
+ * @author Daniel Hardgrove, Michael Kapnick, Brian Brown
  * @version 1.0
  * 
  * This work complies with the JMU Honor Code.
@@ -12,23 +14,24 @@ package data;
  */
 public enum Environment {
 
-	CITY("","",""),
-	FOREST("","",""),
-	MOUNTAINS("","",""),
-	SNOW("","","");
-	//TODO Add more environments here
+    INTRO(null,null,null),
+	CITY(null,null,null),
+	FOREST(null,null,null),
+	MOUNTAINS(null,null,null),
+	SNOW(null,null,null),
+    FINAL(null,null,null);
+
+	private String              background, ground;
+    private ArrayList<String>   foreground;
 	
-	private String background, ground;
-	private String[] foreground;
-	
-	Environment(String background, String ground, String... foreground)
+	Environment(String background, ArrayList<String> foreground, String ground)
 	{
 		this.background = background;
-		this.ground = ground;
 		this.foreground = foreground;
+		this.ground     = ground;
 	}
 	
-	public String[] getForeground()
+	public ArrayList<String> getForeground()
 	{
 		return this.foreground;
 	}
@@ -42,4 +45,19 @@ public enum Environment {
 	{
 		return this.ground;
 	}
+
+    public void setForeground(ArrayList<String> foreground)
+    {
+         this.foreground = foreground;
+    }
+
+    public void setBackground(String background)
+    {
+        this.background = background;
+    }
+
+    public void setGround(String ground)
+    {
+        this.ground = ground;
+    }
 }

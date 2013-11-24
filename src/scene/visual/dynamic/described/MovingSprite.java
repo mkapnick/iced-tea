@@ -1,4 +1,4 @@
-package scene.visual.dynamic.sampled;
+package scene.visual.dynamic.described;
 
 import visual.dynamic.described.SampledSprite;
 import visual.statik.TransformableContent;

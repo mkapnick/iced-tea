@@ -1,4 +1,4 @@
-package model;
+package data;
 
 import visual.dynamic.described.Sprite;
 
@@ -14,9 +14,12 @@ import java.util.ArrayList;
 public enum Script
 {
 
-    CLASSIC_SCRIPT(null),
-    MODERN_SCRIPT(null),
-    UNIQUE_SCRIPT(null);
+    INTRO_SCRIPT(null),
+    CITY_SCRIPT(null),
+    FOREST_SCRIPT(null),
+    MOUNTAIN_SCRIPT(null),
+    SNOW_SCRIPT(null),
+    FINAL_SCRIPT(null);
 
     private ArrayList<Sprite> sprites;
 

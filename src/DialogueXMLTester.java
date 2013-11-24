@@ -1,14 +1,10 @@
-import java.io.IOException;
-
-import javax.xml.parsers.ParserConfigurationException;
-
-import factory.DialogueFactory;
 import io.ResourceFinder;
-
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
-
 import scene.io.DialogueReader;
+
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
 
 
 public class DialogueXMLTester {
@@ -18,6 +14,6 @@ public class DialogueXMLTester {
 		DialogueReader reader = new DialogueReader("Chris", ResourceFinder.createInstance());
 		Document xml = reader.readXML();
 		
-		DialogueFactory.createDialogue(xml);
+		//DialogueFactory.createDialogue(xml);
 	}
 }

@@ -1,13 +1,13 @@
 package scene.visual.content;
 
-<<<<<<< HEAD
-public abstract class MenuContent {
-=======
-import java.awt.geom.Rectangle2D;
+
+
 
 import scene.visual.dynamic.described.TextSprite;
 import visual.dynamic.described.Sprite;
->>>>>>> 7ca7bf22683e1ace8f968320e82baedb9a78fd1a
+
+import java.awt.geom.Rectangle2D;
+
 
 /**
  * Abstract representation of text that will be rendered to the screen.
@@ -62,13 +62,7 @@ public abstract class MenuContent implements Sprite {
 		return bounds;
 		
 	}
-	
-<<<<<<< HEAD
-	public MenuContent()
-    {
 
-    }
-=======
 	/**
 	 * 
 	 * @return the maximum width of the content
@@ -85,7 +79,7 @@ public abstract class MenuContent implements Sprite {
 		
 		return longest;
 	}
->>>>>>> 7ca7bf22683e1ace8f968320e82baedb9a78fd1a
+
 	
 	/**
 	 * Sets the location to the appropriate coordinates

@@ -1,4 +1,4 @@
-package scene.visual.dynamic;
+package scene.visual.dynamic.described;
 
 import visual.dynamic.described.RuleBasedSprite;
 import visual.statik.TransformableContent;
@@ -17,8 +17,23 @@ public class SlidingSprite extends RuleBasedSprite {
 	}
 	
 	@Override
-	public void handleTick(int arg0) {
-		// TODO Auto-generated method stub
-		
+	public void handleTick(int time)
+    {
+        setLocation(x--, y);
 	}
+
+    public int getSpeed()
+    {
+        return this.speed;
+    }
+
+    public double getX()
+    {
+        return this.x;
+    }
+
+    public double getY()
+    {
+        return this.y;
+    }
 }

@@ -1,11 +1,11 @@
 package scene.visual;
 
+import data.View;
 import io.ResourceFinder;
-import model.Environment;
-import model.Script;
-import model.View;
+import data.Environment;
+import data.Script;
 import scene.io.XMLReader;
-import scene.visual.dynamic.sampled.SlidingSprite;
+import scene.visual.dynamic.described.SlidingSprite;
 import visual.dynamic.described.RuleBasedSprite;
 import visual.statik.sampled.Content;
 import visual.statik.sampled.ContentFactory;
@@ -36,9 +36,9 @@ public class SceneFactory {
         return scene;
 
     }
-    private static Scene createScene(Environment env, Script script, ResourceFinder finder)
+    private static Scene createScene(Environment env,Script script, ResourceFinder finder)
     {
-        Scene               scene;
+        Scene       scene;
         ContentFactory      contentFactory;
         Content             content;
         RuleBasedSprite []  slidingSprites;
