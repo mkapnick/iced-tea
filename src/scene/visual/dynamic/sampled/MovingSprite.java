@@ -2,6 +2,9 @@ package scene.visual.dynamic.sampled;
 
 import visual.dynamic.described.SampledSprite;
 import visual.statik.TransformableContent;
+import visual.statik.sampled.Content;
+
+import java.awt.geom.Point2D;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,10 +15,22 @@ import visual.statik.TransformableContent;
  */
 public class MovingSprite extends SampledSprite
 {
+    private TransformableContent content;
+
     public MovingSprite(TransformableContent content)
     {
-        //addKeyTime
+        this.content = content;
 
+    }
+
+    public void addKeyTime(int time, double x, double y, double r, double s)
+    {
+        addKeyTime(time, new Point2D.Double(x,y), new Double(r), new Double(s), (Content)this.content);
+    }
+
+    public TransformableContent getContent()
+    {
+        return this.content;
     }
 
 }

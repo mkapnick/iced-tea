@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<scene>
+    <sprites>
+        <slidingSprites>
+
+            <slidingSprite>
+                <name>foreground</name>
+                <image>birds_eye_view_first_scene_no_car.png</image>
+            </slidingSprite>
+
+        </slidingSprites>
+
+        <movingSprites>
+            <movingSprite>
+                <image>main_car.png</image>
+                <keyTime>1000,0.0,0.0,10.0,0.0</keyTime>
+                <keyTime>10000,300.0,0.0,0.0,0.0</keyTime>
+            </movingSprite>
+        </movingSprites>
+    </sprites>
+
+</scene>
