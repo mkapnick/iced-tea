@@ -15,17 +15,22 @@ import java.awt.geom.Point2D;
  */
 public class MovingSprite extends SampledSprite
 {
-    private TransformableContent content;
+    private Content content;
 
-    public MovingSprite(TransformableContent content)
+    public MovingSprite(Content content)
     {
+        super();
         this.content = content;
-
     }
 
     public void addKeyTime(int time, double x, double y, double r, double s)
     {
-        addKeyTime(time, new Point2D.Double(x,y), new Double(r), new Double(s), (Content)this.content);
+        addKeyTime(time, new Point2D.Double(x, y), new Double(r), new Double(s), this.content);
+    }
+
+    public void setEndState()
+    {
+        setEndState(REMOVE);
     }
 
     public TransformableContent getContent()

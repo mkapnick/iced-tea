@@ -2,8 +2,6 @@ package scene.visual;
 
 import data.Environment;
 import scene.visual.content.MenuContent;
-import scene.visual.dynamic.described.SlidingSprite;
-import visual.dynamic.described.AbstractSprite;
 import visual.dynamic.described.RuleBasedSprite;
 import visual.dynamic.described.Sprite;
 import visual.statik.TransformableContent;
@@ -11,7 +9,7 @@ import visual.statik.TransformableContent;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Scene extends AbstractSprite
+public class Scene
 {
 
     private ArrayList<Sprite>                   movingSprites;
@@ -34,7 +32,7 @@ public class Scene extends AbstractSprite
 
     public ArrayList<Sprite> getMovingSprites()
     {
-            return this.movingSprites;
+        return this.movingSprites;
     }
 
     public RuleBasedSprite [] getSlidingSprites()
@@ -42,21 +40,4 @@ public class Scene extends AbstractSprite
         return this.slidingSprites;
     }
 
-    @Override
-    public void handleTick(int i)
-    {
-        for(int j =0; j < slidingSprites.length; j++)
-        {
-            this.content = (SlidingSprite) slidingSprites[j].getContent();
-            slidingSprites[j].handleTick(i);
-        }
-
-    }
-
-
-    @Override
-    public TransformableContent getContent()
-    {
-        return this.content;
-    }
 }

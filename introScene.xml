@@ -13,7 +13,7 @@
         <movingSprites>
             <movingSprite>
                 <image>main_car.png</image>
-                <keyTime>1000,0.0,0.0,10.0,0.0</keyTime>
+                <keyTime>1000,0.0,0.0,0.0,0.0</keyTime>
                 <keyTime>10000,300.0,0.0,0.0,0.0</keyTime>
             </movingSprite>
         </movingSprites>
