@@ -11,6 +11,7 @@ import org.w3c.dom.NodeList;
 import scene.visual.content.DialogueContent;
 import scene.visual.content.MenuContent;
 import scene.visual.dynamic.described.BasicTextSprite;
+import scene.visual.dynamic.described.TextSprite;
 
 /**
  * Factory which both creates the EventNode tree, and constructs it
@@ -66,13 +67,14 @@ public class MenuFactory
 	 * 				   this previous active node.
 	 * @param nodeList - the children of the parent.
 	 */
-	private static void buildChildren(EventNode<MenuContent> parent, NodeList nodeList)
+	private static String buildChildren(EventNode<MenuContent> parent, NodeList nodeList)
 	{
 		//Create method variables here----------------------------------------
 		Node currentNode = null;
 		ArrayList<Node> childNodes;
 		NodeList list;
 		String currentNodeString = "";
+		String text;
 		//End variable declaration--------------------------------------------
 		
 		//We need to parse each Node in the nodeList passed in
@@ -87,24 +89,40 @@ public class MenuFactory
 			
 			//For now, this loop will construct content based on what the nodes of 
 			//child nodes of current
-			for (int i = 0; i < list.getLength(); i++) 
+			/*for (int i = 0; i < list.getLength(); i++) 
 			{
 				Node listNode = list.item(i); // One node in the list of children
 				//If the node is of type <prof>, <bern>, <select> or <option>
 				if (listNode.getNodeType() == Node.ELEMENT_NODE) {
 					childNodes.add(list.item(i));
 					
-					if (listNode.getNodeName().equals("prof") ||
-						listNode.getNodeName().equals("bern"))
-					{
-						//CREATE DIALOGUE ELEMENT
-					}
-					else if (listNode.getNodeName().equals("option"))
-					{
-						//CREATE CHOICE ELEMENT
-					}
 				}
+			}*/
+			
+			if (currentNode.getNodeName().equals("content"))
+				buildChildren(parent, list);
+			else if (currentNode.getNodeName().equals("dialogue"))
+			{
+				//CREATE DIALOGUE CONTENT
+				DialogueContent dContent;
+				TextSprite singleDialogue;
 			}
+			else if (currentNode.getNodeName().equals("choice"))
+			{
+				//CREATE CHOICE CONTENT
+			}
+			else if (currentNode.getNodeName().equals("prof") ||
+				currentNode.getNodeName().equals("bern"))
+			{
+				if (list.getLength() > 0)
+					buildChildren(parent, list);
+			}
+			else if (currentNode.getNodeName().equals("option"))
+			{
+				if (list.getLength() > 0)
+					buildChildren(parent, list);
+			}
+			
 			
 			//Debugging by printing out all of the child nodes of current
 			for (int i = 0; i < childNodes.size(); i++)
@@ -114,12 +132,9 @@ public class MenuFactory
 			
 			//Repeat this method recursively for all child element nodes
 			
-				System.out.println(currentNode.getNodeName() + "'s type: " + currentNode.getNodeType());
-				
-				if (currentNode.getNodeType() == Node.ELEMENT_NODE) {
-					if (list.getLength() > 0)
-						buildChildren(parent, list);
-				}
+			System.out.println(currentNode.getNodeName() + "'s type: " + currentNode.getNodeType());
 		}
+		
+		return "";
 	}
 }
