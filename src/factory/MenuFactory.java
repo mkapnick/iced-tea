@@ -1,5 +1,6 @@
 package factory;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import model.EventNode;
@@ -8,9 +9,12 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import scene.visual.content.ChoiceContent;
 import scene.visual.content.DialogueContent;
 import scene.visual.content.MenuContent;
 import scene.visual.dynamic.described.BasicTextSprite;
+import scene.visual.dynamic.described.ChoiceSprite;
+import scene.visual.dynamic.described.ScrollingTextSprite;
 import scene.visual.dynamic.described.TextSprite;
 
 /**
@@ -73,14 +77,16 @@ public class MenuFactory
 		Node currentNode = null;
 		ArrayList<Node> childNodes;
 		NodeList list;
+		String currentNodeName = "";
 		String currentNodeString = "";
-		String text;
+		String text = "";
 		//End variable declaration--------------------------------------------
 		
 		//We need to parse each Node in the nodeList passed in
 		for (int j = 0; j < nodeList.getLength(); j++) {
 			
 			currentNode = nodeList.item(j); //Set the current node
+			currentNodeName = currentNode.getNodeName();
 			currentNodeString = currentNode.toString();
 			System.out.println("Current Node: " + currentNodeString);
 			
@@ -99,28 +105,64 @@ public class MenuFactory
 				}
 			}*/
 			
-			if (currentNode.getNodeName().equals("content"))
+			if (currentNodeName.equals("content"))
 				buildChildren(parent, list);
-			else if (currentNode.getNodeName().equals("dialogue"))
+			
+			else if (currentNodeName.equals("dialogue") ||
+					currentNodeName.equals("choice"))
 			{
 				//CREATE DIALOGUE CONTENT
-				DialogueContent dContent;
-				TextSprite singleDialogue;
-			}
-			else if (currentNode.getNodeName().equals("choice"))
-			{
-				//CREATE CHOICE CONTENT
+				ArrayList<String> texts;
+				EventNode<MenuContent> contentNode;
+				MenuContent content;
+				String curText = "";
+				TextSprite[] textForContent;
+				
+				texts = new ArrayList<String>();
+				
+				//For each element in the dialogue tag, find out
+				//the text for each text sprite.
+				for (int i = 0; i < list.getLength(); i++) {
+					curText = buildChildren(parent, list);
+					if (curText.length() > 0)
+						texts.add(curText);
+				}
+				
+				textForContent = new TextSprite[texts.size()];
+				
+				if (currentNodeName.equals("dialogue")) {
+					for (int i = 0; i < textForContent.length; i++)
+					{
+						textForContent[i] = new ScrollingTextSprite(texts.get(i), true);
+					}
+					
+					content = new DialogueContent(2000, textForContent);
+				}
+				else {
+					for (int i = 0; i < textForContent.length; i++)
+					{
+						textForContent[i] = new ChoiceSprite(texts.get(i));
+					}
+					
+					content = new ChoiceContent(false, Color.blue, Color.yellow, textForContent);
+				}
+				
+				//Creating the dialogue content from the texts and placing
+				//in an EventNode.
+				
+				contentNode = new EventNode<MenuContent>(content);
+				
+				//Append this new node to the parent 
+				parent.addNode(contentNode);	
 			}
 			else if (currentNode.getNodeName().equals("prof") ||
 				currentNode.getNodeName().equals("bern"))
 			{
-				if (list.getLength() > 0)
-					buildChildren(parent, list);
+				buildChildren(parent, list);
 			}
 			else if (currentNode.getNodeName().equals("option"))
 			{
-				if (list.getLength() > 0)
-					buildChildren(parent, list);
+				buildChildren(parent, list);
 			}
 			
 			
@@ -135,6 +177,6 @@ public class MenuFactory
 			System.out.println(currentNode.getNodeName() + "'s type: " + currentNode.getNodeType());
 		}
 		
-		return "";
+		return text;
 	}
 }

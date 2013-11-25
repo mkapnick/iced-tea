@@ -45,8 +45,6 @@ public class DialogueContent extends MenuContent implements Sprite {
 		
 	}
 	
-	
-
 	/**
 	 * Renders the dialogue depending on how many should be
 	 * rendered at the given time.
