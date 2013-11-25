@@ -19,7 +19,7 @@ public class SlidingSprite extends RuleBasedSprite {
 	@Override
 	public void handleTick(int time)
     {
-        setLocation(x--, y);
+        setLocation(x-=5, y);
 	}
 
     public int getSpeed()

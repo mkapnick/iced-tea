@@ -7,6 +7,7 @@ import visual.dynamic.described.RuleBasedSprite;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 
+<<<<<<< HEAD
 public class Scene {
 
 	private RuleBasedSprite []                  movingSprites;
@@ -26,6 +27,21 @@ public class Scene {
 
     public Scene (RuleBasedSprite [] movingSprites, RuleBasedSprite [] slidingSprites,
                   Environment env, HashMap<RuleBasedSprite, Integer> slidingMap, MenuContent [] menuContent)
+=======
+public class Scene
+{
+
+    private ArrayList<Sprite>                   movingSprites;
+    private RuleBasedSprite []                  slidingSprites;
+    private Environment                         environment;
+    private HashMap<RuleBasedSprite, Integer>   slidingMap;
+    private MenuContent[]                       menuContent;
+    private TransformableContent                content;
+
+
+    public Scene(RuleBasedSprite[] slidingSprites, ArrayList<Sprite> movingSprites,
+                    Environment env, HashMap<RuleBasedSprite, Integer> slidingMap, MenuContent[] menuContent)
+>>>>>>> 963f4f216ee0f858d5f4618353a2cf1d719c3561
     {
         this.movingSprites  = movingSprites;
         this.slidingSprites = slidingSprites;
@@ -44,4 +60,17 @@ public class Scene {
 		return this.slidingSprites;
 	}
 
+<<<<<<< HEAD
+=======
+    public ArrayList<Sprite> getMovingSprites()
+    {
+        return this.movingSprites;
+    }
+
+    public RuleBasedSprite [] getSlidingSprites()
+    {
+        return this.slidingSprites;
+    }
+
+>>>>>>> 963f4f216ee0f858d5f4618353a2cf1d719c3561
 }

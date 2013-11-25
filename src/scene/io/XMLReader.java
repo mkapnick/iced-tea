@@ -140,6 +140,8 @@ public class XMLReader {
                 addKeyTime(keyTime, sprite);
                 index++;
             }
+
+            ((MovingSprite) sprite).setEndState();
             sprites.add(sprite);
         }
 
@@ -151,7 +153,6 @@ public class XMLReader {
         String []   times;
         int         time=0;
         double      x=0,y=0,r=0,s=0;
-        Content     c;
 
         times   = keyTime.split(",");
 
