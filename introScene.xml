@@ -18,6 +18,18 @@
                     <image>foreground_road_INTRO.png</image>
                     <keyTime>500,135.0,0.0,0.0,1.0</keyTime>
                     <keyTime>99999,135.0,0.0,0.0,1.0</keyTime>
+            </movingSprite>
+
+            <movingSprite>
+                <image>main_car.png</image>
+                <keyTime>500,350.0,300.0,0.0,1.0</keyTime>
+                <keyTime>2000, 350.0, 290.0, 0.0, 1.0</keyTime>
+                <keyTime>5000,350.0,280.0,0.0,1.0</keyTime>
+                <keyTime>25000,350.0,270.0,0.0,1.0</keyTime>
+                <keyTime>55000,350.0,230.0,0.0,1.0</keyTime>
+                <keyTime>100000,350.0,205.0,0.0,1.0</keyTime>
+
+
 
             </movingSprite>
 
