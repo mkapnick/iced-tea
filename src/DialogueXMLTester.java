@@ -22,9 +22,9 @@ public class DialogueXMLTester {
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException
 	{
 		DialogueReader reader = new DialogueReader("Chris", ResourceFinder.createInstance());
-		Document xml = reader.readXML();
+		Document xml = reader.getXML();
 		
-		EventNode<MenuContent> content = MenuFactory.createDialogue(xml);
+		EventNode<MenuContent> content = MenuFactory.createDialogue("Chris", xml);
 		
 		printAllContent(content);
 	}

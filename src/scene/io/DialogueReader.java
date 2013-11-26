@@ -28,7 +28,7 @@ public class DialogueReader{
     	   this.finder = finder;
        }
 
-    public Document readXML() throws ParserConfigurationException, SAXException, IOException
+    public Document getXML() throws ParserConfigurationException, SAXException, IOException
     {
     	File dialogueFile = new File("dialogueTree.xml");
     	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();

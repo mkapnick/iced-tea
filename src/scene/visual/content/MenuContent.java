@@ -79,9 +79,9 @@ public abstract class MenuContent implements Sprite {
 	/**
 	 * Sets the location to the appropriate coordinates
 	 */
-	public void setLocation(double arg0, double arg1) {
-		this.x = arg0;
-		this.y = arg1;
+	public void setLocation(double x, double y) {
+		this.x = x;
+		this.y = y;
 		
 	}
 }

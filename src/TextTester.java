@@ -27,7 +27,7 @@ public class TextTester extends AbstractMultimediaApp {
 	public TextTester() throws ParserConfigurationException, SAXException, IOException
 	{
 		DialogueReader reader = new DialogueReader("Chris", ResourceFinder.createInstance());
-		Document xml = reader.readXML();
+		Document xml = reader.getXML();
 		MenuFactory.createDialogue(xml);
 	}
 	
