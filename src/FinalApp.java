@@ -67,19 +67,19 @@ public class FinalApp extends AbstractMultimediaApp
         addSceneToStage(introScene);
 
         /*
-        cityScene       = SceneFactory.createScene(Environment.CITY, View.SIDEVIEW,
+        cityScene       = SceneFactory.createScene(Environment.CITY, view.SIDEVIEW,
                                                 Script.CITY_SCRIPT, finder, "cityScene.xml");
 
-        forestScene     = SceneFactory.createScene(Environment.FOREST, View.SIDEVIEW,
+        forestScene     = SceneFactory.createScene(Environment.FOREST, view.SIDEVIEW,
                                                 Script.FOREST_SCRIPT, finder, "forestScene.xml");
 
-        mountainScene   = SceneFactory.createScene(Environment.MOUNTAINS, View.SIDEVIEW,
+        mountainScene   = SceneFactory.createScene(Environment.MOUNTAINS, view.SIDEVIEW,
                                                 Script.MOUNTAIN_SCRIPT, finder, "mountainScene.xml");
 
-        snowScene       = SceneFactory.createScene(Environment.SNOW, View.SIDEVIEW,
+        snowScene       = SceneFactory.createScene(Environment.SNOW, view.SIDEVIEW,
                                                 Script.SNOW_SCRIPT, finder, "snowScene.xml");
 
-        finalScene      = SceneFactory.createScene(Environment.FINAL, View.SIDEVIEW,
+        finalScene      = SceneFactory.createScene(Environment.FINAL, view.SIDEVIEW,
                                                 Script.FINAL_SCRIPT, finder, "finalScene.xml");
 
         */

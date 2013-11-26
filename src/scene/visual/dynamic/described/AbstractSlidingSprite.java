@@ -14,8 +14,10 @@ import java.util.ArrayList;
  */
 public abstract class AbstractSlidingSprite extends RuleBasedSprite
 {
-    protected ArrayList<TransformableContent>   listOfContents;
-    protected int                               index;
+    public ArrayList<TransformableContent>   listOfContents;
+    public int                               index;
+    public int                               speed;
+    public double                            x, y, maxX, maxY;
 
     public AbstractSlidingSprite(ArrayList<TransformableContent> tc)
     {

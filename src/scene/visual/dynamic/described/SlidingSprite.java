@@ -1,60 +1,72 @@
 package scene.visual.dynamic.described;
 
+import data.View;
+import view.BirdsEye;
+import view.InCar;
+import view.SideView;
+import view.ViewBehavior;
 import visual.statik.TransformableContent;
 
 import java.util.ArrayList;
 
 public class SlidingSprite extends AbstractSlidingSprite
 {
-
-	private int speed;
-	private double x, y, maxX, maxY;
-
+    private ViewBehavior viewBehavior;
 	
-	public SlidingSprite(ArrayList<TransformableContent> tc, int speed, double x, double y)
+	public SlidingSprite(View view, ArrayList<TransformableContent> tc, int speed, double x, double y)
 	{
         super(tc);
-        this.maxX = x;
-        this.maxY = y;
-		this.speed = speed;
-		this.x = 0;
-		this.y = -800;
-        this.index = 0;
+        decorate(view);
+        this.maxX           = x;
+        this.maxY           = y;
+		this.speed          = speed;
+		this.x              = viewBehavior.getX();
+        this.y              = viewBehavior.getY();
+        this.index          = 0;
         setVisible(true);
 	}
 	
 	@Override
 	public void handleTick(int time)
     {
-        y +=1;
-        if(y >= maxY)
+        double location [];
+        viewBehavior.setLocation(x,y);
+
+        this.x = viewBehavior.getX();
+        this.y = viewBehavior.getY();
+
+        location = viewBehavior.checkLocation(maxX, maxY, this.listOfContents.size());
+
+        if(viewBehavior.changeContent())
         {
-            if(++this.index < this.listOfContents.size())
+            if(!viewBehavior.stop())
             {
-                this.content = this.listOfContents.get(index);
-                y = -800;
+                this.content = this.listOfContents.get(++index);
+                this.y = viewBehavior.getY();
+                this.x = viewBehavior.getX();
             }
             else
             {
-                System.out.println("TIME TO STOP");
+                System.out.println("need to stop and transition here");
             }
         }
 
-        setLocation(x, y);
-	}
-
-    public int getSpeed()
-    {
-        return this.speed;
+        setLocation(location[0], location[1]);
     }
 
-    public double getX()
+    private void decorate(View v)
     {
-        return this.x;
-    }
-
-    public double getY()
-    {
-        return this.y;
+        switch (v)
+        {
+            case BIRDSEYE:
+                this.viewBehavior = new BirdsEye();
+                break;
+            case SIDEVIEW:
+                this.viewBehavior = new SideView();
+                break;
+            case INCAR:
+                this.viewBehavior = new InCar();
+                break;
+        }
     }
 }

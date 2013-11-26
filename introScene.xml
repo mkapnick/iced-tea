@@ -5,11 +5,9 @@
 
             <slidingSprite>
                 <name>foreground</name>
-                <image>foreground_3_INTRO.png</image>
+                <image>foreground_1_INTRO.png</image>
                 <image>foreground_2_INTRO.png</image>
-                <image>foreground_1_INTRO.jpg</image>
-
-
+                <image>foreground_3_INTRO.png</image>
             </slidingSprite>
 
         </slidingSprites>

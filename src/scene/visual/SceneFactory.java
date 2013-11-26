@@ -24,11 +24,9 @@ public class SceneFactory {
         try
         {
             System.out.println("ABOUT TO CALL XML PARSE FILE");
-
-
             XMLReader.parseXMLFile(fileName, env, script, finder);
             System.out.println("Parsed XML file");
-            scene = createScene(env, script, finder);
+            scene = createScene(env,view, script, finder);
             System.out.println("Created scene!");
         }
         catch(Exception e)
@@ -40,36 +38,40 @@ public class SceneFactory {
         return scene;
     }
 
-    private static Scene createScene(Environment env, Script script, ResourceFinder finder)
+    private static Scene createScene(Environment env, View view, Script script, ResourceFinder finder)
 
     {
-        Scene                   scene;
-        ContentFactory          contentFactory;
-        Content                 content;
-        AbstractSlidingSprite   rbSprite;
-        RuleBasedSprite []      slidingSprites;
+        Scene                           scene;
+        ContentFactory                  contentFactory;
+        Content                         content;
+        AbstractSlidingSprite           rbSprite;
+        RuleBasedSprite []              slidingSprites;
         ArrayList<TransformableContent> listOfContents;
-        ArrayList<String>       foreground;
-        int                 index;
+        ArrayList<String>               foreground, background;
+        int                             index;
 
         // Sliding Sprites
-        listOfContents = new ArrayList<TransformableContent>();
-        contentFactory = new ContentFactory(finder);
-        foreground = env.getForeground();
-        slidingSprites = new SlidingSprite[3];
-        index = 0;
-        rbSprite = null;
+        listOfContents  = new ArrayList<TransformableContent>();
+        contentFactory  = new ContentFactory(finder);
+        foreground      = env.getForeground();
+        slidingSprites  = new SlidingSprite[3];
+        index           = 0;
+        rbSprite        = null;
 
-        for (int i = 0; i < foreground.size(); i++)
-
+        if(foreground != null)
         {
-            content = contentFactory.createContent(foreground.get(i),3, false);
-            listOfContents.add(content);
-            //slidingSprites[i] = rbSprite;
+            for (int i = 0; i < foreground.size(); i++)
+            {
+                content = contentFactory.createContent(foreground.get(i),3, false);
+                listOfContents.add(content);
+            }
         }
 
-        rbSprite = new SlidingSprite(listOfContents, 3, 640, 480);
-        slidingSprites[index] = rbSprite;
+        if(listOfContents.size() > 0)
+        {
+            rbSprite = new SlidingSprite(view,listOfContents, 3, 640, 480);
+            slidingSprites[index] = rbSprite;
+        }
 
         /*if (env.getBackground() != null)
 
