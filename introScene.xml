@@ -6,6 +6,9 @@
             <slidingSprite>
                 <name>foreground</name>
                 <image>foreground_3_INTRO.png</image>
+                <image>foreground_2_INTRO.png</image>
+                <image>foreground_1_INTRO.jpg</image>
+
 
             </slidingSprite>
 
@@ -14,9 +17,10 @@
         <movingSprites>
 
             <movingSprite>
-                <image>foreground_road_INTRO.png</image>
-                <keyTime>500,135.0,0.0,0.0,1.0</keyTime>
-                <keyTime>90000,135.0,0.0,0.0,1.0</keyTime>
+                    <image>foreground_road_INTRO.png</image>
+                    <keyTime>500,135.0,0.0,0.0,1.0</keyTime>
+                    <keyTime>99999,135.0,0.0,0.0,1.0</keyTime>
+
             </movingSprite>
 
 

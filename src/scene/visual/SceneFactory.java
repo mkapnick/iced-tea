@@ -5,8 +5,10 @@ import data.Script;
 import data.View;
 import io.ResourceFinder;
 import scene.io.XMLReader;
+import scene.visual.dynamic.described.AbstractSlidingSprite;
 import scene.visual.dynamic.described.SlidingSprite;
 import visual.dynamic.described.RuleBasedSprite;
+import visual.statik.TransformableContent;
 import visual.statik.sampled.Content;
 import visual.statik.sampled.ContentFactory;
 
@@ -41,43 +43,49 @@ public class SceneFactory {
     private static Scene createScene(Environment env, Script script, ResourceFinder finder)
 
     {
-        Scene               scene;
-        ContentFactory      contentFactory;
-        Content             content;
-        RuleBasedSprite     rbSprite;
-        RuleBasedSprite []  slidingSprites;
-        ArrayList<String>   foreground;
-        int                 i;
+        Scene                   scene;
+        ContentFactory          contentFactory;
+        Content                 content;
+        AbstractSlidingSprite   rbSprite;
+        RuleBasedSprite []      slidingSprites;
+        ArrayList<TransformableContent> listOfContents;
+        ArrayList<String>       foreground;
+        int                 index;
 
         // Sliding Sprites
+        listOfContents = new ArrayList<TransformableContent>();
         contentFactory = new ContentFactory(finder);
         foreground = env.getForeground();
-        slidingSprites = new SlidingSprite[foreground.size() + 2];
-        i = 0;
+        slidingSprites = new SlidingSprite[3];
+        index = 0;
+        rbSprite = null;
 
-        for (i = 0; i < foreground.size(); i++)
+        for (int i = 0; i < foreground.size(); i++)
 
         {
             content = contentFactory.createContent(foreground.get(i),3, false);
-            rbSprite = new SlidingSprite(content, 3, 640, 480);
-            slidingSprites[i] = rbSprite;
+            listOfContents.add(content);
+            //slidingSprites[i] = rbSprite;
         }
 
-        if (env.getBackground() != null)
+        rbSprite = new SlidingSprite(listOfContents, 3, 640, 480);
+        slidingSprites[index] = rbSprite;
+
+        /*if (env.getBackground() != null)
 
         {
             content             = contentFactory.createContent(env.getBackground(), false);
             rbSprite            = new SlidingSprite(content, 3, 640,480);
-            slidingSprites[i++] = rbSprite;
+            slidingSprites[++index] = rbSprite;
         }
 
         if(env.getGround() != null)
 
         {
             content             = contentFactory.createContent(env.getGround(), false);
-            rbSprite            = new SlidingSprite(content, 4, 640,480);
-            slidingSprites[i++] = rbSprite;
-        }
+            rbSprite            = new SlidingSprite(content, 3, 640,480);
+            slidingSprites[++index] = rbSprite;
+        }*/
 
         scene = new Scene(slidingSprites, script.getSprites(), env, null, null);
         return scene;

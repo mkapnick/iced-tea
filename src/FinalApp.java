@@ -9,8 +9,6 @@ import visual.VisualizationView;
 import visual.dynamic.described.RuleBasedSprite;
 import visual.dynamic.described.Sprite;
 import visual.dynamic.described.Stage;
-import visual.statik.TransformableContent;
-import visual.statik.sampled.ContentFactory;
 
 import javax.swing.*;
 import java.awt.*;

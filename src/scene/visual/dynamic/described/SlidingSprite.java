@@ -1,21 +1,25 @@
 package scene.visual.dynamic.described;
 
-import visual.dynamic.described.RuleBasedSprite;
 import visual.statik.TransformableContent;
 
-public class SlidingSprite extends RuleBasedSprite {
+import java.util.ArrayList;
+
+public class SlidingSprite extends AbstractSlidingSprite
+{
 
 	private int speed;
 	private double x, y, maxX, maxY;
+
 	
-	public SlidingSprite(TransformableContent c, int speed, double x, double y)
+	public SlidingSprite(ArrayList<TransformableContent> tc, int speed, double x, double y)
 	{
-		super(c);
+        super(tc);
         this.maxX = x;
         this.maxY = y;
 		this.speed = speed;
 		this.x = 0;
-		this.y = 0;
+		this.y = -800;
+        this.index = 0;
         setVisible(true);
 	}
 	
@@ -23,10 +27,19 @@ public class SlidingSprite extends RuleBasedSprite {
 	public void handleTick(int time)
     {
         y +=1;
-        if(y >= (maxY /2) + 10 )
+        if(y >= maxY)
         {
-            y = 0;
+            if(++this.index < this.listOfContents.size())
+            {
+                this.content = this.listOfContents.get(index);
+                y = -800;
+            }
+            else
+            {
+                System.out.println("TIME TO STOP");
+            }
         }
+
         setLocation(x, y);
 	}
 
