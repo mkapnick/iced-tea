@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import model.EventNode;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -13,7 +14,6 @@ import scene.visual.content.ChoiceContent;
 import scene.visual.content.DialogueContent;
 import scene.visual.content.MenuContent;
 import scene.visual.dynamic.described.BasicTextSprite;
-import scene.visual.dynamic.described.ChoiceSprite;
 import scene.visual.dynamic.described.ScrollingTextSprite;
 import scene.visual.dynamic.described.TextSprite;
 
@@ -37,7 +37,7 @@ import scene.visual.dynamic.described.TextSprite;
  */
 public class MenuFactory 
 {
-	
+	public static int level = 0;
 	/**
 	 * Entry point of the parse of the xml file and constructs
 	 * an EventNode<MenuContent> tree. Makes use of a private
@@ -57,7 +57,7 @@ public class MenuFactory
 		//Get the child nodes of the roor of the document
 		NodeList startingList;
 		startingList = xml.getChildNodes();
-		
+		///System.out.println(xml.toString());
 		//Begin the parse, and construct the EventNode tree.
 		buildChildren(parent, startingList);
 		
@@ -73,41 +73,44 @@ public class MenuFactory
 	 */
 	private static String buildChildren(EventNode<MenuContent> parent, NodeList nodeList)
 	{
+		int curLevel = level;
+		level++;
+		
 		//Create method variables here----------------------------------------
 		Node currentNode = null;
 		ArrayList<Node> childNodes;
-		NodeList list;
+		NodeList childList;
 		String currentNodeName = "";
 		String currentNodeString = "";
 		String text = "";
 		//End variable declaration--------------------------------------------
-		
+		System.out.println("Current nodelist.length: " + nodeList.getLength());
 		//We need to parse each Node in the nodeList passed in
 		for (int j = 0; j < nodeList.getLength(); j++) {
 			
 			currentNode = nodeList.item(j); //Set the current node
+			
+			
 			currentNodeName = currentNode.getNodeName();
+			if (currentNodeName.equals("option"))
+				System.out.println("IN OPTION");
 			currentNodeString = currentNode.toString();
 			System.out.println("Current Node: " + currentNodeString);
 			
-			list = currentNode.getChildNodes(); // The child nodes of current 
-			childNodes = new ArrayList<Node>();
+			childList = currentNode.getChildNodes(); // The child nodes of current 
 			
-			//For now, this loop will construct content based on what the nodes of 
-			//child nodes of current
-			/*for (int i = 0; i < list.getLength(); i++) 
+			
+			System.out.println(currentNodeName + "'s number of nodes: " + childList.getLength());
+			
+			
+			for (int i = 0; i < childList.getLength(); i++)
 			{
-				Node listNode = list.item(i); // One node in the list of children
-				//If the node is of type <prof>, <bern>, <select> or <option>
-				if (listNode.getNodeType() == Node.ELEMENT_NODE) {
-					childNodes.add(list.item(i));
-					
-				}
-			}*/
-			
+				System.out.println(currentNodeName + "'s node " + i + ": " + childList.item(i));
+			}
 			if (currentNodeName.equals("content"))
-				buildChildren(parent, list);
-			
+				buildChildren(parent, childList);
+			else if (currentNodeName.equals("option"))
+				buildChildren(parent, childList);
 			else if (currentNodeName.equals("dialogue") ||
 					currentNodeName.equals("choice"))
 			{
@@ -116,35 +119,39 @@ public class MenuFactory
 				EventNode<MenuContent> contentNode;
 				MenuContent content;
 				String curText = "";
-				TextSprite[] textForContent;
+				TextSprite[] textForContent = null;
+				NodeList curNodeList;
 				
 				texts = new ArrayList<String>();
 				
-				//For each element in the dialogue tag, find out
-				//the text for each text sprite.
-				for (int i = 0; i < list.getLength(); i++) {
-					curText = buildChildren(parent, list);
-					if (curText.length() > 0)
-						texts.add(curText);
-				}
-				
-				textForContent = new TextSprite[texts.size()];
-				
 				if (currentNodeName.equals("dialogue")) {
+					texts = getTextFrom(childList);
+					textForContent = new TextSprite[texts.size()];
+					
+					for (String i : texts)
+						System.out.println(i);
+					
 					for (int i = 0; i < textForContent.length; i++)
 					{
 						textForContent[i] = new ScrollingTextSprite(texts.get(i), true);
 					}
 					
 					content = new DialogueContent(2000, textForContent);
+				
 				}
 				else {
+					texts = getValueFrom(childList);
+					textForContent = new TextSprite[texts.size()];
+					
+					for (String i : texts)
+						System.out.println(i);
+					
 					for (int i = 0; i < textForContent.length; i++)
 					{
-						textForContent[i] = new ChoiceSprite(texts.get(i));
+						textForContent[i] = new BasicTextSprite(texts.get(i));
 					}
-					
 					content = new ChoiceContent(false, Color.blue, Color.yellow, textForContent);
+					
 				}
 				
 				//Creating the dialogue content from the texts and placing
@@ -154,27 +161,50 @@ public class MenuFactory
 				
 				//Append this new node to the parent 
 				parent.addNode(contentNode);	
+				
+				buildChildren(contentNode, childList);
 			}
-			else if (currentNode.getNodeName().equals("prof") ||
-				currentNode.getNodeName().equals("bern"))
+		}
+		System.out.println("Current level: " + curLevel + "\tText: " + text);
+		return text;
+	}
+	
+	private static ArrayList<String> getTextFrom(NodeList list)
+	{
+		ArrayList<String> text = new ArrayList<String>();
+		String curText = "";
+		Node curNode = null;
+		NodeList textNodes;
+		for (int i = 0; i < list.getLength(); i++)
+		{
+			curNode = list.item(i);
+			textNodes = curNode.getChildNodes();
+			
+			if (textNodes.getLength() > 0)
 			{
-				buildChildren(parent, list);
+				curText = textNodes.item(0).getNodeValue();
+				text.add(curText);
 			}
-			else if (currentNode.getNodeName().equals("option"))
-			{
-				buildChildren(parent, list);
+		}
+		
+		return text;
+	}
+	
+	private static ArrayList<String> getValueFrom(NodeList list)
+	{
+		ArrayList<String> text = new ArrayList<String>();
+		String curText = "";
+		Element curNode = null;
+		NodeList textNodes;
+		System.out.println(list.toString() + "List's length: " + list.getLength());
+		for (int i = 0; i < list.getLength(); i++)
+		{
+			
+			if (list.item(i).getNodeName().equals("option")) {
+				curNode = (Element)list.item(i);
+				System.out.println("Attribute: " + curNode.getAttribute("value"));
+				text.add(curNode.getAttribute("value"));
 			}
-			
-			
-			//Debugging by printing out all of the child nodes of current
-			for (int i = 0; i < childNodes.size(); i++)
-				System.out.printf("Node %d in %s: %s\n", i, currentNodeString, childNodes.get(i).getNodeName());
-			
-			System.out.printf("Number of nodes in %s: %d\n", currentNode.getNodeName(), list.getLength());
-			
-			//Repeat this method recursively for all child element nodes
-			
-			System.out.println(currentNode.getNodeName() + "'s type: " + currentNode.getNodeType());
 		}
 		
 		return text;
