@@ -1,9 +1,9 @@
 package scene.visual;
 
-import data.View;
-import io.ResourceFinder;
 import data.Environment;
 import data.Script;
+import data.View;
+import io.ResourceFinder;
 import scene.io.XMLReader;
 import scene.visual.dynamic.described.SlidingSprite;
 import visual.dynamic.described.RuleBasedSprite;
@@ -12,17 +12,18 @@ import visual.statik.sampled.ContentFactory;
 
 import java.util.ArrayList;
 
-
 public class SceneFactory {
 
-	public static Scene createScene(Environment env, View view, Script script, ResourceFinder finder, String fileName)
-	{
+    public static Scene createScene(Environment env, View view, Script script, ResourceFinder finder, String fileName)
+
+    {
         Scene scene;
         scene = null;
-
         try
         {
             System.out.println("ABOUT TO CALL XML PARSE FILE");
+
+
             XMLReader.parseXMLFile(fileName, env, script, finder);
             System.out.println("Parsed XML file");
             scene = createScene(env, script, finder);
@@ -30,44 +31,48 @@ public class SceneFactory {
         }
         catch(Exception e)
         {
-            System.out.println("Exception thrown");
             //scene will just be null
+            System.out.println("Exception thrown");
         }
-        return scene;
 
+        return scene;
     }
-    private static Scene createScene(Environment env,Script script, ResourceFinder finder)
+
+    private static Scene createScene(Environment env, Script script, ResourceFinder finder)
+
     {
-        Scene       scene;
+        Scene               scene;
         ContentFactory      contentFactory;
         Content             content;
-        RuleBasedSprite []  slidingSprites;
         RuleBasedSprite     rbSprite;
+        RuleBasedSprite []  slidingSprites;
         ArrayList<String>   foreground;
         int                 i;
 
-
         // Sliding Sprites
-        contentFactory  = new ContentFactory(finder);
-        foreground      = env.getForeground();
-        slidingSprites  = new SlidingSprite [foreground.size() + 2];
-        i               = 0;
+        contentFactory = new ContentFactory(finder);
+        foreground = env.getForeground();
+        slidingSprites = new SlidingSprite[foreground.size() + 2];
+        i = 0;
 
-        for(i =0; i < foreground.size(); i++)
+        for (i = 0; i < foreground.size(); i++)
+
         {
-            content             = contentFactory.createContent(foreground.get(i), false);
-            rbSprite            = new SlidingSprite(content, 4, 640,480);
-            slidingSprites[i]   = rbSprite;
+            content = contentFactory.createContent(foreground.get(i),3, false);
+            rbSprite = new SlidingSprite(content, 3, 640, 480);
+            slidingSprites[i] = rbSprite;
         }
 
         if (env.getBackground() != null)
+
         {
             content             = contentFactory.createContent(env.getBackground(), false);
-            rbSprite            = new SlidingSprite(content, 4, 640,480);
+            rbSprite            = new SlidingSprite(content, 3, 640,480);
             slidingSprites[i++] = rbSprite;
         }
 
         if(env.getGround() != null)
+
         {
             content             = contentFactory.createContent(env.getGround(), false);
             rbSprite            = new SlidingSprite(content, 4, 640,480);
@@ -75,7 +80,8 @@ public class SceneFactory {
         }
 
         scene = new Scene(slidingSprites, script.getSprites(), env, null, null);
-
         return scene;
     }
+
+
 }

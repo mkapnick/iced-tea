@@ -6,20 +6,28 @@ import visual.statik.TransformableContent;
 public class SlidingSprite extends RuleBasedSprite {
 
 	private int speed;
-	private double x, y;
+	private double x, y, maxX, maxY;
 	
 	public SlidingSprite(TransformableContent c, int speed, double x, double y)
 	{
 		super(c);
+        this.maxX = x;
+        this.maxY = y;
 		this.speed = speed;
-		this.x = x;
-		this.y = y;
+		this.x = 0;
+		this.y = 0;
+        setVisible(true);
 	}
 	
 	@Override
 	public void handleTick(int time)
     {
-        setLocation(x-=5, y);
+        y +=1;
+        if(y >= (maxY /2) + 10 )
+        {
+            y = 0;
+        }
+        setLocation(x, y);
 	}
 
     public int getSpeed()

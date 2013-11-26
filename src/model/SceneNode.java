@@ -1,8 +1,7 @@
 package model;
 
-import scene.visual.Scene;
-
 import java.util.ArrayList;
+import scene.visual.Scene;
 
 
 /**

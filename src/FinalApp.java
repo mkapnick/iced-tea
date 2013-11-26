@@ -1,14 +1,16 @@
 import app.AbstractMultimediaApp;
+import data.Environment;
+import data.Script;
+import data.View;
 import io.ResourceFinder;
 import scene.visual.Scene;
-import scene.visual.dynamic.described.SlidingSprite;
+import scene.visual.SceneFactory;
 import visual.VisualizationView;
 import visual.dynamic.described.RuleBasedSprite;
 import visual.dynamic.described.Sprite;
 import visual.dynamic.described.Stage;
-import visual.statik.sampled.Content;
+import visual.statik.TransformableContent;
 import visual.statik.sampled.ContentFactory;
-import visual.statik.sampled.ImageFactory;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,12 +35,21 @@ public class FinalApp extends AbstractMultimediaApp
     {
         stage = new Stage(50);
         stageView = stage.getView();
+        stage.setBackground(new Color(158,209,144));
+        stageView.setBounds(0, 0, 640, 480);
     }
 
     public void init()
     {
 
         startUp();
+        JPanel contentPane = (JPanel) rootPaneContainer.getContentPane();
+        contentPane.add(stageView);
+        System.out.println("Before stage start");
+        stage.start();
+        System.out.println("stage started");
+        contentPane.setVisible(true);
+        System.out.println("After");
 
     }
 
@@ -49,12 +60,14 @@ public class FinalApp extends AbstractMultimediaApp
         InputStream is;
         Scene introScene, cityScene, forestScene, mountainScene, snowScene, finalScene;
 
-        finder = ResourceFinder.createInstance();
+        finder = ResourceFinder.createInstance(this);
         System.out.println("JUST BEFORE SCENE FACTORY CALL");
 
         //Construct all possible scenes
-        //introScene      = SceneFactory.createScene(Environment.INTRO, View.BIRDSEYE,
-        //                                        Script.INTRO_SCRIPT, finder, "introScene.xml");
+        introScene      = SceneFactory.createScene(Environment.INTRO, View.BIRDSEYE,
+                                                    Script.INTRO_SCRIPT, finder, "introScene.xml");
+        addSceneToStage(introScene);
+
         /*
         cityScene       = SceneFactory.createScene(Environment.CITY, View.SIDEVIEW,
                                                 Script.CITY_SCRIPT, finder, "cityScene.xml");
@@ -73,50 +86,8 @@ public class FinalApp extends AbstractMultimediaApp
 
         */
 
-        System.out.println("Constructed all scenes");
-        //addSceneToStage(introScene);
-        justGetSomethingOnTheScreen(finder);
-    }
 
-    private void justGetSomethingOnTheScreen(ResourceFinder finder)
-    {
-        System.out.println("Before");
-        Content content;
-        ContentFactory factory;
-        ImageFactory imageFactory;
-        Image image;
-        Sprite slidingSprite;
 
-        System.out.println("Here");
-
-        factory = new ContentFactory(finder);
-        imageFactory = new ImageFactory(finder);
-        stage.setBackground(Color.BLUE);
-
-        System.out.println("image factory before");
-        image = imageFactory.createBufferedImage("birds_eye_view_first_scene_no_car.png", 4);
-        System.out.println("image factory after");
-        content = factory.createContent(image,false);
-        System.out.println("After content");
-        Fish fish;
-        fish = new Fish(content, 640, 480, 3.);
-        slidingSprite = new SlidingSprite(content, 10, 0,0);
-        System.out.println("Maybe?");
-        stage.add(fish);
-
-        System.out.println("Here 2");
-
-        System.out.println("Added scene to stage");
-        JPanel contentPane = (JPanel) rootPaneContainer.getContentPane();
-        stageView = stage.getView();
-        stageView.setBounds(0, 0, 1000, 1000);
-        contentPane.add(stageView);
-        System.out.println("Before stage start");
-        stage.start();
-        System.out.println("stage started");
-        contentPane.setVisible(true);
-        //justGetSomethingOnTheScreen(finder);
-        System.out.println("After");
     }
 
     private void addSceneToStage(Scene scene)
@@ -127,21 +98,24 @@ public class FinalApp extends AbstractMultimediaApp
         slidingSprites  = scene.getSlidingSprites();
         movingSprites   = scene.getMovingSprites();
 
-        for(int i =0; i < slidingSprites.length; i++)
+        stage.add(slidingSprites[0]);
+
+        for(int j =0; j < slidingSprites.length; j++)
         {
-            if(slidingSprites[i] != null)
+            if(slidingSprites[j] != null)
             {
-                System.out.println(slidingSprites[i]);
-                stage.add(slidingSprites[i]);
+                System.out.println(slidingSprites[j]);
+                stage.add(slidingSprites[j]);
             }
         }
 
-        /*for(int j =0; j < movingSprites.size(); j++)
+        for(int i =0; i < movingSprites.size(); i++)
         {
-            System.out.println(movingSprites.get(j));
-            stage.add(movingSprites.get(j));
-        }*/
-
+            if(movingSprites.get(i) != null)
+            {
+                System.out.println(movingSprites.get(i));
+                stage.add(movingSprites.get(i));
+            }
+        }
     }
 }
-

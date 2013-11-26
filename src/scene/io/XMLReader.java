@@ -76,14 +76,12 @@ public class XMLReader {
             {
                 ArrayList<String> foregroundList;
                 foregroundList = new ArrayList<String>();
-
                 while(index < imageTags.getLength())
                 {
                     imageValue  = getValueOfNode(imageTags, index, element);
                     foregroundList.add(imageValue);
                     index++;
                 }
-
                 env.setForeground(foregroundList);
             }
             else if(nameValue.equalsIgnoreCase("background"))

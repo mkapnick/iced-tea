@@ -2,7 +2,6 @@ package controller;
 
 import model.SceneNode;
 import scene.visual.Scene;
-
 /**
  * @author brianbrown
  * Contains the SceneNode tree and handles scene changing.

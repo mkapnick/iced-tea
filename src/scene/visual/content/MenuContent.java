@@ -1,13 +1,9 @@
 package scene.visual.content;
 
-
-
+import java.awt.geom.Rectangle2D;
 
 import scene.visual.dynamic.described.TextSprite;
 import visual.dynamic.described.Sprite;
-
-import java.awt.geom.Rectangle2D;
-
 
 /**
  * Abstract representation of text that will be rendered to the screen.
@@ -62,7 +58,7 @@ public abstract class MenuContent implements Sprite {
 		return bounds;
 		
 	}
-
+	
 	/**
 	 * 
 	 * @return the maximum width of the content
@@ -79,7 +75,6 @@ public abstract class MenuContent implements Sprite {
 		
 		return longest;
 	}
-
 	
 	/**
 	 * Sets the location to the appropriate coordinates

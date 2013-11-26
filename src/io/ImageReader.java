@@ -2,7 +2,6 @@ package io;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -10,7 +9,6 @@ public class ImageReader {
 
     public static BufferedImage readFile(String fileName, ResourceFinder finder)
     {
-        System.out.println("IN IMAGEREADER");
         InputStream is;
         BufferedImage image;
 
@@ -22,12 +20,7 @@ public class ImageReader {
             if(is != null)
             {
                 image = ImageIO.read(is);
-                System.out.println("Successfully read in image");
                 is.close();
-            }
-            else
-            {
-                image = ImageIO.read(new File(fileName));
             }
         }
         catch (IOException io)
