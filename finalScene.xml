@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<scene>
+    <sprites>
+        <slidingSprites>
+
+        </slidingSprites>
+
+        <movingSprites>
+
+            <movingSprite>
+                <image>coffee_shop.png</image>
+                <keyTime>500,325,10.0,0.0,1.0</keyTime>
+                <keyTime>1000000,325,10.0,0.0,1.0</keyTime>
+            </movingSprite>
+
+
+            <movingSprite>
+                <image>main_car_SIDEVIEW_red.png</image>
+                <keyTime>500, 0.0, 380.0, 0.0, 1</keyTime>
+                <keyTime>2000, 100.0, 380.0, 0.0, 1</keyTime>
+                <keyTime>4000, 200, 380.0, 0.0, 1</keyTime>
+                <keyTime>6000, 300.0, 380.0, 0.0, 1</keyTime>
+                <keyTime>8000, 350.0, 380.0, 0.0, 1</keyTime>
+            </movingSprite>
+        </movingSprites>
+    </sprites>
+
+
+</scene>

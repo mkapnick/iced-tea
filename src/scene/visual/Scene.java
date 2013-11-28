@@ -5,6 +5,7 @@ import scene.visual.content.MenuContent;
 import visual.dynamic.described.RuleBasedSprite;
 import visual.dynamic.described.Sprite;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -12,11 +13,12 @@ import java.util.HashMap;
 public class Scene
 {
 
+    private Color                               backgroundColor;
 	private ArrayList<Sprite>                   movingSprites;
 	private RuleBasedSprite []                  slidingSprites;
 	private Environment                         environment;
 	private HashMap<RuleBasedSprite, Integer>   slidingMap;
-	private MenuContent[]                       menuContent; //Change?
+	private MenuContent[]                       menuContent;
 
     public Scene (RuleBasedSprite [] slidingSprites,ArrayList<Sprite> movingSprites,
                   Environment env, HashMap<RuleBasedSprite, Integer> slidingMap, MenuContent [] menuContent)
@@ -37,5 +39,20 @@ public class Scene
     public RuleBasedSprite [] getSlidingSprites()
     {
         return this.slidingSprites;
+    }
+
+    public void setBackgroundColor(Color color)
+    {
+        this.backgroundColor = color;
+    }
+
+    public Color getBackgroundColor()
+    {
+       return this.backgroundColor;
+    }
+
+    public Environment getEnvironment()
+    {
+        return this.environment;
     }
 }

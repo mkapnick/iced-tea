@@ -2,35 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08fc825b-b34c-4e20-8d85-256100c7fc19" name="Default" comment="Merge branch 'master' of https://github.com/mkapnick/iced-tea&#10;&#10;Conflicts:&#10;&#9;src/FinalApp.java&#10;&#9;src/scene/visual/Scene.java&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main_car_BIRDSEYE.png" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/birds_eye_view_first_scene_no_car.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/city_theme_base.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/foreground_1_INTRO.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main_car.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/side_road_dashed_white.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/coffee_shop.png" afterPath="$PROJECT_DIR$/src/coffee_shop.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/BirdsEye.java" afterPath="$PROJECT_DIR$/src/view/BirdsEye.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FinalApp.java" afterPath="$PROJECT_DIR$/src/FinalApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FinalApplication.java" afterPath="$PROJECT_DIR$/src/FinalApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scene/visual/dynamic/described/MovingSprite.java" afterPath="$PROJECT_DIR$/src/scene/visual/dynamic/described/MovingSprite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/SideView.java" afterPath="$PROJECT_DIR$/src/view/SideView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scene/visual/dynamic/described/SlidingSprite.java" afterPath="$PROJECT_DIR$/src/scene/visual/dynamic/described/SlidingSprite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scene/io/XMLReader.java" afterPath="$PROJECT_DIR$/src/scene/io/XMLReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cityScene.xml" afterPath="$PROJECT_DIR$/cityScene.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/forestScene.xml" afterPath="$PROJECT_DIR$/forestScene.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/introScene.xml" afterPath="$PROJECT_DIR$/introScene.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mountainScene.xml" afterPath="$PROJECT_DIR$/mountainScene.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scene/visual/Scene.java" afterPath="$PROJECT_DIR$/src/scene/visual/Scene.java" />
     </list>
     <ignored path="FinalProject349.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Test.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1383704016900" ignored="false" />
     <file path="/fragment.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1385325912245" ignored="false" />
-    <file path="/Scene.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1385325183651" ignored="false" />
+    <file path="/Scene.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1385600388099" ignored="false" />
     <file path="/Environment.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1385349917802" ignored="false" />
     <file path="/Dummy.txt" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1385329162866" ignored="false" />
     <file path="/SceneFactory.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1385483869318" ignored="false" />
-    <file path="/FinalApp.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1385592773942" ignored="false" />
+    <file path="/FinalApp.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1385600304799" ignored="false" />
     <file path="/MovingSprite.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1385597006390" ignored="false" />
     <file path="/introScene.xml" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1385584913486" ignored="false" />
     <file path="/cityScene.xml" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1385584824207" ignored="false" />
@@ -110,16 +93,25 @@
     <favorites_list name="FinalProject349" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.47266668">
+    <splitter split-orientation="horizontal" split-proportion="0.57">
       <split-first>
         <leaf>
-          <file leaf-file-name="FinalApp.java" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="FinalApp.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/FinalApp.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="96" column="35" selection-start="3095" selection-end="3095" vertical-scroll-proportion="0.0">
+                <state line="118" column="0" selection-start="3685" selection-end="3685" vertical-scroll-proportion="0.43514645">
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Scene.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/scene/visual/Scene.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="20" column="60" selection-start="634" selection-end="634" vertical-scroll-proportion="0.0">
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -133,10 +125,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MovingSprite.java" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="MovingSprite.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/scene/visual/dynamic/described/MovingSprite.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="29" column="25" selection-start="728" selection-end="728" vertical-scroll-proportion="0.53267044">
+                <state line="29" column="25" selection-start="728" selection-end="728" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -166,37 +158,30 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ViewBehavior.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/view/ViewBehavior.java">
+          <file leaf-file-name="SceneNode.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/model/SceneNode.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="9" column="22" selection-start="197" selection-end="197" vertical-scroll-proportion="0.0">
+                <state line="11" column="13" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="finalScene.xml" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/finalScene.xml">
+          <file leaf-file-name="SceneController.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/controller/SceneController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="22" column="33" selection-start="702" selection-end="702" vertical-scroll-proportion="0.46025103">
-                  <folding />
+                <state line="8" column="13" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="BirdsEye.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/view/BirdsEye.java">
+          <file leaf-file-name="EventNode.java" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/model/EventNode.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="40" column="9" selection-start="842" selection-end="842" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="SideView.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/view/SideView.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="37" column="25" selection-start="816" selection-end="816" vertical-scroll-proportion="0.0">
+                <state line="12" column="13" selection-start="231" selection-end="231" vertical-scroll-proportion="0.25104603">
                   <folding />
                 </state>
               </provider>
@@ -222,7 +207,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/scene/visual/dynamic/described/AbstractSlidingSprite.java" />
         <option value="$PROJECT_DIR$/src/scene/visual/SceneFactory.java" />
         <option value="$PROJECT_DIR$/src/view/ViewBehavior.java" />
         <option value="$PROJECT_DIR$/src/view/InCar.java" />
@@ -231,13 +215,14 @@
         <option value="$PROJECT_DIR$/src/view/SideView.java" />
         <option value="$PROJECT_DIR$/src/FinalApplication.java" />
         <option value="$PROJECT_DIR$/introScene.xml" />
-        <option value="$PROJECT_DIR$/src/FinalApp.java" />
         <option value="$PROJECT_DIR$/src/scene/io/XMLReader.java" />
         <option value="$PROJECT_DIR$/src/scene/visual/dynamic/described/MovingSprite.java" />
         <option value="$PROJECT_DIR$/forestScene.xml" />
         <option value="$PROJECT_DIR$/mountainScene.xml" />
         <option value="$PROJECT_DIR$/cityScene.xml" />
         <option value="$PROJECT_DIR$/finalScene.xml" />
+        <option value="$PROJECT_DIR$/src/scene/visual/Scene.java" />
+        <option value="$PROJECT_DIR$/src/FinalApp.java" />
       </list>
     </option>
   </component>
@@ -372,10 +357,6 @@
               <option name="myItemId" value="scene" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="io" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -391,7 +372,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="scene" />
+              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -410,6 +391,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FinalProject349" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FinalProject349" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -638,7 +637,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19093852" sideWeight="0.8592849" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1407151" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1407151" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -710,74 +709,9 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/view/InCar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="59" selection-start="622" selection-end="622" vertical-scroll-proportion="0.33483145">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/BirdsEye.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="9" selection-start="842" selection-end="842" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/SideView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="25" selection-start="816" selection-end="816" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FinalApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="69" selection-start="362" selection-end="362" vertical-scroll-proportion="0.16561514">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scene/visual/dynamic/described/SlidingSprite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="41" selection-start="321" selection-end="321" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/road_dashed_white_SIDEVIEW.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scene/visual/SceneFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="10" selection-start="2441" selection-end="2441" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FinalApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="35" selection-start="3095" selection-end="3095" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scene/io/XMLReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="80" selection-start="4888" selection-end="4888" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scene/visual/dynamic/described/MovingSprite.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="25" selection-start="728" selection-end="728" vertical-scroll-proportion="0.53267044">
+        <state line="29" column="25" selection-start="728" selection-end="728" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -810,17 +744,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/ViewBehavior.java">
+    <entry file="file://$PROJECT_DIR$/finalScene.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="22" selection-start="197" selection-end="197" vertical-scroll-proportion="0.0">
+        <state line="22" column="61" selection-start="730" selection-end="730" vertical-scroll-proportion="0.4755043">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/finalScene.xml">
+    <entry file="file://$PROJECT_DIR$/src/view/ViewBehavior.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="33" selection-start="702" selection-end="702" vertical-scroll-proportion="0.46025103">
+        <state line="9" column="22" selection-start="197" selection-end="197" vertical-scroll-proportion="0.18828452">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/BirdsEye.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="9" selection-start="842" selection-end="842" vertical-scroll-proportion="0.10041841">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scene/visual/SceneFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="10" selection-start="2441" selection-end="2441" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/SceneNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="13" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/SceneController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="13" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/EventNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="13" selection-start="231" selection-end="231" vertical-scroll-proportion="0.25104603">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/buildings_5_CITY.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mountains_1_MOUNTAINS.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scene/visual/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="60" selection-start="634" selection-end="634" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FinalApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="0" selection-start="3685" selection-end="3685" vertical-scroll-proportion="0.43514645">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

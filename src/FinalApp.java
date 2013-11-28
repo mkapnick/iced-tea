@@ -1,8 +1,10 @@
 import app.AbstractMultimediaApp;
+import controller.SceneController;
 import data.Environment;
 import data.Script;
 import data.View;
 import io.ResourceFinder;
+import model.EventNode;
 import scene.visual.Scene;
 import scene.visual.SceneFactory;
 import visual.VisualizationView;
@@ -33,9 +35,6 @@ public class FinalApp extends AbstractMultimediaApp
     {
         stage = new Stage(50);
         stageView = stage.getView();
-        //stage.setBackground(new Color(158,209,144));
-        //stage.setBackground(new Color(111,174,223));
-        //stage.setBackground(new Color(0,0,0));
         stage.setBackground(new Color(255,255,255));
         stageView.setBounds(0, 0, 640, 480);
     }
@@ -44,6 +43,16 @@ public class FinalApp extends AbstractMultimediaApp
     {
 
         startUp();
+
+        SceneController     sceneController;
+        EventNode<Scene>    eventNode;
+
+
+
+
+
+
+
         JPanel contentPane = (JPanel) rootPaneContainer.getContentPane();
         contentPane.add(stageView);
         System.out.println("Before stage start");
@@ -65,35 +74,34 @@ public class FinalApp extends AbstractMultimediaApp
         System.out.println("JUST BEFORE SCENE FACTORY CALL");
 
         //Construct all possible scenes
-        //introScene      = SceneFactory.createScene(Environment.INTRO, View.BIRDSEYE,
-                                                    //Script.INTRO_SCRIPT, finder, "introScene.xml");
-        //addSceneToStage(introScene);
+        introScene      = SceneFactory.createScene(Environment.INTRO, View.BIRDSEYE,
+                                                Script.INTRO_SCRIPT, finder, "introScene.xml");
+        introScene.setBackgroundColor(new Color(158,209,144));
+        addSceneToStage(introScene);
 
 
-        //cityScene       = SceneFactory.createScene(Environment.CITY, View.SIDEVIEW,
-        //                                       Script.CITY_SCRIPT, finder, "cityScene.xml");
-
-        //addSceneToStage(cityScene);
-
-
-        //forestScene     = SceneFactory.createScene(Environment.FOREST, View.SIDEVIEW,
-                //Script.FOREST_SCRIPT, finder, "forestScene.xml");
-
-        //addSceneToStage(forestScene);
+        cityScene       = SceneFactory.createScene(Environment.CITY, View.SIDEVIEW,
+                                                Script.CITY_SCRIPT, finder, "cityScene.xml");
+        cityScene.setBackgroundColor(new Color(111,174,223));
+        addSceneToStage(cityScene);
 
 
-        //mountainScene   = SceneFactory.createScene(Environment.MOUNTAINS, View.SIDEVIEW,
-                //Script.MOUNTAIN_SCRIPT, finder, "mountainScene.xml");
+        forestScene     = SceneFactory.createScene(Environment.FOREST, View.SIDEVIEW,
+                                                Script.FOREST_SCRIPT, finder, "forestScene.xml");
+        forestScene.setBackgroundColor(new Color(0,0,0));
+        addSceneToStage(forestScene);
 
-
-        //addSceneToStage(mountainScene);
+        mountainScene   = SceneFactory.createScene(Environment.MOUNTAINS, View.SIDEVIEW,
+                                                Script.MOUNTAIN_SCRIPT, finder, "mountainScene.xml");
+        mountainScene.setBackgroundColor(new Color(255,255,255));
+        addSceneToStage(mountainScene);
 
         //snowScene       = SceneFactory.createScene(Environment.SNOW, view.SIDEVIEW,
          //                                       Script.SNOW_SCRIPT, finder, "snowScene.xml");
 
         finalScene      = SceneFactory.createScene(Environment.FINAL, View.SIDEVIEW,
                                                 Script.FINAL_SCRIPT, finder, "finalScene.xml");
-
+        finalScene.setBackgroundColor(new Color(255,255,255));
         addSceneToStage(finalScene);
 
 
@@ -108,7 +116,7 @@ public class FinalApp extends AbstractMultimediaApp
         slidingSprites  = scene.getSlidingSprites();
         movingSprites   = scene.getMovingSprites();
 
-        stage.add(slidingSprites[0]);
+
 
         for(int j =0; j < slidingSprites.length; j++)
         {
