@@ -13,6 +13,12 @@
                 <keyTime>1000000,325,10.0,0.0,1.0</keyTime>
             </movingSprite>
 
+            <movingSprite>
+                <image>road_dashed_white_SIDEVIEW.png</image>
+                <keyTime>0, -100, 418.0, 0.0, 1.0</keyTime>
+                <keyTime>1000, -30, 418.0,0.0,1.0</keyTime>
+                <keyTime>1500, 0, 418, 0.0, 1.0</keyTime>
+            </movingSprite>
 
             <movingSprite>
                 <image>main_car_SIDEVIEW_red.png</image>
@@ -22,6 +28,7 @@
                 <keyTime>6000, 300.0, 380.0, 0.0, 1</keyTime>
                 <keyTime>8000, 350.0, 380.0, 0.0, 1</keyTime>
             </movingSprite>
+
         </movingSprites>
     </sprites>
 

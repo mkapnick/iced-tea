@@ -48,11 +48,6 @@ public class FinalApp extends AbstractMultimediaApp
         EventNode<Scene>    eventNode;
 
 
-
-
-
-
-
         JPanel contentPane = (JPanel) rootPaneContainer.getContentPane();
         contentPane.add(stageView);
         System.out.println("Before stage start");
@@ -74,27 +69,32 @@ public class FinalApp extends AbstractMultimediaApp
         System.out.println("JUST BEFORE SCENE FACTORY CALL");
 
         //Construct all possible scenes
-        introScene      = SceneFactory.createScene(Environment.INTRO, View.BIRDSEYE,
+        /*introScene      = SceneFactory.createScene(Environment.INTRO, View.BIRDSEYE,
                                                 Script.INTRO_SCRIPT, finder, "introScene.xml");
         introScene.setBackgroundColor(new Color(158,209,144));
         addSceneToStage(introScene);
+        */
 
-
+        /*
         cityScene       = SceneFactory.createScene(Environment.CITY, View.SIDEVIEW,
-                                                Script.CITY_SCRIPT, finder, "cityScene.xml");
+                Script.CITY_SCRIPT, finder, "cityScene.xml");
         cityScene.setBackgroundColor(new Color(111,174,223));
         addSceneToStage(cityScene);
+        */
 
 
-        forestScene     = SceneFactory.createScene(Environment.FOREST, View.SIDEVIEW,
-                                                Script.FOREST_SCRIPT, finder, "forestScene.xml");
-        forestScene.setBackgroundColor(new Color(0,0,0));
-        addSceneToStage(forestScene);
 
-        mountainScene   = SceneFactory.createScene(Environment.MOUNTAINS, View.SIDEVIEW,
-                                                Script.MOUNTAIN_SCRIPT, finder, "mountainScene.xml");
-        mountainScene.setBackgroundColor(new Color(255,255,255));
-        addSceneToStage(mountainScene);
+        //forestScene     = SceneFactory.createScene(Environment.FOREST, View.SIDEVIEW,
+                          //                          Script.FOREST_SCRIPT, finder, "forestScene.xml");
+        //forestScene.setBackgroundColor(new Color(0,0,0));
+        //addSceneToStage(forestScene);
+
+
+
+        //mountainScene   = SceneFactory.createScene(Environment.MOUNTAINS, View.SIDEVIEW,
+                                                //Script.MOUNTAIN_SCRIPT, finder, "mountainScene.xml");
+       // mountainScene.setBackgroundColor(new Color(255,255,255));
+        //addSceneToStage(mountainScene);
 
         //snowScene       = SceneFactory.createScene(Environment.SNOW, view.SIDEVIEW,
          //                                       Script.SNOW_SCRIPT, finder, "snowScene.xml");

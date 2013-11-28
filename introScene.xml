@@ -3,28 +3,50 @@
     <sprites>
         <slidingSprites>
 
-            <slidingSprite>
-                <name>foreground</name>
-                <image>foreground_1_INTRO.png</image>
-                <image>foreground_2_INTRO.png</image>
-                <image>foreground_3_INTRO.png</image>
-            </slidingSprite>
 
         </slidingSprites>
 
         <movingSprites>
 
             <movingSprite>
-                    <image>foreground_road_INTRO.png</image>
-                    <keyTime>500,135.0,0.0,0.0,1.0</keyTime>
-                    <keyTime>1000000,135.0,0.0,0.0,1.0</keyTime>
+                <image>foreground_1_INTRO.png</image>
+                <keyTime>0,0,-850,0,1.0</keyTime>
+                <keyTime>50000,0,850,0,1.0 </keyTime>
+            </movingSprite>
+
+            <movingSprite>
+                <image>foreground_2_INTRO.png</image>
+                <keyTime>25000,0,-850,0,1.0</keyTime>
+                <keyTime>75000,0,850,0,1.0 </keyTime>
+            </movingSprite>
+
+
+            <movingSprite>
+                <image>foreground_3_INTRO.png</image>
+                <keyTime>37500,0,-850,0,1.0</keyTime>
+                <keyTime>87500,0,850,0,1.0 </keyTime>
+            </movingSprite>
+
+            <movingSprite>
+                <image>foreground_road_INTRO.png</image>
+                <keyTime>0,135,-1000,0,1.0</keyTime>
+                <keyTime>1000,135,0,0,1.0 </keyTime>
             </movingSprite>
 
             <movingSprite>
                 <image>main_car_BIRDSEYE.png</image>
-                <keyTime>500,350.0,300.0,0.0,1.0</keyTime>
-                <keyTime>2000, 350.0, 205.0, 0.0, 1.0</keyTime>
-                <keyTime>1000000, 350, 205.0,0.0,1.0</keyTime>
+                <keyTime>500,350.0,700.0,0.0,1.0</keyTime>
+                <keyTime>5000, 350.0, 400.0, 0.0, 1.0</keyTime>
+                <keyTime>10000, 350.0, 305.0, 0.0, 1.0</keyTime>
+                <keyTime>15000, 350.0, 205.0, 0.0, 1.0</keyTime>
+                <keyTime>20000, 350.0, 105.0, 0.0, 1.0</keyTime>
+                <keyTime>25000, 350.0, 205.0, 0.0, 1.0</keyTime>
+                <keyTime>30000, 350.0, 305.0, 0.0, 1.0</keyTime>
+                <keyTime>35000, 350.0, 105.0, 0.0, 1.0</keyTime>
+                <keyTime>40000, 350.0, 305.0, 0.0, 1.0</keyTime>
+                <keyTime>45000, 350.0, 205.0, 0.0, 1.0</keyTime>
+                <keyTime>50000, 350.0, 305.0, 0.0, 1.0</keyTime>
+                <keyTime>55000, 350.0, 305.0, 0.0, 1.0</keyTime>
             </movingSprite>
 
         </movingSprites>

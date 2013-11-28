@@ -26,17 +26,18 @@
 
             <movingSprite>
                 <image>road_dashed_white_SIDEVIEW.png</image>
-                <keyTime>2000, 0.0, 418.0, 0.0, 1.0</keyTime>
-                <keyTime>1000000, 0.0, 418.0,0.0,1.0</keyTime>
+                <keyTime>0, -100, 418.0, 0.0, 1.0</keyTime>
+                <keyTime>1000, -30, 418.0,0.0,1.0</keyTime>
+                <keyTime>1500, 0, 418, 0.0, 1.0</keyTime>
             </movingSprite>
 
             <movingSprite>
-                <image>main_car_SIDEVIEW_red.png</image>
-                <keyTime>0,0,380.0.0,0.0,1.0</keyTime>
-                <keyTime>1, 10, 380.0, 0.0, 1.0</keyTime>
-                <keyTime>15000, 50, 380.0, 0.0, 1.0</keyTime>
-                <keyTime>20000, 100.0, 380.0,0.0,1.0</keyTime>
-                <keyTime>1000000, 200.0, 380.0,0.0,1.0</keyTime>
+                <image>main_car_SIDEVIEW_truck.png</image>
+                <keyTime>0,-1000,380.0.0,0.0,1.0</keyTime>
+                <keyTime>1000, -510, 380.0, 0.0, 1.0</keyTime>
+                <keyTime>7000, 15, 380.0, 0.0, 1.0</keyTime>
+                <keyTime>13000, 75.0, 380.0,0.0,1.0</keyTime>
+                <keyTime>18000, 150, 380, 0.0, 1.0</keyTime>
 
             </movingSprite>
         </movingSprites>

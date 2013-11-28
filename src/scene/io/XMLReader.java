@@ -61,6 +61,7 @@ public class XMLReader {
         slidingSpriteList   = doc.getElementsByTagName("slidingSprite");
         index               = 0;
 
+        System.out.println(slidingSpriteList.getLength());
         //Parse all Sliding sprites in the XML file
         for(int i = 0; i < slidingSpriteList.getLength(); i++)
         {
