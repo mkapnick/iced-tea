@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<scene>
+    <sprites>
+        <slidingSprites>
+
+        </slidingSprites>
+
+        <movingSprites>
+            <movingSprite>
+                <image>forest_1_FOREST.png</image>
+                <keyTime>500,640,10.0,0.0,1.0</keyTime>
+                <keyTime>35030,-670,10.0,0.0,1.0</keyTime>
+            </movingSprite>
+
+            <movingSprite>
+                <image>forest_1_FOREST.png</image>
+                <keyTime>19300,640,10.0,0.0,1.0</keyTime>
+                <keyTime>53830,-670,10.0,0.0,1.0</keyTime>
+            </movingSprite>
+
+            <movingSprite>
+                <image>forest_1_FOREST.png</image>
+                <keyTime>38100,640,10.0,0.0,1.0</keyTime>
+                <keyTime>72630,-670,10.0,0.0,1.0</keyTime>
+            </movingSprite>
+
+            <movingSprite>
+                <image>road_dashed_white_SIDEVIEW.png</image>
+                <keyTime>2000, 0.0, 418.0, 0.0, 1.0</keyTime>
+                <keyTime>1000000, 0.0, 418.0,0.0,1.0</keyTime>
+            </movingSprite>
+
+            <movingSprite>
+                <image>main_car_SIDEVIEW_red.png</image>
+                <keyTime>0,0,380.0.0,0.0,1.0</keyTime>
+                <keyTime>1, 10, 380.0, 0.0, 1.0</keyTime>
+                <keyTime>15000, 50, 380.0, 0.0, 1.0</keyTime>
+                <keyTime>20000, 100.0, 380.0,0.0,1.0</keyTime>
+                <keyTime>1000000, 200.0, 380.0,0.0,1.0</keyTime>
+
+            </movingSprite>
+        </movingSprites>
+    </sprites>
+
+</scene>

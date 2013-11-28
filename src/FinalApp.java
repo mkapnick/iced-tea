@@ -33,7 +33,10 @@ public class FinalApp extends AbstractMultimediaApp
     {
         stage = new Stage(50);
         stageView = stage.getView();
-        stage.setBackground(new Color(158,209,144));
+        //stage.setBackground(new Color(158,209,144));
+        //stage.setBackground(new Color(111,174,223));
+        //stage.setBackground(new Color(0,0,0));
+        stage.setBackground(new Color(255,255,255));
         stageView.setBounds(0, 0, 640, 480);
     }
 
@@ -62,27 +65,36 @@ public class FinalApp extends AbstractMultimediaApp
         System.out.println("JUST BEFORE SCENE FACTORY CALL");
 
         //Construct all possible scenes
-        introScene      = SceneFactory.createScene(Environment.INTRO, View.BIRDSEYE,
-                                                    Script.INTRO_SCRIPT, finder, "introScene.xml");
-        addSceneToStage(introScene);
+        //introScene      = SceneFactory.createScene(Environment.INTRO, View.BIRDSEYE,
+                                                    //Script.INTRO_SCRIPT, finder, "introScene.xml");
+        //addSceneToStage(introScene);
 
-        /*
-        cityScene       = SceneFactory.createScene(Environment.CITY, view.SIDEVIEW,
-                                                Script.CITY_SCRIPT, finder, "cityScene.xml");
 
-        forestScene     = SceneFactory.createScene(Environment.FOREST, view.SIDEVIEW,
-                                                Script.FOREST_SCRIPT, finder, "forestScene.xml");
+        //cityScene       = SceneFactory.createScene(Environment.CITY, View.SIDEVIEW,
+        //                                       Script.CITY_SCRIPT, finder, "cityScene.xml");
 
-        mountainScene   = SceneFactory.createScene(Environment.MOUNTAINS, view.SIDEVIEW,
-                                                Script.MOUNTAIN_SCRIPT, finder, "mountainScene.xml");
+        //addSceneToStage(cityScene);
 
-        snowScene       = SceneFactory.createScene(Environment.SNOW, view.SIDEVIEW,
-                                                Script.SNOW_SCRIPT, finder, "snowScene.xml");
 
-        finalScene      = SceneFactory.createScene(Environment.FINAL, view.SIDEVIEW,
+        //forestScene     = SceneFactory.createScene(Environment.FOREST, View.SIDEVIEW,
+                //Script.FOREST_SCRIPT, finder, "forestScene.xml");
+
+        //addSceneToStage(forestScene);
+
+
+        //mountainScene   = SceneFactory.createScene(Environment.MOUNTAINS, View.SIDEVIEW,
+                //Script.MOUNTAIN_SCRIPT, finder, "mountainScene.xml");
+
+
+        //addSceneToStage(mountainScene);
+
+        //snowScene       = SceneFactory.createScene(Environment.SNOW, view.SIDEVIEW,
+         //                                       Script.SNOW_SCRIPT, finder, "snowScene.xml");
+
+        finalScene      = SceneFactory.createScene(Environment.FINAL, View.SIDEVIEW,
                                                 Script.FINAL_SCRIPT, finder, "finalScene.xml");
 
-        */
+        addSceneToStage(finalScene);
 
 
 

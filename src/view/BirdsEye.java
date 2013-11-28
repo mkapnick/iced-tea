@@ -20,8 +20,8 @@ public class BirdsEye implements ViewBehavior {
         this.changeContent  = false;
         this.stop           = false;
         this.index          = 0;
-        this.x = 0;
-        this.y = -800;
+        this.x              = 0;
+        this.y              = -800;
 
     }
 

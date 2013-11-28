@@ -10,7 +10,7 @@ public class FinalApplication extends MultimediaApplication {
 	
 	public static void main(String[] args) throws Exception
 	{
-		SwingUtilities.invokeAndWait(new FinalApplication(args, 600,400));
+		SwingUtilities.invokeAndWait(new FinalApplication(args, 600,500));
 	}
 	
 	public FinalApplication(String[] args, int height, int width) throws ParserConfigurationException, SAXException, IOException

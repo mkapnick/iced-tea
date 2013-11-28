@@ -11,12 +11,14 @@ import java.util.ArrayList;
 
 public class SlidingSprite extends AbstractSlidingSprite
 {
-    private ViewBehavior viewBehavior;
+    private ViewBehavior    viewBehavior;
+    private View            view;
 	
 	public SlidingSprite(View view, ArrayList<TransformableContent> tc, int speed, double x, double y)
 	{
         super(tc);
         decorate(view);
+        this.view           = view;
         this.maxX           = x;
         this.maxY           = y;
 		this.speed          = speed;
@@ -69,4 +71,6 @@ public class SlidingSprite extends AbstractSlidingSprite
                 break;
         }
     }
+
+
 }

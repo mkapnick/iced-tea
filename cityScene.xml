@@ -1,45 +1,57 @@
 <?xml version="1.0"?>
 <scene>
+    <sprites>
+        <slidingSprites>
 
-    <slidingSprites>
+        </slidingSprites>
 
-        <foreground>
-            <image>city_theme_base.png</image>
-        </foreground>
+        <movingSprites>
+            <movingSprite>
+                <image>buildings_1_CITY.png</image>
+                <keyTime>500,640,-5.0,0.0,1.0</keyTime>
+                <keyTime>35000,-640,-5.0,0.0,1.0</keyTime>
+            </movingSprite>
 
-        <background>
-            <image>TBD.png</image>
-        </background>
+            <movingSprite>
+                <image>buildings_2_CITY.png</image>
+                <keyTime>17080,640,-95.0,0.0,1.0</keyTime>
+                <keyTime>51580,-640,-95.0,0.0,1.0</keyTime>
+            </movingSprite>
 
-        <ground>
-            <image>side_road_dashed_white.png</image>
-        </ground>
+            <movingSprite>
+                <image>buildings_3_CITY.png</image>
+                <keyTime>33660,640,-95.0,0.0,1.0</keyTime>
+                <keyTime>68160,-640,-95.0,0.0,1.0</keyTime>
+            </movingSprite>
 
-    </slidingSprites>
+            <movingSprite>
+                <image>buildings_4_CITY.png</image>
+                <keyTime>50210,640,-80.0,0.0,1.0</keyTime>
+                <keyTime>84710,-640,-80.0,0.0,1.0</keyTime>
+            </movingSprite>
 
-    <movingSprites>
+            <movingSprite>
+                <image>buildings_5_CITY.png</image>
+                <keyTime>66710,640,-30.0,0.0,1.0</keyTime>
+                <keyTime>101210,-640,-30.0,0.0,1.0</keyTime>
+            </movingSprite>
 
-        <professors>
-            <professor>professor_bernstein.png
-                <keyTime></keyTime>
-                <keyTime></keyTime>
-                <keyTime></keyTime>
-                <keyTime></keyTime>
-                <keyTime></keyTime>
-            </professor>
-            <professor>professor_fox.png
-                <keyTime></keyTime>
-                <keyTime></keyTime>
-                <keyTime></keyTime>
-                <keyTime></keyTime>
-                <keyTime></keyTime>
-            </professor>
-        </professors>
+            <movingSprite>
+                <image>road_dashed_white_SIDEVIEW.png</image>
+                <keyTime>2000, 0.0, 420.0, 0.0, 1.0</keyTime>
+                <keyTime>1000000, 0.0, 420.0,0.0,1.0</keyTime>
+            </movingSprite>
 
-        <transportation>
-            <vehicle>main_car.png</vehicle>
-        </transportation>
+            <movingSprite>
+                <image>main_car_SIDEVIEW.png</image>
+                <keyTime>0,0.0,350.0.0,0.0,1.0</keyTime>
+                <keyTime>1, 10, 350.0, 0.0, 1.0</keyTime>
+                <keyTime>15000, 50, 350.0, 0.0, 1.0</keyTime>
+                <keyTime>20000, 100.0, 350.0,0.0,1.0</keyTime>
+                <keyTime>1000000, 200.0, 350.0,0.0,1.0</keyTime>
 
-    </movingSprites>
+            </movingSprite>
+        </movingSprites>
+    </sprites>
 
 </scene>

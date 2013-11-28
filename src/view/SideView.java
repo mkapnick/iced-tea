@@ -13,41 +13,61 @@ public class SideView implements ViewBehavior {
     private boolean stop;
     private double  x;
     private double  y;
+    private int     index;
 
     public SideView()
     {
         this.changeContent  = false;
         this.stop           = false;
-
+        this.index          = 0;
+        this.x              = 640;
+        this.y =0;
     }
 
     @Override
-    public void setLocation(double x, double y) {
-        //To change body of implemented methods use File | Settings | File Templates.
+    public void setLocation(double x, double y)
+    {
+        this.y = y;
+        this.x = x-=1;
+
     }
 
     @Override
     public double[] checkLocation(double maxX, double maxY, int size) {
-        return new double[0];  //To change body of implemented methods use File | Settings | File Templates.
+        changeContent = false;
+        if(this.x <= -640)
+        {
+            index++;
+            changeContent = true;
+            if(index < size)
+            {
+                this.x = 640;
+            }
+            else
+            {
+                this.stop = true;
+            }
+        }
+        return new double [] {x,y};
     }
 
     @Override
     public boolean changeContent() {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+        return changeContent;
     }
 
     @Override
     public boolean stop() {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+        return stop;
     }
 
     @Override
     public double getX() {
-        return 0;  //To change body of implemented methods use File | Settings | File Templates.
+        return this.x;
     }
 
     @Override
     public double getY() {
-        return 0;  //To change body of implemented methods use File | Settings | File Templates.
+        return this.y;
     }
 }

@@ -21,16 +21,11 @@
             </movingSprite>
 
             <movingSprite>
-                <image>main_car.png</image>
+                <image>main_car_BIRDSEYE.png</image>
                 <keyTime>500,350.0,300.0,0.0,1.0</keyTime>
                 <keyTime>2000, 350.0, 205.0, 0.0, 1.0</keyTime>
                 <keyTime>1000000, 350, 205.0,0.0,1.0</keyTime>
-
-
-
-
             </movingSprite>
-
 
         </movingSprites>
     </sprites>

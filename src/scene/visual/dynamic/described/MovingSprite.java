@@ -30,7 +30,7 @@ public class MovingSprite extends SampledSprite
 
     public void setEndState()
     {
-        setEndState(REMOVE);
+        setEndState(REMAIN);
     }
 
     public TransformableContent getContent()

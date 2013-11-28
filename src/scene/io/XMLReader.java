@@ -127,7 +127,7 @@ public class XMLReader {
             imageValue          = getValueOfNode(imageTag, 0, element);
             spriteImage         = ImageReader.readFile(imageValue, finder);
 
-            content             = contentFactory.createContent(spriteImage, false);
+            content             = contentFactory.createContent(spriteImage, true);
             sprite              = new MovingSprite(content);
             index               = 0;
 
