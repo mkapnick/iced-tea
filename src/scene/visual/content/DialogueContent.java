@@ -1,12 +1,8 @@
 package scene.visual.content;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
-import java.awt.geom.Rectangle2D;
-
-import javax.swing.JComponent;
+import java.awt.font.GlyphVector;
 
 import scene.visual.dynamic.described.TextSprite;
 import visual.dynamic.described.Sprite;
@@ -26,8 +22,9 @@ import visual.dynamic.described.Sprite;
 public class DialogueContent extends MenuContent implements Sprite {
 
 	private long curTime;
-	private long delay;
-	private int numToRender;
+	private int numToRender = 2;
+	private int curIndex;
+	private TextSprite d1, d2;
 	
 	/**
 	 * 
@@ -36,12 +33,24 @@ public class DialogueContent extends MenuContent implements Sprite {
 	 * @param sprites	   - The TextSprites being stored in the content
 	 * 						 in a sequential order.
 	 */
-	public DialogueContent(long delayForText, TextSprite ... sprites)
+	public DialogueContent(TextSprite ... sprites)
 	{
 		super(sprites);
 		curTime = 0;
-		delay = delayForText;
 		numToRender = 1;
+		this.curIndex = 2;
+		if (sprites.length > 0)
+		{
+			d1 = text[0];
+			if (sprites.length > 1)
+				d2 = text[1];
+			else
+				d2 = null;
+		}
+		else {
+			d1 = null;
+			d2 = null;
+		}
 		
 	}
 	
@@ -54,9 +63,12 @@ public class DialogueContent extends MenuContent implements Sprite {
 	public void render(Graphics g) {
 
 		Graphics2D g2 = (Graphics2D) g;
-		//Sets the starting position for each piece
-		for (int i = 0; i < numToRender; i++) {
-			text[i].render(g2);
+		
+		d1.render(g2);
+		
+		if (d1.getGlyphText().getNumGlyphs() == d1.getText().length()) {
+			d2.setLocation(x, y + 20);
+			d2.render(g2);
 		}
 	}
 	
@@ -68,16 +80,24 @@ public class DialogueContent extends MenuContent implements Sprite {
 	 * @param time - the time since the Metronome started
 	 */
 	public void handleTick(int time) {
+
+		d1.handleTick(time);
 		
-		curTime = time;
+		if (d1.getGlyphText().getNumGlyphs() == d1.getText().length())
+		{
+			d2.handleTick(time);
+		}
 		
-		numToRender = (int)(curTime / delay) + 1;
-		
-		if (numToRender >= text.length)
-			numToRender = text.length;
-		
-		for (int i = 0; i < numToRender; i++)
-			text[i].handleTick(time);
+		GlyphVector d2Glyphs = d2.getGlyphText();
+		if (d2 != null && d2Glyphs != null && d2Glyphs.getNumGlyphs() == d2.getText().length())
+		{
+			d1 = text[curIndex];
+			d2 = text[curIndex + 1];
+			
+			if (curIndex < text.length - 2)
+				curIndex += 2;
+		}
+			
 		
 	}
 

@@ -56,7 +56,7 @@ public class MenuFactory
 		//Initialize the parent at "Root".
 		EventNode<MenuContent> parent = 
 				new EventNode<MenuContent>(new DialogueContent
-						(0, new BasicTextSprite("Root")));
+						(new BasicTextSprite("Root")));
 		
 		//Get the child nodes of the root of the document
 		startingList = xml.getChildNodes();
@@ -120,7 +120,7 @@ public class MenuFactory
 						textForContent[i] = new ScrollingTextSprite(texts.get(i), true);
 					}
 					
-					content = new DialogueContent(2000, textForContent);
+					content = new DialogueContent(textForContent);
 				}
 				//Calls the getValueFrom method for options
 				else {
