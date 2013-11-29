@@ -56,7 +56,7 @@ public class ChoiceContent extends MenuContent {
 	public void render(Graphics g) {
 		for (int i = 0; i < text.length; i++)
 		{
-			if (isTopDownView) 	text[i].setLocation(0, i * text[i].getFont().getSize());
+			if (isTopDownView) 	text[i].setLocation(0, (i + 4) * text[i].getFont().getSize());
 			else 				text[i].setLocation(i * text[i].getText().length() + i * 100, 0);
 			
 			text[i].render(g);

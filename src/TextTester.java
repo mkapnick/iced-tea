@@ -42,9 +42,26 @@ public class TextTester extends AbstractMultimediaApp {
 		contentPane.setSize(600,400);
 		Stage stage = new Stage(50);
 		System.out.println(content.children().get(0).getElement().getText()[0].getText());
-		stage.add(content.children().get(0).getElement());
 		
+
 		VisualizationView view = stage.getView();
+		for (int i = 0; i < content.children().size(); i++)
+		{
+			MenuContent c = content.children().get(i).getElement();
+			stage.add(c);
+			
+			if (c instanceof ChoiceContent) {
+				for (TextSprite j : c.getText()) {
+					view.addMouseMotionListener((ChoiceSprite)j);
+					view.addMouseListener((ChoiceSprite)j);
+				}
+				
+			}
+			
+			
+		}
+		
+		
 		view.setBounds(new Rectangle(600,300));
 		
 		contentPane.add(view);

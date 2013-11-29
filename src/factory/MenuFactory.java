@@ -14,6 +14,7 @@ import scene.visual.content.ChoiceContent;
 import scene.visual.content.DialogueContent;
 import scene.visual.content.MenuContent;
 import scene.visual.dynamic.described.BasicTextSprite;
+import scene.visual.dynamic.described.ChoiceSprite;
 import scene.visual.dynamic.described.ScrollingTextSprite;
 import scene.visual.dynamic.described.TextSprite;
 
@@ -129,9 +130,9 @@ public class MenuFactory
 					
 					for (int i = 0; i < textForContent.length; i++)
 					{
-						textForContent[i] = new BasicTextSprite(texts.get(i));
+						textForContent[i] = new ChoiceSprite(texts.get(i));
 					}
-					content = new ChoiceContent(false, Color.blue, Color.yellow, textForContent);
+					content = new ChoiceContent(true, Color.blue, Color.yellow, textForContent);
 					
 				}
 				

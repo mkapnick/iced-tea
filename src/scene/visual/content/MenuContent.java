@@ -20,6 +20,7 @@ public abstract class MenuContent implements Sprite {
 	protected TextSprite[] 	text;	//Text to be rendered
 	protected double 		x, y;	//Content's position
 	
+	
 	/**
 	 * 
 	 * @param text - the array of text to be rendered
