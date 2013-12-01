@@ -12,7 +12,35 @@
        		<dialogue>
        		    <bern>Sheesh, they don't?</bern>
        		    <prof>Yeah, they don't.</prof>
+       		    <bern>I can't believe you sometimes...How do you get by?</bern>
+       		    <prof>Oh, you know...</prof>
        		</dialogue>
+       		<choice>
+       		    <option value="I put on lipstick.">
+       		        <dialogue>
+       		            <bern>Well, you don't look like a woman.</bern>
+       		            <prof>YES I DO...</prof>
+       		            <bern>Oh look, we're here.</bern>
+       		            <prof>How nice.</prof>
+       		        </dialogue>
+       		    </option>
+       		    <option value="I give myself scars.">
+       		        <dialogue>
+       		            <bern>Like the joker?</bern>
+       		            <prof>Yeah, like the joker.</prof>
+       		            <bern>cool...</bern>
+       		            <prof>Yeah, awesome.</prof>
+       		        </dialogue>
+       		    </option>
+       		    <option value="I can't live with myself.">
+       		        <dialogue>
+       		            <bern>Yes you can!</bern>
+       		            <prof>Can I really?</prof>
+       		            <bern>You can do anything you set your mind to!</bern>
+       		            <prof>Whatever you say...</prof>
+       		        </dialogue>
+       		    </option>
+       		</choice>
         </option>
         <option value="They don't use T.">
             <dialogue>
