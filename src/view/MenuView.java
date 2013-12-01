@@ -51,7 +51,7 @@ public class MenuView implements Sprite {
 
 	public void setMouseListeners(VisualizationView view)
 	{
-		System.out.println("In setMouseListeners.");
+		//System.out.println("In setMouseListeners.");
 		MenuContent c;
 		TextSprite[] sprites;
 		
@@ -62,7 +62,7 @@ public class MenuView implements Sprite {
 		{
 			for (int i = 0; i < sprites.length; i++)
 			{
-				System.out.println(sprites[i].getText());
+				//System.out.println(sprites[i].getText());
 				view.addMouseListener((ChoiceSprite)sprites[i]);
 			}
 		}
@@ -70,7 +70,7 @@ public class MenuView implements Sprite {
 	
 	public void setMouseMotionListeners(VisualizationView view)
 	{
-		System.out.println("In set MouseMotionListeners");
+		//System.out.println("In set MouseMotionListeners");
 		MenuContent c;
 		TextSprite[] sprites;
 		

@@ -89,7 +89,6 @@ public class DialogueContent extends MenuContent implements Sprite {
 		//System.out.println(d1.getGlyphText().getNumGlyphs());
 		if (d1.getGlyphText().getNumGlyphs() == d1.getText().length())
 		{
-			
 			d2.handleTick(time);
 		}
 		
@@ -140,6 +139,12 @@ public class DialogueContent extends MenuContent implements Sprite {
 	public void setScale(double arg0, double arg1) {
 		// TODO Auto-generated method stub
 		
+	}
+	public String toString()
+	{
+		String string = "Dialogue: ";
+		string += super.toString();
+		return string;
 	}
 
 

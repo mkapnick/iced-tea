@@ -97,4 +97,16 @@ public class EventNode<E> {
 	{
 		this.element = element;
 	}
+	
+	public String toString()
+	{
+		String string = "";
+		string = element.toString() + ": \n";
+		for (int i = 0; i < getChildCount(); i++)
+			string += children.get(i).toString();
+		
+		string += "\n";
+		
+		return string;
+	}
 }

@@ -33,6 +33,7 @@ public class TextTester extends AbstractMultimediaApp {
 		DialogueReader reader = new DialogueReader("Chris", ResourceFinder.createInstance());
 		Document xml = reader.getXML();
 		content = MenuFactory.createDialogue("Chris", xml);
+		System.out.println(content);
 	}
 	
 	public void init()

@@ -95,4 +95,17 @@ public abstract class MenuContent implements Sprite {
 		this.y = y;
 		
 	}
+	
+
+	public String toString()
+	{
+		String string = "";
+		
+		for (TextSprite i : text)
+		{
+			string += i.getText() + "\n";
+		}
+		
+		return string;
+	}
 }
