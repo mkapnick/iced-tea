@@ -6,7 +6,7 @@ public class MenuScene extends Scene {
 
 	public MenuScene()
 	{
-		super();
+		super(null,null,null,null,null);
 		
 	}
 }

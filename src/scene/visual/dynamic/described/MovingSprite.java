@@ -23,14 +23,19 @@ public class MovingSprite extends SampledSprite
         this.content = content;
     }
 
-    public void addKeyTime(int time, double x, double y, double r, double s)
+    public void addKeyTime(int time, double x, double y, double r, double s, Content c)
     {
-        addKeyTime(time, new Point2D.Double(x, y), new Double(r), new Double(s), this.content);
+        if(c == null)
+            addKeyTime(time, new Point2D.Double(x, y), new Double(r), new Double(s), this.content);
+        else
+            addKeyTime(time, new Point2D.Double(x, y), new Double(r), new Double(s), c);
+
+
     }
 
     public void setEndState()
     {
-        setEndState(REMOVE);
+        setEndState(REMAIN);
     }
 
     public TransformableContent getContent()

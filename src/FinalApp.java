@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 import app.AbstractMultimediaApp;
 import io.ResourceFinder;
 import scene.visual.Scene;
@@ -18,7 +17,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.util.ArrayList;
 
->>>>>>> 963f4f216ee0f858d5f4618353a2cf1d719c3561
+
 /**
  * Created with IntelliJ IDEA.
  * User: michaelk18
@@ -26,11 +25,7 @@ import java.util.ArrayList;
  * Time: 6:00 PM
  * To change this template use File | Settings | File Templates.
  */
-public class FinalApp {
 
-<<<<<<< HEAD
-
-=======
 public class FinalApp extends AbstractMultimediaApp
 {
     private Stage stage;
@@ -150,5 +145,5 @@ public class FinalApp extends AbstractMultimediaApp
         }*/
 
     }
->>>>>>> 963f4f216ee0f858d5f4618353a2cf1d719c3561
+
 }

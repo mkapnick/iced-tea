@@ -61,6 +61,7 @@ public class XMLReader {
         slidingSpriteList   = doc.getElementsByTagName("slidingSprite");
         index               = 0;
 
+        System.out.println(slidingSpriteList.getLength());
         //Parse all Sliding sprites in the XML file
         for(int i = 0; i < slidingSpriteList.getLength(); i++)
         {
@@ -76,14 +77,12 @@ public class XMLReader {
             {
                 ArrayList<String> foregroundList;
                 foregroundList = new ArrayList<String>();
-
                 while(index < imageTags.getLength())
                 {
                     imageValue  = getValueOfNode(imageTags, index, element);
                     foregroundList.add(imageValue);
                     index++;
                 }
-
                 env.setForeground(foregroundList);
             }
             else if(nameValue.equalsIgnoreCase("background"))
@@ -112,8 +111,8 @@ public class XMLReader {
         BufferedImage           spriteImage;
         ArrayList<Sprite>       sprites;
         Sprite                  sprite;
-        ContentFactory contentFactory;
-        Content content;
+        ContentFactory          contentFactory;
+        Content                 content;
 
         sprites            = new ArrayList<Sprite>();
         contentFactory     = new ContentFactory(finder);
@@ -129,7 +128,7 @@ public class XMLReader {
             imageValue          = getValueOfNode(imageTag, 0, element);
             spriteImage         = ImageReader.readFile(imageValue, finder);
 
-            content             = contentFactory.createContent(spriteImage, false);
+            content             = contentFactory.createContent(spriteImage, true);
             sprite              = new MovingSprite(content);
             index               = 0;
 
@@ -137,7 +136,7 @@ public class XMLReader {
             {
                 keyTime = getValueOfNode(keyTimeTags, index, element);
                 System.out.println("Key time is: " + keyTime);
-                addKeyTime(keyTime, sprite);
+                addKeyTime(keyTime, sprite, finder);
                 index++;
             }
 
@@ -148,14 +147,22 @@ public class XMLReader {
         System.out.println("ok, parsed moving sprites");
         script.setSprites(sprites);
     }
-    private static void addKeyTime(String keyTime, Sprite sprite)
+    private static void addKeyTime(String keyTime, Sprite sprite,ResourceFinder finder)
     {
-        String []   times;
-        int         time=0;
-        double      x=0,y=0,r=0,s=0;
+        String []       times;
+        int             time=0;
+        double          x=0,y=0,r=0,s=0;
+        String          content;
+        Content         c;
+        BufferedImage   spriteImage;
+        ContentFactory  contentFactory;
 
-        times   = keyTime.split(",");
 
+        contentFactory  = new ContentFactory(finder);
+        c               = null;
+        times           = keyTime.split(",");
+
+        //parse key time
         try
         {
             time    = Integer.parseInt(times[0]);
@@ -163,6 +170,14 @@ public class XMLReader {
             y       = Double.parseDouble(times[2]);
             r       = Double.parseDouble(times[3]);
             s       = Double.parseDouble(times[4]);
+            content = times[5];
+
+            if(!content.equalsIgnoreCase("null"))
+            {
+                System.out.println("Doesn't equal null! String is " + content);
+                spriteImage     = ImageReader.readFile(content, finder);
+                c               = contentFactory.createContent(spriteImage, true);
+            }
         }
         catch (Exception e)
         {
@@ -171,7 +186,7 @@ public class XMLReader {
 
         }
 
-        ((MovingSprite) sprite).addKeyTime(time, x, y, r, s);
+        ((MovingSprite) sprite).addKeyTime(time, x, y, r, s, c);
     }
 
     private static String getValueOfNode(NodeList tags, int index, Element element)
