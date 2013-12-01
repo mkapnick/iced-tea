@@ -1,6 +1,6 @@
 package scene.visual.dynamic.described;
 
-import data.View;
+import model.View;
 import view.BirdsEye;
 import view.InCar;
 import view.SideView;

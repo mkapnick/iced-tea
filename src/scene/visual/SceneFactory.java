@@ -1,135 +1,98 @@
 package scene.visual;
 
-import io.ImageReader;
-import io.ResourceFinder;
 import model.Environment;
+import model.Script;
 import model.View;
-import scene.visual.dynamic.sampled.MovingSprite;
-import scene.visual.dynamic.sampled.SlidingSprite;
+import io.ResourceFinder;
+import scene.io.XMLReader;
+import scene.visual.dynamic.described.AbstractSlidingSprite;
+import scene.visual.dynamic.described.SlidingSprite;
 import visual.dynamic.described.RuleBasedSprite;
-import visual.dynamic.described.SampledSprite;
+import visual.statik.TransformableContent;
 import visual.statik.sampled.Content;
 import visual.statik.sampled.ContentFactory;
 
-import java.awt.image.BufferedImage;
-
+import java.util.ArrayList;
 
 public class SceneFactory {
 
-	public static Scene createScene(Environment env, View view, ResourceFinder finder)
-	{
-        String              background, ground;
-        String []           foreground, movingSprites;
-        BufferedImage []    foregroundImages, movingSpriteImages;
-        BufferedImage       backgroundImage, groundImage;
-        Scene               scene;
+    public static Scene createScene(Environment env, View view, Script script, ResourceFinder finder, String fileName)
 
-        scene           = null;
-        background      = env.getBackground();
-        foreground      = env.getForeground();
-        ground          = env.getGround();
-        movingSprites   = env.getMovingSprites();
-
-        switch (view)
-        {
-            case BIRDSEYE:
-                foregroundImages    = parseArrayOfImages(foreground, finder);  //Always a sliding sprite
-                movingSpriteImages  = parseArrayOfImages(movingSprites, finder); //Always a moving sprite
-                groundImage         = ImageReader.readFile(ground, finder); //Always a sliding sprite
-                scene               = turnIntoScene(foregroundImages, movingSpriteImages, groundImage,
-                                                    null, finder);
-                break;
-            case SIDEVIEW:
-                foregroundImages    = parseArrayOfImages(foreground, finder);
-                movingSpriteImages  = parseArrayOfImages(movingSprites, finder);
-                backgroundImage     = ImageReader.readFile(background, finder); //Always a sliding sprite
-                groundImage         = ImageReader.readFile(ground, finder);
-                scene               = turnIntoScene(foregroundImages, movingSpriteImages, groundImage,
-                                                    backgroundImage, finder);
-                break;
-            case INCAR:
-                movingSpriteImages  = parseArrayOfImages(movingSprites, finder);
-                backgroundImage     = ImageReader.readFile(background, finder);
-                scene               = turnIntoScene(null, movingSpriteImages, null, backgroundImage, finder);
-                break;
-        }
-		return scene;
-	}
-
-    private static BufferedImage [] parseArrayOfImages(String [] arrayOfImages, ResourceFinder finder)
     {
-        BufferedImage       image;
-        BufferedImage []    images;
-
-        images = new BufferedImage[arrayOfImages.length];
-
-        for (int i =0; i < arrayOfImages.length; i++)
+        Scene scene;
+        scene = null;
+        try
         {
-            image = ImageReader.readFile(arrayOfImages[i], finder);
-            images[i] = image;
+            System.out.println("ABOUT TO CALL XML PARSE FILE");
+            XMLReader.parseXMLFile(fileName, env, script, finder);
+            System.out.println("Parsed XML file");
+            scene = createScene(env,view, script, finder);
+            System.out.println("Created scene!");
+        }
+        catch(Exception e)
+        {
+            //scene will just be null
+            System.out.println("Exception thrown");
         }
 
-        return images;
+        return scene;
     }
 
-    private static Scene turnIntoScene(BufferedImage [] foregroundImages, BufferedImage [] movingSpriteImages,
-                                         BufferedImage groundImage,BufferedImage backgroundImage, ResourceFinder finder)
+    private static Scene createScene(Environment env, View view, Script script, ResourceFinder finder)
+
     {
-        ContentFactory      contentFactory;
-        Content             content;
-        RuleBasedSprite     rbSprite;
-        SampledSprite       sampledSprite;
-        Scene               scene;
-        RuleBasedSprite []  slidingSprites;
-        RuleBasedSprite []  movingSprites;
-        int                 i;
+        Scene                           scene;
+        ContentFactory                  contentFactory;
+        Content                         content;
+        AbstractSlidingSprite           rbSprite;
+        RuleBasedSprite []              slidingSprites;
+        ArrayList<TransformableContent> listOfContents;
+        ArrayList<String>               foreground, background;
+        int                             index;
 
+        // Sliding Sprites
+        listOfContents  = new ArrayList<TransformableContent>();
+        contentFactory  = new ContentFactory(finder);
+        foreground      = env.getForeground();
+        slidingSprites  = new SlidingSprite[3];
+        index           = 0;
+        rbSprite        = null;
 
-        scene               = null;
-        i                   = 0;
-        movingSprites       = new RuleBasedSprite [movingSpriteImages.length];
-        contentFactory      = new ContentFactory(finder);
-
-        if(foregroundImages == null && groundImage == null)
-            slidingSprites  = new RuleBasedSprite [1]; //IN-CAR only has a background
-        else if (backgroundImage == null)
-            slidingSprites  = new RuleBasedSprite [foregroundImages.length +1]; //BIRDSEYE only has foreground and ground
-        else
-            slidingSprites  = new RuleBasedSprite [foregroundImages.length +2]; //SIDEVIEW has foreground, ground, and background
-
-
-        if (foregroundImages != null)
+        if(foreground != null)
         {
-            for (i=0; i < foregroundImages.length; i++)
+            System.out.println(foreground.get(0));
+            for (int i = 0; i < foreground.size(); i++)
             {
-                content             = contentFactory.createContent(foregroundImages[i], false);
-                rbSprite            = new SlidingSprite(content, 4, 640,480);
-                slidingSprites[i]   = rbSprite;
+                content = contentFactory.createContent(foreground.get(i),3, false);
+                listOfContents.add(content);
             }
         }
 
-        if (groundImage != null)
+        if(listOfContents.size() > 0)
         {
-            content             = contentFactory.createContent(groundImage, false);
-            rbSprite            = new SlidingSprite(content, 4, 640,480);
-            slidingSprites[i++] = rbSprite;
+            rbSprite = new SlidingSprite(view,listOfContents, 3, 640, 480);
+            slidingSprites[index] = rbSprite;
         }
 
-        if(backgroundImage != null)
+        /*if (env.getBackground() != null)
+
         {
-            content             = contentFactory.createContent(backgroundImage, false);
-            rbSprite            = new SlidingSprite(content, 4, 640,480);
-            slidingSprites[i++] = rbSprite;
+            content             = contentFactory.createContent(env.getBackground(), false);
+            rbSprite            = new SlidingSprite(content, 3, 640,480);
+            slidingSprites[++index] = rbSprite;
         }
 
-        for (int j =0; j < movingSprites.length; j++)
-        {
-            content             = contentFactory.createContent(movingSpriteImages[i], false);
-            sampledSprite       = new MovingSprite(content);
-            //movingSprites[i]    = sampledSprite; //Design flaw here
-        }
+        if(env.getGround() != null)
 
-        //scene = new Scene(...);
+        {
+            content             = contentFactory.createContent(env.getGround(), false);
+            rbSprite            = new SlidingSprite(content, 3, 640,480);
+            slidingSprites[++index] = rbSprite;
+        }*/
+
+        scene = new Scene(slidingSprites, script.getSprites(), env, null, null);
         return scene;
     }
+
+
 }

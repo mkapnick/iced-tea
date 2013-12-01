@@ -1,52 +1,87 @@
 package model;
 
+
+import java.util.ArrayList;
+
+
 /**
  * Stores model for particular environments. The strings
- * represent the file-names.
- * 
+ * <p/>
+ * represent the filenames.
+ *
  * @author Daniel Hardgrove, Michael Kapnick, Brian Brown
  * @version 1.0
- * 
- * This work complies with the JMU Honor Code.
- * 11/15/13
+ *          <p/>
+ *          <p/>
+ *          <p/>
+ *          This work complies with the JMU Honor Code.
+ *          <p/>
+ *          11/15/13
  */
-public enum Environment {
 
-    INTRO("", new String [] {"birds_eye_view_first_scene_no_car.png"},"", new String [] {"main_car.png"}),
-	CITY("",new String [] {"city_theme_base.png"}, "",new String [] {""}),
-	FOREST("",new String [] {""}, "", new String [] {""}),
-	MOUNTAINS("",new String [] {""}, "",new String [] {""}),
-	SNOW("",new String [] {""},"", new String [] {""}),
-    FINAL("",new String [] {"coffee_shop.png"}, "", new String [] {""});
-	//TODO Add more environments here
-	
-	private String      background, ground;
-    private String []   foreground, movingSprites;
-	
-	Environment(String background, String [] foreground, String ground,String [] movingSprites)
-	{
-		this.background = background;
-		this.foreground = foreground;
-		this.ground     = ground;
-        this.movingSprites    = movingSprites;
-	}
-	
-	public String [] getForeground()
-	{
-		return this.foreground;
-	}
-	
-	public String getBackground()
-	{
-		return this.background;
-	}
-	
-	public String getGround()
-	{
-		return this.ground;
-	}
-    public String [] getMovingSprites()
-    {
-        return this.movingSprites;
+public enum Environment {
+    INTRO(null, null, null),
+    CITY(null, null, null),
+    FOREST(null, null, null),
+    MOUNTAINS(null, null, null),
+    SNOW(null, null, null),
+    FINAL(null, null, null);
+
+    private String background, ground;
+    private ArrayList<String> foreground;
+
+
+    Environment(String background, ArrayList<String> foreground, String ground) {
+
+        this.background = background;
+        this.foreground = foreground;
+        this.ground = ground;
+
     }
+
+    public ArrayList<String> getForeground() {
+        return this.foreground;
+    }
+
+    public String getBackground()
+    {
+        return this.background;
+    }
+
+
+    public String getGround()
+
+    {
+
+        return this.ground;
+
+    }
+
+
+    public void setForeground(ArrayList<String> foreground)
+
+    {
+
+        this.foreground = foreground;
+
+    }
+
+
+    public void setBackground(String background)
+
+    {
+
+        this.background = background;
+
+    }
+
+
+    public void setGround(String ground)
+
+    {
+
+        this.ground = ground;
+
+    }
+
 }

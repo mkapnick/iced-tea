@@ -2,8 +2,8 @@ package scene.io;
 
 import io.ImageReader;
 import io.ResourceFinder;
-import data.Environment;
-import data.Script;
+import model.Environment;
+import model.Script;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
