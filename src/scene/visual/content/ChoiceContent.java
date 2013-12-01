@@ -3,7 +3,9 @@ package scene.visual.content;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import scene.visual.dynamic.described.ChoiceSprite;
 import scene.visual.dynamic.described.TextSprite;
+import controller.MenuController;
 
 /**
  * Encapsulates all choices in a menu.
@@ -38,6 +40,11 @@ public class ChoiceContent extends MenuContent {
 		for (TextSprite i : text)
 			i.handleTick(arg0);
 		
+		int whichClicked = whichClicked();
+		
+		if (whichClicked != -1)
+			controller.setCurrentContentToIndex(whichClicked);
+		
 	}
 
 	@Override
@@ -63,6 +70,15 @@ public class ChoiceContent extends MenuContent {
 			
 		}
 		
+	}
+	
+	public int whichClicked()
+	{
+		for (int i = 0; i < text.length; i++)
+			if (((ChoiceSprite)text[i]).wasClicked())
+				return i;
+		
+		return -1;
 	}
 
 	

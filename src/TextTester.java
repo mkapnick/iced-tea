@@ -14,15 +14,14 @@ import org.xml.sax.SAXException;
 
 import scene.io.DialogueReader;
 import scene.visual.content.ChoiceContent;
-import scene.visual.content.DialogueContent;
 import scene.visual.content.MenuContent;
 import scene.visual.dynamic.described.ChoiceSprite;
-import scene.visual.dynamic.described.MergingTextSprite;
-import scene.visual.dynamic.described.ScrollingTextSprite;
 import scene.visual.dynamic.described.TextSprite;
+import view.MenuView;
 import visual.VisualizationView;
 import visual.dynamic.described.Stage;
 import app.AbstractMultimediaApp;
+import controller.MenuController;
 
 
 public class TextTester extends AbstractMultimediaApp {
@@ -38,14 +37,21 @@ public class TextTester extends AbstractMultimediaApp {
 	
 	public void init()
 	{
+		//MenuController menuController = new MenuController(content);
+		
+		
 		JPanel contentPane = (JPanel)rootPaneContainer.getContentPane();
 		contentPane.setSize(600,400);
 		Stage stage = new Stage(50);
-		System.out.println(content.children().get(0).getElement().getText()[0].getText());
+		//System.out.println(menuView);
 		
-
 		VisualizationView view = stage.getView();
-		for (int i = 0; i < content.children().size(); i++)
+		MenuView menuView = new MenuView(content.getElement().getController(), view);
+		menuView.setMouseListeners(view);
+		menuView.setMouseMotionListeners(view);
+		stage.add(menuView);
+		
+		/*for (int i = 0; i < content.children().size(); i++)
 		{
 			MenuContent c = content.children().get(i).getElement();
 			stage.add(c);
@@ -59,7 +65,8 @@ public class TextTester extends AbstractMultimediaApp {
 			}
 			
 			
-		}
+		}*/
+		
 		
 		
 		view.setBounds(new Rectangle(600,300));

@@ -6,6 +6,7 @@ import java.awt.font.GlyphVector;
 
 import scene.visual.dynamic.described.TextSprite;
 import visual.dynamic.described.Sprite;
+import controller.MenuController;
 
 /**
  * Encapsulates TextSprite objects and controls when each
@@ -25,6 +26,7 @@ public class DialogueContent extends MenuContent implements Sprite {
 	private int numToRender = 2;
 	private int curIndex;
 	private TextSprite d1, d2;
+	private int waitTime;
 	
 	/**
 	 * 
@@ -52,6 +54,8 @@ public class DialogueContent extends MenuContent implements Sprite {
 			d2 = null;
 		}
 		
+		waitTime = 1000;
+		
 	}
 	
 	/**
@@ -66,7 +70,7 @@ public class DialogueContent extends MenuContent implements Sprite {
 		
 		d1.render(g2);
 		
-		if (d1.getGlyphText().getNumGlyphs() == d1.getText().length()) {
+		if (d1.getGlyphText().getNumGlyphs() == d1.getText().length() && d2 != null) {
 			d2.setLocation(x, y + 20);
 			d2.render(g2);
 		}
@@ -82,26 +86,50 @@ public class DialogueContent extends MenuContent implements Sprite {
 	public void handleTick(int time) {
 
 		d1.handleTick(time);
-		
+		//System.out.println(d1.getGlyphText().getNumGlyphs());
 		if (d1.getGlyphText().getNumGlyphs() == d1.getText().length())
 		{
+			
 			d2.handleTick(time);
 		}
 		
+		//System.out.println("Index before:" + curIndex + "\tText length: " + text.length);
 		GlyphVector d2Glyphs = d2.getGlyphText();
+		
 		if (d2 != null && d2Glyphs != null && d2Glyphs.getNumGlyphs() == d2.getText().length())
 		{
+			//System.out.println("Index before d1: " + curIndex + "\tText length: " + text.length);
 			d1 = text[curIndex];
-			d2 = text[curIndex + 1];
+			incrementIndex();
+			System.out.println("Index before d2: " + curIndex + "\tText length: " + text.length);
+			d2 = text[curIndex];
+			incrementIndex();
+		}
+		//System.out.println(curIndex);
+		if (isDoneRenderingAll()) {
+			System.out.println("DONE WITH DIALOGUE");
+			controller.advanceContent();
 			
-			if (curIndex < text.length - 2)
-				curIndex += 2;
 		}
 			
 		
 	}
 
 
+	public boolean isDoneRenderingAll()
+	{
+		if (curIndex >= text.length - 1) {
+			if (d1.isFullyRendered() && d2.isFullyRendered())
+				return true;
+		}
+		return false;
+	}
+	
+	public void incrementIndex()
+	{
+		if (curIndex < text.length - 1)
+			curIndex++;
+	}
 	@Override
 	public void setRotation(double arg0, double arg1, double arg2) {
 		// TODO Auto-generated method stub

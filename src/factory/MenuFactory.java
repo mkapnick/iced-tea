@@ -17,6 +17,7 @@ import scene.visual.dynamic.described.BasicTextSprite;
 import scene.visual.dynamic.described.ChoiceSprite;
 import scene.visual.dynamic.described.ScrollingTextSprite;
 import scene.visual.dynamic.described.TextSprite;
+import controller.MenuController;
 
 /**
  * Factory which both creates the EventNode tree, and constructs it
@@ -58,6 +59,8 @@ public class MenuFactory
 		EventNode<MenuContent> parent = 
 				new EventNode<MenuContent>(new DialogueContent
 						(new BasicTextSprite("Root")));
+		
+		parent.getElement().setController(new MenuController(parent));
 		
 		//Get the child nodes of the root of the document
 		startingList = xml.getChildNodes();
@@ -139,6 +142,7 @@ public class MenuFactory
 				//Creating the content from the texts and placing
 				//in an EventNode.
 				contentNode = new EventNode<MenuContent>(content);
+				contentNode.getElement().setController(parent.getElement().getController());
 				
 				//Append this new node to the parent 
 				parent.addNode(contentNode);	

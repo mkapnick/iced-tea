@@ -66,6 +66,19 @@ public abstract class TextSprite implements Sprite
 		return this.text;
 	}
 	
+	public boolean isFullyRendered()
+	{
+		GlyphVector glyphText = getGlyphText();
+		
+		if (glyphText != null)
+		{
+			if (glyphText.getNumGlyphs() == this.text.length())
+				return true;
+		}
+		
+		return false;
+	}
+	
 	/**
 	 * The number of letters rendered is incremented for each
 	 * time the method is called.

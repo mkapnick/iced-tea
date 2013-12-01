@@ -31,6 +31,11 @@ public class ChoiceSprite extends TextSprite implements MouseMotionListener, Mou
 		wasClicked = false;
 	}
 	
+	public boolean wasClicked()
+	{
+		return wasClicked;
+	}
+	
 	/**
 	 * 
 	 * @param evt

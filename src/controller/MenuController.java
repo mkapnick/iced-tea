@@ -3,16 +3,26 @@ package controller;
 import model.EventNode;
 import scene.visual.content.ChoiceContent;
 import scene.visual.content.MenuContent;
+import visual.dynamic.described.Stage;
 
 public class MenuController
 {
 	private EventNode<MenuContent> currentNode;
-	
-	public MenuController(EventNode<MenuContent> content, int numToRender)
+
+	/**
+	 * 
+	 * @param content
+	 * @param numToRender
+	 */
+	public MenuController(EventNode<MenuContent> content)
 	{
 		this.currentNode = content;
+		
 	}
 	
+	/**
+	 * 
+	 */
 	public void advanceContent()
 	{
 		EventNode<MenuContent> parent;
@@ -27,16 +37,20 @@ public class MenuController
 		currentNode = parent.getChildAt(currentIndex);
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public MenuContent getCurrentContent()
 	{
 		return currentNode.getElement();
 	}
 	
-	public void setCurrentContent(EventNode<MenuContent> content)
-	{
-		this.currentNode = content;
-	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getCurrentContentType()
 	{
 		if (currentNode.getElement() instanceof ChoiceContent)
@@ -45,6 +59,9 @@ public class MenuController
 		return "DialogueContent";
 	}
 	
+	/**
+	 * 
+	 */
 	public void reset()
 	{
 		if (currentNode.getParent() != null)
@@ -54,10 +71,13 @@ public class MenuController
 		}
 	}
 	
-	public void setCurrentContentToFirstChild()
+	/**
+	 * 
+	 */
+	public void setCurrentContentToIndex(int index)
 	{
-		if (currentNode.getChildCount() > 0)
-			currentNode = currentNode.getChildAt(0);
+		if (currentNode.getChildCount() > index)
+			currentNode = currentNode.getChildAt(index);
 	}
 	
 	
