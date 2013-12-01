@@ -1,5 +1,6 @@
 package scene.visual.content;
 
+import java.awt.Color;
 import java.awt.geom.Rectangle2D;
 
 import scene.visual.dynamic.described.TextSprite;
@@ -21,6 +22,8 @@ public abstract class MenuContent implements Sprite {
 	protected TextSprite[] 	text;	//Text to be rendered
 	protected double 		x, y;	//Content's position
 	protected MenuController controller;
+	protected Rectangle2D.Double textRectangle;
+	protected Color rectangleColor;
 	
 	
 	/**
@@ -32,6 +35,9 @@ public abstract class MenuContent implements Sprite {
 		this.text = text;
 		this.x = 0;
 		this.y = 0;
+		
+		textRectangle = new Rectangle2D.Double(0, 0, 600, 400);
+		rectangleColor = new Color(0, 150, 150, 50);
 	}
 	
 	public MenuController getController()

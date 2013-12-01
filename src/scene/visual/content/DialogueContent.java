@@ -1,5 +1,6 @@
 package scene.visual.content;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.font.GlyphVector;
@@ -22,11 +23,12 @@ import controller.MenuController;
  */
 public class DialogueContent extends MenuContent implements Sprite {
 
-	private long curTime;
+	private int curTime;
 	private int numToRender = 2;
 	private int curIndex;
 	private TextSprite d1, d2;
 	private int waitTime;
+	private int timeSoFar;
 	
 	/**
 	 * 
@@ -39,6 +41,7 @@ public class DialogueContent extends MenuContent implements Sprite {
 	{
 		super(sprites);
 		curTime = 0;
+		timeSoFar = 0;
 		numToRender = 1;
 		this.curIndex = 2;
 		if (sprites.length > 0)
@@ -68,10 +71,13 @@ public class DialogueContent extends MenuContent implements Sprite {
 
 		Graphics2D g2 = (Graphics2D) g;
 		
+		g2.setColor(rectangleColor);
+		g2.fill(textRectangle);
+		g2.draw(textRectangle);
 		d1.render(g2);
 		
 		if (d1.getGlyphText().getNumGlyphs() == d1.getText().length() && d2 != null) {
-			d2.setLocation(x, y + 20);
+			d2.setLocation(x, y + 40);
 			d2.render(g2);
 		}
 	}
@@ -84,29 +90,46 @@ public class DialogueContent extends MenuContent implements Sprite {
 	 * @param time - the time since the Metronome started
 	 */
 	public void handleTick(int time) {
-
+		
 		d1.handleTick(time);
-		//System.out.println(d1.getGlyphText().getNumGlyphs());
-		if (d1.getGlyphText().getNumGlyphs() == d1.getText().length())
+		
+		if (d1.isFullyRendered())
 		{
-			d2.handleTick(time);
+			timeSoFar += time - curTime;
+			curTime = time;
+			if (timeSoFar >= waitTime)
+			{
+				updateDialogue();
+				d2.handleTick(time);
+			}
 		}
+		
+		if (d2.isFullyRendered())
+			timeSoFar = 0;
+		
+		
+		
+		//System.out.println(d1.getGlyphText().getNumGlyphs());
+		/*if (d1.getGlyphText().getNumGlyphs() == d1.getText().length())
+		{
+			
+		}*/
 		
 		//System.out.println("Index before:" + curIndex + "\tText length: " + text.length);
 		GlyphVector d2Glyphs = d2.getGlyphText();
 		
-		if (d2 != null && d2Glyphs != null && d2Glyphs.getNumGlyphs() == d2.getText().length())
+		if (d2 != null && d2Glyphs != null && d2Glyphs.getNumGlyphs() == d2.getText().length() && curIndex < text.length)
 		{
 			//System.out.println("Index before d1: " + curIndex + "\tText length: " + text.length);
 			d1 = text[curIndex];
 			incrementIndex();
-			System.out.println("Index before d2: " + curIndex + "\tText length: " + text.length);
+			//System.out.println("Index before d2: " + curIndex + "\tText length: " + text.length);
 			d2 = text[curIndex];
 			incrementIndex();
 		}
 		//System.out.println(curIndex);
 		if (isDoneRenderingAll()) {
-			System.out.println("DONE WITH DIALOGUE");
+			//System.out.println("DONE WITH DIALOGUE");
 			controller.advanceContent();
 			
 		}
@@ -115,6 +138,11 @@ public class DialogueContent extends MenuContent implements Sprite {
 	}
 
 
+	public void updateDialogue()
+	{
+		
+	}
+	
 	public boolean isDoneRenderingAll()
 	{
 		if (curIndex >= text.length - 1) {

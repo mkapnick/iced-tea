@@ -19,7 +19,7 @@ public class ChoiceSprite extends TextSprite implements MouseMotionListener, Mou
 	
 	public ChoiceSprite(String choice)
 	{
-		this(choice, Color.BLACK, Color.GRAY);
+		this(choice, Color.BLACK, Color.BLUE);
 	}
 	
 	public ChoiceSprite(String choice, Color defaultColor, Color hoverColor)

@@ -2,6 +2,7 @@ package scene.visual.content;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import scene.visual.dynamic.described.ChoiceSprite;
 import scene.visual.dynamic.described.TextSprite;
@@ -61,9 +62,13 @@ public class ChoiceContent extends MenuContent {
 
 	@Override
 	public void render(Graphics g) {
+		Graphics2D g2 = (Graphics2D) g;
+		g2.setColor(rectangleColor);
+		g2.fill(textRectangle);
+		g2.draw(textRectangle);
 		for (int i = 0; i < text.length; i++)
 		{
-			if (isTopDownView) 	text[i].setLocation(0, (i + 4) * text[i].getFont().getSize());
+			if (isTopDownView) 	text[i].setLocation(0, (i * 2)  * text[i].getFont().getSize());
 			else 				text[i].setLocation(i * text[i].getText().length() + i * 100, 0);
 			
 			text[i].render(g);
