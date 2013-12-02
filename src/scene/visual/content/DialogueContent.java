@@ -72,9 +72,11 @@ public class DialogueContent extends MenuContent implements Sprite {
 		
 		//The encapsulating rectangle
 		g2.setColor(rectangleColor);
+		textRectangle.x = x;
+		textRectangle.y = y;
 		g2.fill(textRectangle);
 		g2.draw(textRectangle);
-		
+		d1.setLocation(x, y);
 		d1.render(g2);
 		
 		//Only render d2 if d1 is done rendering

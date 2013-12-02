@@ -10,7 +10,6 @@ public class ChoiceSprite extends TextSprite implements MouseMotionListener, Mou
 
 	private Color defaultColor, hoverColor, curColor;
 	private boolean wasClicked;
-	private double xPart, yPart;
 	
 	public ChoiceSprite(String choice)
 	{

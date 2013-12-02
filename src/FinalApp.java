@@ -40,7 +40,7 @@ import app.AbstractMultimediaApp;
 public class FinalApp extends AbstractMultimediaApp
 {
     private Stage stage, stage2;
-    private VisualizationView stageView;
+    private VisualizationView stageView, stageView2;
     private final int NUM_SCENES = 5;
     private EventNode<SceneContent> content;
     private EventNode<MenuContent> menuContent;
@@ -49,10 +49,13 @@ public class FinalApp extends AbstractMultimediaApp
     public FinalApp() throws ParserConfigurationException, SAXException, IOException
     {
         stage = new Stage(50);
+        stage2 = new Stage(50);
+        stageView2 = stage2.getView();
         stageView = stage.getView();
         stageView.setBackground(new Color(158,209,144));
         //stage.setBackground();
         stageView.setBounds(0, 0, 640, 480);
+        stageView2.setBounds(0, 480, 640, 480);
         
         DialogueReader reader = new DialogueReader("Chris", ResourceFinder.createInstance());
 		Document xml = reader.getXML();
@@ -67,8 +70,10 @@ public class FinalApp extends AbstractMultimediaApp
         contentPane.setSize(600,400);
 
         contentPane.add(stageView);
+        contentPane.add(stageView2);
         System.out.println("Before stage start");
         stage.start();
+        stage2.start();
         System.out.println("stage started");
         contentPane.setVisible(true);
         System.out.println("After");
@@ -117,7 +122,10 @@ public class FinalApp extends AbstractMultimediaApp
         content     = StoryFactory.createAStory(scenes);
         storyView   = new StoryView(content.getElement().getSceneController(),stageView, stage, content);
         menuView = new MenuView(menuContent.getElement().getController(), stageView);
+        menuView.setMouseListeners(stageView2);
+		menuView.setMouseMotionListeners(stageView2);
+        stage2.add(menuView);
         stage.add(storyView);
-        stage.add(menuView);
+        
     }
 }

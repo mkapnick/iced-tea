@@ -15,19 +15,22 @@ public class MenuView implements Sprite {
 
 	private MenuController controller;
 	private VisualizationView view;
+	private double x, y;
 	
 	public MenuView(MenuController controller, VisualizationView view)
 	{
 		this.controller = controller;
 		this.view = view;
 		controller.setCurrentContentToIndex(0);
+		this.x = 0;
+		this.y = 0;
 	}
 	
 	
 	@Override
 	public void handleTick(int arg0) {
 		MenuContent curContent = controller.getCurrentContent();
-		
+		curContent.setLocation(x,  y);
 		if (curContent instanceof ChoiceContent)
 		{
 			setMouseListeners(view);
@@ -45,8 +48,8 @@ public class MenuView implements Sprite {
 
 	@Override
 	public void setLocation(double arg0, double arg1) {
-		// TODO Auto-generated method stub
-		
+		this.x = arg0;
+		this.y = arg1;
 	}
 
 	public void setMouseListeners(VisualizationView view)
@@ -99,6 +102,7 @@ public class MenuView implements Sprite {
 
 	@Override
 	public void render(Graphics arg0) {
+		
 		
 		controller.getCurrentContent().render(arg0);
 		

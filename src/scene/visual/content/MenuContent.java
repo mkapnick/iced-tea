@@ -36,7 +36,7 @@ public abstract class MenuContent implements Sprite {
 		this.x = 0;
 		this.y = 0;
 		
-		textRectangle = new Rectangle2D.Double(0, 0, 600, 400);
+		textRectangle = new Rectangle2D.Double(0, 0, 640, 200);
 		rectangleColor = new Color(0, 150, 150, 50);
 	}
 	
