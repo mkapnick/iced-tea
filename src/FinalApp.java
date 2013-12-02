@@ -1,21 +1,33 @@
-import app.AbstractMultimediaApp;
+import factory.MenuFactory;
 import factory.SceneFactory;
 import factory.StoryFactory;
 import io.ResourceFinder;
+
+import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+
+import javax.swing.JPanel;
+import javax.xml.parsers.ParserConfigurationException;
+
 import model.Environment;
 import model.EventNode;
 import model.Script;
 import model.View;
+
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+import scene.io.DialogueReader;
 import scene.visual.Scene;
+import scene.visual.content.MenuContent;
 import scene.visual.content.SceneContent;
+import view.MenuView;
 import view.StoryView;
 import visual.VisualizationView;
 import visual.dynamic.described.Stage;
-
-import javax.swing.*;
-import java.awt.*;
-import java.io.BufferedReader;
-import java.io.InputStream;
+import app.AbstractMultimediaApp;
 
 /**
  * Created with IntelliJ IDEA.
@@ -31,14 +43,20 @@ public class FinalApp extends AbstractMultimediaApp
     private VisualizationView stageView;
     private final int NUM_SCENES = 5;
     private EventNode<SceneContent> content;
+    private EventNode<MenuContent> menuContent;
+    private MenuView menuView;
 
-    public FinalApp()
+    public FinalApp() throws ParserConfigurationException, SAXException, IOException
     {
         stage = new Stage(50);
         stageView = stage.getView();
         stageView.setBackground(new Color(158,209,144));
         //stage.setBackground();
         stageView.setBounds(0, 0, 640, 480);
+        
+        DialogueReader reader = new DialogueReader("Chris", ResourceFinder.createInstance());
+		Document xml = reader.getXML();
+		menuContent = MenuFactory.createDialogue("Chris", xml);
     }
 
     public void init()
@@ -98,6 +116,8 @@ public class FinalApp extends AbstractMultimediaApp
         //build a tree that represents a story from these scenes
         content     = StoryFactory.createAStory(scenes);
         storyView   = new StoryView(content.getElement().getSceneController(),stageView, stage, content);
+        menuView = new MenuView(menuContent.getElement().getController(), stageView);
         stage.add(storyView);
+        stage.add(menuView);
     }
 }
