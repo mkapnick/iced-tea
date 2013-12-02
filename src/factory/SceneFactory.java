@@ -1,10 +1,11 @@
-package scene.visual;
+package factory;
 
 import model.Environment;
 import model.Script;
 import model.View;
 import io.ResourceFinder;
 import scene.io.XMLReader;
+import scene.visual.Scene;
 import scene.visual.dynamic.described.AbstractSlidingSprite;
 import scene.visual.dynamic.described.SlidingSprite;
 import visual.dynamic.described.RuleBasedSprite;

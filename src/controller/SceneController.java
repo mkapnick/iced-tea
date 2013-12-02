@@ -1,15 +1,17 @@
 package controller;
 
-import model.SceneNode;
+import model.EventNode;
 import scene.visual.Scene;
+import scene.visual.content.SceneContent;
+
 /**
  * @author brianbrown
- * Contains the SceneNode tree and handles scene changing.
+ * Contains the EventNode<SceneContent>tree and handles scene changing.
  */
 public class SceneController {
 
-	private SceneNode curNode;
-	private SceneNode topNode;
+	private EventNode<SceneContent>curNode;
+	private EventNode<SceneContent> topNode;
 	
 	/**
 	 * This constructor should be passed the root node of a
@@ -18,10 +20,11 @@ public class SceneController {
 	 * @param sceneTree
 	 * The top node in the tree of SceneNodes.
 	 */
-	public SceneController(SceneNode sceneTree)
+	public SceneController(EventNode<SceneContent>sceneTree)
 	{
 		this.curNode = sceneTree;
 		this.topNode = sceneTree;
+
 	}
 	
 	/**
@@ -30,13 +33,13 @@ public class SceneController {
 	 * @return
 	 * The current scene.
 	 */
-	public Scene getScene()
+	public Scene getCurrentScene()
 	{
-		return curNode.getScene();
+		return curNode.getElement().getScene();
 	}
 	
 	/**
-	 * Steps to the next SceneNode at the specified index,
+	 * Steps to the next EventNode<SceneContent>at the specified index,
 	 * setting it to be the current scene.
 	 * 
 	 * @param index
@@ -44,8 +47,9 @@ public class SceneController {
 	 */
 	public void nextScene(int index)
 	{
-		curNode = curNode.getChild(index);
+		curNode = topNode.getChildAt(index);
 	}
+
 	
 	/**
 	 * Sets the current node back to the root of the tree,

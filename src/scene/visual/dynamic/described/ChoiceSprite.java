@@ -1,15 +1,10 @@
 package scene.visual.dynamic.described;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Shape;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.font.FontRenderContext;
-import java.awt.font.GlyphVector;
 
 public class ChoiceSprite extends TextSprite implements MouseMotionListener, MouseListener {
 
@@ -86,7 +81,8 @@ public class ChoiceSprite extends TextSprite implements MouseMotionListener, Mou
 	}
 
 	@Override
-	public void handleTick(int time) {	
+	public void handleTick(int time) {
+        System.out.println("Waiting?");
 	}
 
 	@Override

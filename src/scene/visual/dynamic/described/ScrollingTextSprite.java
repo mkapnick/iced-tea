@@ -1,13 +1,7 @@
 package scene.visual.dynamic.described;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Shape;
+import java.awt.*;
 import java.awt.font.FontRenderContext;
-import java.awt.font.GlyphVector;
 
 public class ScrollingTextSprite extends TextSprite {
 
@@ -26,6 +20,7 @@ public class ScrollingTextSprite extends TextSprite {
 	public void handleTick(int time)
 	{
 		if (numLettersPrinted < text.length())
+            //System.out.println("weee");
 			numLettersPrinted++;
 	}
 	

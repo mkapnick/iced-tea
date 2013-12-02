@@ -1,15 +1,15 @@
 package view;
 
-import java.awt.Graphics;
-import java.awt.geom.Rectangle2D;
-
+import controller.MenuController;
 import scene.visual.content.ChoiceContent;
 import scene.visual.content.MenuContent;
 import scene.visual.dynamic.described.ChoiceSprite;
 import scene.visual.dynamic.described.TextSprite;
 import visual.VisualizationView;
 import visual.dynamic.described.Sprite;
-import controller.MenuController;
+
+import java.awt.*;
+import java.awt.geom.Rectangle2D;
 
 public class MenuView implements Sprite {
 
@@ -33,7 +33,7 @@ public class MenuView implements Sprite {
 			setMouseListeners(view);
 			setMouseMotionListeners(view);
 		}
-		
+
 		curContent.handleTick(arg0);
 	}
 

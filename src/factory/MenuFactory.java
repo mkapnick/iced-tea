@@ -1,15 +1,11 @@
 package factory;
 
-import java.awt.Color;
-import java.util.ArrayList;
-
+import controller.MenuController;
 import model.EventNode;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 import scene.visual.content.ChoiceContent;
 import scene.visual.content.DialogueContent;
 import scene.visual.content.MenuContent;
@@ -17,7 +13,9 @@ import scene.visual.dynamic.described.BasicTextSprite;
 import scene.visual.dynamic.described.ChoiceSprite;
 import scene.visual.dynamic.described.ScrollingTextSprite;
 import scene.visual.dynamic.described.TextSprite;
-import controller.MenuController;
+
+import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Factory which both creates the EventNode tree, and constructs it
@@ -59,11 +57,14 @@ public class MenuFactory
 		EventNode<MenuContent> parent = 
 				new EventNode<MenuContent>(new DialogueContent
 						(new BasicTextSprite("Root")));
+
+
 		
 		parent.getElement().setController(new MenuController(parent));
 		
 		//Get the child nodes of the root of the document
 		startingList = xml.getChildNodes();
+        System.out.println(startingList.toString());
 		
 		//Begin the parse, and construct the EventNode tree.
 		buildChildren(parent, startingList);
@@ -111,7 +112,7 @@ public class MenuFactory
 				EventNode<MenuContent> contentNode;
 				MenuContent content;
 				TextSprite[] textForContent = null;
-				
+
 				texts = new ArrayList<String>();
 				
 				//Calls the getTextFrom method for dialogue
@@ -123,7 +124,8 @@ public class MenuFactory
 					{
 						textForContent[i] = new ScrollingTextSprite(texts.get(i), true);
 					}
-					
+
+                    System.out.println("length is: " + textForContent.length);
 					content = new DialogueContent(textForContent);
 				}
 				//Calls the getValueFrom method for options
@@ -183,6 +185,7 @@ public class MenuFactory
 			if (textNodes.getLength() > 0)
 			{
 				curText = profToUse + textNodes.item(0).getNodeValue();
+                System.out.println("cur text is: " +curText);
 				text.add(curText);
 			}
 		}
@@ -211,7 +214,8 @@ public class MenuFactory
 				text.add(curNode.getAttribute("value"));
 			}
 		}
-		
+
+        System.out.println("-----------------------DONE-------------------------");
 		return text;
 	}
 }

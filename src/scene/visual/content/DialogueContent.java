@@ -95,6 +95,7 @@ public class DialogueContent extends MenuContent implements Sprite {
 		
 		if (d1.isFullyRendered())
 		{
+            //System.out.println("FULLY rendered");
 			timeSoFar += time - curTime;
 			curTime = time;
 			if (timeSoFar >= waitTime)

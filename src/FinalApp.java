@@ -1,22 +1,21 @@
 import app.AbstractMultimediaApp;
-import controller.SceneController;
+import factory.SceneFactory;
+import factory.StoryFactory;
 import io.ResourceFinder;
 import model.Environment;
 import model.EventNode;
 import model.Script;
 import model.View;
 import scene.visual.Scene;
-import scene.visual.SceneFactory;
+import scene.visual.content.SceneContent;
+import view.StoryView;
 import visual.VisualizationView;
-import visual.dynamic.described.RuleBasedSprite;
-import visual.dynamic.described.Sprite;
 import visual.dynamic.described.Stage;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedReader;
 import java.io.InputStream;
-import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -28,14 +27,16 @@ import java.util.ArrayList;
 
 public class FinalApp extends AbstractMultimediaApp
 {
-    private Stage stage;
+    private Stage stage, stage2;
     private VisualizationView stageView;
+    private final int NUM_SCENES = 5;
+    private EventNode<SceneContent> content;
 
     public FinalApp()
     {
         stage = new Stage(50);
         stageView = stage.getView();
-        stageView.setBackground(new Color(111,174,223));
+        stageView.setBackground(new Color(158,209,144));
         //stage.setBackground();
         stageView.setBounds(0, 0, 640, 480);
     }
@@ -44,12 +45,9 @@ public class FinalApp extends AbstractMultimediaApp
     {
 
         startUp();
-
-        SceneController     sceneController;
-        EventNode<Scene>    eventNode;
-
-
         JPanel contentPane = (JPanel) rootPaneContainer.getContentPane();
+        contentPane.setSize(600,400);
+
         contentPane.add(stageView);
         System.out.println("Before stage start");
         stage.start();
@@ -61,80 +59,45 @@ public class FinalApp extends AbstractMultimediaApp
 
     public void startUp()
     {
-        ResourceFinder finder;
-        BufferedReader br;
-        InputStream is;
-        Scene introScene, cityScene, forestScene, mountainScene, snowScene, finalScene;
+
+        ResourceFinder          finder;
+        BufferedReader          br;
+        InputStream             is;
+        Scene []                scenes;
+        StoryView               storyView;
 
         finder = ResourceFinder.createInstance(this);
+        scenes = new Scene[NUM_SCENES];
         System.out.println("JUST BEFORE SCENE FACTORY CALL");
 
         //Construct all possible scenes
-        introScene      = SceneFactory.createScene(Environment.INTRO, View.BIRDSEYE,
-                Script.INTRO_SCRIPT, finder, "introScene.xml");
-        //introScene.setBackgroundColor(new Color(158,209,144));
-        addSceneToStage(introScene);
+        scenes[0]   = SceneFactory.createScene(Environment.INTRO, View.BIRDSEYE,
+                                                    Script.INTRO_SCRIPT, finder, "introScene.xml");
+        scenes[0].setBackgroundColor(new Color(158,209,144));
 
 
-
-        //cityScene       = SceneFactory.createScene(Environment.CITY, View.SIDEVIEW,
-        //        Script.CITY_SCRIPT, finder, "cityScene.xml");
-        //cityScene.setBackgroundColor(new Color(111,174,223));
-        //addSceneToStage(cityScene);
+        scenes[1]   = SceneFactory.createScene(Environment.CITY, View.SIDEVIEW,
+                                                    Script.CITY_SCRIPT, finder, "cityScene.xml");
+        scenes[1].setBackgroundColor(new Color(111,174,223));
 
 
+        scenes[2]   = SceneFactory.createScene(Environment.FOREST, View.SIDEVIEW,
+                                                    Script.FOREST_SCRIPT, finder, "forestScene.xml");
+        scenes[2].setBackgroundColor(new Color(0,0,0));
 
 
-        //forestScene     = SceneFactory.createScene(Environment.FOREST, View.SIDEVIEW,
-        //Script.FOREST_SCRIPT, finder, "forestScene.xml");
-        //forestScene.setBackgroundColor(new Color(0,0,0));
-        //addSceneToStage(forestScene);
+        scenes[3]   = SceneFactory.createScene(Environment.MOUNTAINS, View.SIDEVIEW,
+                                                    Script.MOUNTAIN_SCRIPT, finder, "mountainScene.xml");
+        scenes[3].setBackgroundColor(new Color(255,255,255));
 
 
+        scenes[4]   = SceneFactory.createScene(Environment.FINAL, View.SIDEVIEW,
+                                                    Script.FINAL_SCRIPT, finder, "finalScene.xml");
+        scenes[4].setBackgroundColor(new Color(255,255,255));
 
-        //mountainScene   = SceneFactory.createScene(Environment.MOUNTAINS, View.SIDEVIEW,
-        //Script.MOUNTAIN_SCRIPT, finder, "mountainScene.xml");
-        //mountainScene.setBackgroundColor(new Color(255,255,255));
-        //addSceneToStage(mountainScene);
-
-        //snowScene       = SceneFactory.createScene(Environment.SNOW, view.SIDEVIEW,
-        //                                       Script.SNOW_SCRIPT, finder, "snowScene.xml");
-
-        //finalScene      = SceneFactory.createScene(Environment.FINAL, View.SIDEVIEW,
-        //                                         Script.FINAL_SCRIPT, finder, "finalScene.xml");
-        //finalScene.setBackgroundColor(new Color(255,255,255));
-        //addSceneToStage(finalScene);
-
-
-
-    }
-
-    private void addSceneToStage(Scene scene)
-    {
-        ArrayList<Sprite> movingSprites;
-        RuleBasedSprite[]  slidingSprites;
-
-        slidingSprites  = scene.getSlidingSprites();
-        movingSprites   = scene.getMovingSprites();
-
-
-
-        for(int j =0; j < slidingSprites.length; j++)
-        {
-            if(slidingSprites[j] != null)
-            {
-                System.out.println(slidingSprites[j]);
-                stage.add(slidingSprites[j]);
-            }
-        }
-
-        for(int i =0; i < movingSprites.size(); i++)
-        {
-            if(movingSprites.get(i) != null)
-            {
-                System.out.println(movingSprites.get(i));
-                stage.add(movingSprites.get(i));
-            }
-        }
+        //build a tree that represents a story from these scenes
+        content     = StoryFactory.createAStory(scenes);
+        storyView   = new StoryView(content.getElement().getSceneController(),stageView, stage, content);
+        stage.add(storyView);
     }
 }
