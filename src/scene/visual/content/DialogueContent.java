@@ -23,12 +23,11 @@ import controller.MenuController;
  */
 public class DialogueContent extends MenuContent implements Sprite {
 
-	private int curTime;
-	private int numToRender = 2;
-	private int curIndex;
-	private TextSprite d1, d2;
-	private int waitTime;
-	private int timeSoFar;
+	private int curTime;		//The current metronome time after handle tick
+	private int curIndex;		//The current text sprite to render
+	private TextSprite d1, d2;	//Dialogue 1 and 2
+	private int waitTime;		//How long to wait until continuing
+	private int timeSoFar;		//How much time elapsed since an event
 	
 	/**
 	 * 
@@ -42,8 +41,8 @@ public class DialogueContent extends MenuContent implements Sprite {
 		super(sprites);
 		curTime = 0;
 		timeSoFar = 0;
-		numToRender = 1;
 		this.curIndex = 2;
+		
 		if (sprites.length > 0)
 		{
 			d1 = text[0];
@@ -57,8 +56,8 @@ public class DialogueContent extends MenuContent implements Sprite {
 			d2 = null;
 		}
 		
-		waitTime = 1000;
-		
+		waitTime = 1500; //Delay at 1.5 seconds
+
 	}
 	
 	/**
@@ -71,18 +70,20 @@ public class DialogueContent extends MenuContent implements Sprite {
 
 		Graphics2D g2 = (Graphics2D) g;
 		
+		//The encapsulating rectangle
 		g2.setColor(rectangleColor);
 		g2.fill(textRectangle);
 		g2.draw(textRectangle);
+		
 		d1.render(g2);
 		
-		if (d1.getGlyphText().getNumGlyphs() == d1.getText().length() && d2 != null) {
-			d2.setLocation(x, y + 40);
+		//Only render d2 if d1 is done rendering
+		if (d1.isFullyRendered() && d2 != null) {
+			d2.setLocation(x, y + d1.getFont().getSize() + 20);
 			d2.render(g2);
 		}
 	}
 	
-
 	/**
 	 * Updates the current time, and decides if more sprites
 	 * should be rendered.
@@ -91,59 +92,46 @@ public class DialogueContent extends MenuContent implements Sprite {
 	 */
 	public void handleTick(int time) {
 		
+		//Always show d1, since d1 is first
 		d1.handleTick(time);
 		
+		//Only update d2 once d1 has finished with all text
 		if (d1.isFullyRendered())
-		{
-            //System.out.println("FULLY rendered");
-			timeSoFar += time - curTime;
-			curTime = time;
-			if (timeSoFar >= waitTime)
-			{
-				updateDialogue();
-				d2.handleTick(time);
-			}
-		}
+			d2.handleTick(time);
 		
+		//Start tracking time since d2 finished
 		if (d2.isFullyRendered())
+			timeSoFar += time - curTime;
+		
+		//Advance to the text two text sprites in the dialogue
+		//Only after we have waited long enough
+		if (d2.isFullyRendered() && curIndex < text.length
+				&& timeSoFar >= waitTime)
+		{
 			timeSoFar = 0;
-		
-		
-		
-		//System.out.println(d1.getGlyphText().getNumGlyphs());
-		/*if (d1.getGlyphText().getNumGlyphs() == d1.getText().length())
-		{
-			
-		}*/
-		
-		//System.out.println("Index before:" + curIndex + "\tText length: " + text.length);
-		GlyphVector d2Glyphs = d2.getGlyphText();
-		
-		if (d2 != null && d2Glyphs != null && d2Glyphs.getNumGlyphs() == d2.getText().length() && curIndex < text.length)
-		{
-			//System.out.println("Index before d1: " + curIndex + "\tText length: " + text.length);
 			d1 = text[curIndex];
 			incrementIndex();
-			//System.out.println("Index before d2: " + curIndex + "\tText length: " + text.length);
 			d2 = text[curIndex];
 			incrementIndex();
 		}
-		//System.out.println(curIndex);
+		
+		//Advance the controller's content if the dialogue is finished
 		if (isDoneRenderingAll()) {
-			//System.out.println("DONE WITH DIALOGUE");
-			controller.advanceContent();
+			timeSoFar += time - curTime;
 			
+			//Wait before advancing
+			if (timeSoFar >= waitTime)
+				controller.advanceContent();
 		}
-			
 		
+		curTime = time;
 	}
 
-
-	public void updateDialogue()
-	{
-		
-	}
-	
+	/**
+	 * Returns true if each text sprite of the dialogue has been
+	 * rendered and finished.
+	 * @return if true.
+	 */
 	public boolean isDoneRenderingAll()
 	{
 		if (curIndex >= text.length - 1) {
@@ -153,29 +141,15 @@ public class DialogueContent extends MenuContent implements Sprite {
 		return false;
 	}
 	
+	/**
+	 * Incrememnts our index within bounds
+	 */
 	public void incrementIndex()
 	{
 		if (curIndex < text.length - 1)
 			curIndex++;
 	}
-	@Override
-	public void setRotation(double arg0, double arg1, double arg2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setScale(double arg0, double arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-	public String toString()
-	{
-		String string = "Dialogue: ";
-		string += super.toString();
-		return string;
-	}
-
-
-
+	
+	public void setRotation(double arg0, double arg1, double arg2) {	}
+	public void setScale(double arg0, double arg1) {}
 }
