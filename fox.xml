@@ -1,0 +1,62 @@
+<content>
+    <dialogue>
+        <bern>Dr. Fox! How are you sir?</bern>
+        <prof>I'm doing quite well, David!</prof>
+        <bern>Are you ready for some coffee to talk</bern>
+        <bern>about your new prog. language?</bern>
+    </dialogue>
+    <choice>
+        <option value="Yeah, I'm needing coffee right now...">
+            <dialogue>
+                <bern>What's wrong?</bern>
+                <prof>CS Department finances.</prof>
+                <bern>What's wrong with them?</bern>
+                <prof>We have no more money.</prof>
+                <bern>Like, 0?</bern>
+                <prof>Well...</prof>
+            </dialogue>
+            <choice>
+                <option value="We're in debt.">
+                    <dialogue>
+                        <bern>Oh no! That's not good...</bern>
+                        <prof>You're telling me.</prof>
+                        <bern>How much debt?</bern>
+                        <prof>You don't want to know.</prof>
+                        <bern>Try me.</bern>
+                        <prof>Seriously, you don't wanna know.</prof>
+                        <bern>Well, what did we do with all of it?</bern>
+                        <prof>Uhh...</prof>
+                    </dialogue>
+                    <choice>
+                        <option value="Accidently got scammed online.">
+                            <dialogue>
+                                <bern>Chris...You know better.</bern>
+                                <prof>Meh</prof>
+                            </dialogue>
+                            <choice>
+                                <option value="Go.">
+                                    <dialogue>
+                                        <bern>THE END.</bern>
+                                    </dialogue>
+                                </option>
+                            </choice>
+                        </option>
+                        <option value="Spent it all for myself.">
+                            <dialogue>
+                                <bern>But that's for the department!!</bern>
+                                <prof>Yeah</prof>
+                            </dialogue>
+                            <choice>
+                                <option value="GO">
+                                    <dialogue>
+                                        <bern>DONE</bern>
+                                    </dialogue>
+                                </option>
+                            </choice>
+                        </option>
+                    </choice>
+                </option>
+            </choice>
+        </option>
+    </choice>
+</content>

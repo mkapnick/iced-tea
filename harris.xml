@@ -6,9 +6,13 @@
         <prof>Well...</prof>
     </dialogue>
     <choice>
-        <option value="That's why I'm in the car, right?">
+        <option value="That's why I'm in the car, right? (Click)">
             <dialogue>
                 <bern>Yep! We're heading to "Think Coffee"</bern>
+                <prof>Oh really...</prof>
+                <bern>Yeah! My unknown wife suggested</bern>
+                <bern>this place because they have all sorts</bern>
+                <bern>of flavors.</bern>
                 <prof>Oh...</prof>
             </dialogue>
             <choice>
@@ -32,9 +36,19 @@
                                 <prof>All I meant is that he was nice.</prof>
                                 <bern>Oh...Sorry...How's Arch?</bern>
                                 <prof>He's fantastic.</prof>
-                                <bern>Of course why wouldn't he be? Okay we're here.</bern>
+                                <bern>Of course why wouldn't he be?</bern>
+                                <prof>This is really awkward.</prof>
+                                <bern>Sorry, we're almost there.</bern>
                                 <prof>Thank God.</prof>
                             </dialogue>
+                            <choice>
+                                <option value="Let's just get coffee?">
+                                    <dialogue>
+                                        <bern>We're here!</bern>
+                                        <prof>YES this is the end.</prof>
+                                    </dialogue>
+                                </option>
+                            </choice>
                         </option>
                         <option value="No! I hate being complimented!">
                             <dialogue>
@@ -53,6 +67,14 @@
                             <bern>Don't worry about it. Hey we're here!!!</bern>
                             <prof>Yay?</prof>
                             </dialogue>
+                            <choice>
+                                <option value="YAY CONTINUE">
+                                    <dialogue>
+                                        <bern>THE END.</bern>
+                                        <prof>The end.</prof>
+                                    </dialogue>
+                                </option>
+                            </choice>
                         </option>
                     </choice>
                 </option>
@@ -85,6 +107,7 @@
                                         <bern>A+ A+ A+ A+ A+ A+...</bern>
                                         <prof>It's too late...</prof>
                                         <prof>Guess the programmers should get an A then.</prof>
+                                        <bern>Agreed. The end. We're here.</bern>
                                     </dialogue>
                                 </option>
                                 <option value="They should get A++++">
