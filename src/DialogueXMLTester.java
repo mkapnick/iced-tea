@@ -1,32 +1,24 @@
-import factory.MenuFactory;
-import io.ResourceFinder;
-
-import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.xml.parsers.ParserConfigurationException;
-
 import model.EventNode;
-
-import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
-
-import scene.io.DialogueReader;
 import scene.visual.content.DialogueContent;
 import scene.visual.content.MenuContent;
 import scene.visual.dynamic.described.TextSprite;
+
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class DialogueXMLTester {
 
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException
 	{
-		DialogueReader reader = new DialogueReader("Chris", ResourceFinder.createInstance());
-		Document xml = reader.getXML();
+		//DialogueReader reader = new DialogueReader("Chris", ResourceFinder.createInstance());
+		//Document xml = reader.getXML();
 		
-		EventNode<MenuContent> content = MenuFactory.createDialogue("Chris", xml);
+		//EventNode<MenuContent> content = MenuFactory.createDialogue("Chris", xml);
 		
-		printAllContent(content);
+		//printAllContent(content);
 	}
 	
 	public static void printAllContent(EventNode<MenuContent> content)
