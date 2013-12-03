@@ -65,7 +65,7 @@ public class MenuFactory
 
 		
 		parent.getElement().setMenuController(new MenuController(parent));
-		
+		parent.getElement().setSceneController(controller);
 		//Get the child nodes of the root of the document
 		startingList = xml.getChildNodes();
         System.out.println(startingList.toString());

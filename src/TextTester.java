@@ -1,14 +1,27 @@
-import app.AbstractMultimediaApp;
+import factory.MenuFactory;
+import io.ResourceFinder;
+
+import java.awt.Rectangle;
+import java.io.IOException;
+
+import javax.swing.JPanel;
+import javax.xml.parsers.ParserConfigurationException;
+
 import model.EventNode;
+
+import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
+
+import scene.io.DialogueReader;
+import scene.visual.content.ChoiceContent;
 import scene.visual.content.MenuContent;
+import scene.visual.dynamic.described.ChoiceSprite;
+import scene.visual.dynamic.described.TextSprite;
+import view.MenuView;
 import visual.VisualizationView;
 import visual.dynamic.described.Stage;
-
-import javax.swing.*;
-import javax.xml.parsers.ParserConfigurationException;
-import java.awt.*;
-import java.io.IOException;
+import app.AbstractMultimediaApp;
+import controller.MenuController;
 
 
 public class TextTester extends AbstractMultimediaApp {
@@ -17,10 +30,10 @@ public class TextTester extends AbstractMultimediaApp {
 	
 	public TextTester() throws ParserConfigurationException, SAXException, IOException
 	{
-		/*DialogueReader reader = new DialogueReader("Chris", ResourceFinder.createInstance());
+		DialogueReader reader = new DialogueReader("Chris", ResourceFinder.createInstance());
 		Document xml = reader.getXML();
 		content = MenuFactory.createDialogue("Chris", xml);
-		//System.out.println(content);  */
+		//System.out.println(content);
 	}
 	
 	public void init()
@@ -34,10 +47,10 @@ public class TextTester extends AbstractMultimediaApp {
 		//System.out.println(menuView);
 		
 		VisualizationView view = stage.getView();
-		//MenuView menuView = new MenuView(content.getElement().getController(), view);
-		//menuView.setMouseListeners(view);
-		//menuView.setMouseMotionListeners(view);
-		//stage.add(menuView);
+		MenuView menuView = new MenuView(content.getElement().getController(), view);
+		menuView.setMouseListeners(view);
+		menuView.setMouseMotionListeners(view);
+		stage.add(menuView);
 		
 		/*for (int i = 0; i < content.children().size(); i++)
 		{

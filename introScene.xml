@@ -14,18 +14,7 @@
                 <keyTime>50000,0,850,0,1.0, null</keyTime>
             </movingSprite>
 
-            <movingSprite>
-                <image>foreground_2_INTRO.png</image>
-                <keyTime>25000,0,-850,0,1.0, null</keyTime>
-                <keyTime>75000,0,850,0,1.0, null</keyTime>
-            </movingSprite>
-
-
-            <movingSprite>
-                <image>foreground_3_INTRO.png</image>
-                <keyTime>37500,0,-850,0,1.0, null</keyTime>
-                <keyTime>87500,0,850,0,1.0, null</keyTime>
-            </movingSprite>
+            
 
             <movingSprite>
                 <image>foreground_road_INTRO.png</image>
@@ -39,14 +28,7 @@
                 <keyTime>5000, 350.0, 400.0, 0.0, 1.0, null</keyTime>
                 <keyTime>10000, 350.0, 305.0, 0.0, 1.0, null</keyTime>
                 <keyTime>15000, 350.0, 205.0, 0.0, 1.0, null</keyTime>
-                <keyTime>20000, 350.0, 105.0, 0.0, 1.0, null</keyTime>
-                <keyTime>25000, 350.0, 205.0, 0.0, 1.0, null</keyTime>
-                <keyTime>30000, 350.0, 305.0, 0.0, 1.0, null</keyTime>
-                <keyTime>35000, 350.0, 105.0, 0.0, 1.0, null</keyTime>
-                <keyTime>40000, 350.0, 305.0, 0.0, 1.0, null</keyTime>
-                <keyTime>45000, 350.0, 205.0, 0.0, 1.0, null</keyTime>
-                <keyTime>50000, 350.0, 305.0, 0.0, 1.0, null</keyTime>
-                <keyTime>55000, 350.0, 305.0, 0.0, 1.0, null</keyTime>
+                
             </movingSprite>
 
         </movingSprites>

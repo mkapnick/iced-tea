@@ -53,14 +53,15 @@ public class FinalApp extends AbstractMultimediaApp
         sceneStageView = sceneStage.getView();
         sceneStageView.setBounds(0, 0, 640, 480);
         sceneStageView.setBackground(new Color(158,209,144));
-
+        scenes = new ArrayList<Scene>();
+        sceneController = new SceneController(scenes);
+        
         setUpDialogueStages();
         setUpDialogue("Chris", dialogueStages[0], dialogueStageView[0], "mayfield.xml");
         setUpDialogue("Nancy", dialogueStages[1], dialogueStageView[1], "harris.xml");
         setUpDialogue("Fox", dialogueStages[2], dialogueStageView[2], "fox.xml");
 
-        scenes = new ArrayList<Scene>();
-        sceneController = new SceneController(scenes);
+        
 
 
 
@@ -87,7 +88,6 @@ public class FinalApp extends AbstractMultimediaApp
         DialogueReader reader = new DialogueReader(name, ResourceFinder.createInstance(), xmlFile);
         Document xml = reader.getXML();
         menuContent = MenuFactory.createDialogue(name, xml, sceneController);
-
         menuView = new MenuView(menuContent.getElement().getMenuController(), view);
         menuView.setMouseListeners(view);
         menuView.setMouseMotionListeners(view);
