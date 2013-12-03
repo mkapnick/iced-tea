@@ -1,40 +1,30 @@
+import GUI.GuiContainer;
+import app.AbstractMultimediaApp;
+import controller.SceneController;
 import factory.MenuFactory;
 import factory.SceneFactory;
 import io.ResourceFinder;
-
-import java.awt.Color;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.JPanel;
-import javax.xml.parsers.ParserConfigurationException;
-
 import model.Environment;
 import model.EventNode;
 import model.Script;
 import model.View;
-
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
-
 import scene.io.DialogueReader;
 import scene.visual.Scene;
 import scene.visual.content.MenuContent;
-import scene.visual.content.SceneContent;
 import view.MenuView;
 import view.StoryView;
 import visual.VisualizationView;
 import visual.dynamic.described.Stage;
-import app.AbstractMultimediaApp;
-import controller.SceneController;
+
+import javax.swing.*;
+import javax.xml.parsers.ParserConfigurationException;
+import java.awt.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -46,56 +36,77 @@ import controller.SceneController;
 
 public class FinalApp extends AbstractMultimediaApp
 {
-    private Stage stage, stage2;
-    private VisualizationView stageView, stageView2;
-    private EventNode<SceneContent> content;
-    private EventNode<MenuContent> menuContent;
-    private MenuView menuView;
-    private ArrayList<Scene>        scenes;
-    SceneController         sceneController;
-    private Clip clip;
+    private Stage                       sceneStage;
+    private Stage[]                     dialogueStages;
+    private VisualizationView           sceneStageView;
+    private VisualizationView[]         dialogueStageView;
+    private EventNode<MenuContent>      menuContent;
+    private MenuView                    menuView;
+    private ArrayList<Scene>            scenes;
+    private SceneController             sceneController;
+    private JPanel                      contentPane;
+    private GuiContainer                guiContainer;
 
-    public FinalApp() throws ParserConfigurationException, SAXException, IOException, UnsupportedAudioFileException, LineUnavailableException
+    public FinalApp() throws Exception, ParserConfigurationException, SAXException, IOException
     {
-        stage = new Stage(50);
-        stage2 = new Stage(25);
-        stageView2 = stage2.getView();
-        stageView = stage.getView();
-        stageView.setBackground(new Color(158,209,144));
+        sceneStage = new Stage(50);
+        sceneStageView = sceneStage.getView();
+        sceneStageView.setBounds(0, 0, 640, 480);
+        sceneStageView.setBackground(new Color(158,209,144));
+
+        setUpDialogueStages();
+        setUpDialogue("Chris", dialogueStages[0], dialogueStageView[0], "mayfield.xml");
+        setUpDialogue("Nancy", dialogueStages[1], dialogueStageView[1], "harris.xml");
+        setUpDialogue("Fox", dialogueStages[2], dialogueStageView[2], "fox.xml");
+
         scenes = new ArrayList<Scene>();
         sceneController = new SceneController(scenes);
-        //stage.setBackground();
-        stageView.setBounds(0, 0, 640, 480);
-        stageView2.setBounds(0, 480, 640, 480);
-        
-        DialogueReader reader = new DialogueReader("Mayfield", ResourceFinder.createInstance(), "mayfield.xml");
-        
-        FileInputStream bReader = new FileInputStream("cello_suite.wav");
-        ResourceFinder finder = ResourceFinder.createInstance();
-        InputStream is = getClass().getResourceAsStream("cello_suite.wav");
-        
-        AudioInputStream stream = AudioSystem.getAudioInputStream(is);
-        clip = AudioSystem.getClip();
-        clip.open(stream);
-		Document xml = reader.getXML();
-		menuContent = MenuFactory.createDialogue("Chris", xml, sceneController);
+
+
+
+    }
+
+    private void setUpDialogueStages()
+    {
+
+
+        dialogueStages = new Stage[3];
+        dialogueStageView = new VisualizationView[3];
+
+        for (int i =0; i < dialogueStages.length; i++)
+        {
+            dialogueStages[i]        = new Stage(100);
+            dialogueStageView[i]    = dialogueStages[i].getView();
+            dialogueStageView[i].setBounds(0,480,640,480);
+
+        }
+    }
+
+    private void setUpDialogue(String name, Stage sceneStage, VisualizationView view, String xmlFile) throws Exception
+    {
+        DialogueReader reader = new DialogueReader(name, ResourceFinder.createInstance(), xmlFile);
+        Document xml = reader.getXML();
+        menuContent = MenuFactory.createDialogue(name, xml, sceneController);
+
+        menuView = new MenuView(menuContent.getElement().getMenuController(), view);
+        menuView.setMouseListeners(view);
+        menuView.setMouseMotionListeners(view);
+        sceneStage.add(menuView);
     }
 
     public void init()
     {
 
-        startUp();
-        JPanel contentPane = (JPanel) rootPaneContainer.getContentPane();
-        contentPane.setLayout(null);
-        //contentPane.setSize(600,400);
+        this.contentPane = (JPanel) rootPaneContainer.getContentPane();
+        this.guiContainer = new GuiContainer(this.contentPane, this.dialogueStages, this.dialogueStageView, "Pick up Prof. Harris", "Pick up Prof. Mayfield", "Pick up Prof. Fox");
 
-        contentPane.add(stageView);
-        contentPane.add(stageView2);
-        System.out.println("Before stage start");
-        stage.start();
-        stage2.start();
-        clip.start();
-        System.out.println("stage started");
+        startUp();
+
+        contentPane.setLayout(null);
+        contentPane.add(sceneStageView);
+        System.out.println("Before sceneStage start");
+        sceneStage.start();
+        System.out.println("sceneStage started");
         contentPane.setVisible(true);
         System.out.println("After");
 
@@ -107,13 +118,9 @@ public class FinalApp extends AbstractMultimediaApp
         ResourceFinder          finder;
         BufferedReader          br;
         InputStream             is;
-        
         StoryView               storyView;
-      
 
         finder = ResourceFinder.createInstance(this);
-       
-        System.out.println("JUST BEFORE SCENE FACTORY CALL");
 
         //Construct all possible scenes
         scenes.add(SceneFactory.createScene(Environment.INTRO, View.BIRDSEYE,
@@ -140,17 +147,9 @@ public class FinalApp extends AbstractMultimediaApp
                 Script.FINAL_SCRIPT, finder, "finalScene.xml"));
         scenes.get(4).setBackgroundColor(new Color(255, 255, 255));
 
-        //build a tree that represents a story from these scenes
 
+        storyView   = new StoryView(sceneController,sceneStageView, sceneStage, this.guiContainer);
+        sceneStage.add(storyView);
 
-        //sceneController = new SceneController(scenes);
-        storyView   = new StoryView(sceneController,stageView, stage);
-        //System.out.println(menuContent.getElement());
-        menuView = new MenuView(menuContent.getElement().getMenuController(), stageView2);
-        menuView.setMouseListeners(stageView2);
-		menuView.setMouseMotionListeners(stageView2);
-        stage2.add(menuView);
-        stage.add(storyView);
-        
     }
 }

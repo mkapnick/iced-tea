@@ -16,6 +16,7 @@ import java.awt.geom.Point2D;
 public class MovingSprite extends SampledSprite
 {
     private Content content;
+    private int     keyTime;
 
     public MovingSprite(Content content)
     {
@@ -41,6 +42,16 @@ public class MovingSprite extends SampledSprite
     public TransformableContent getContent()
     {
         return this.content;
+    }
+
+    public void setKeyTime(int keyTime)
+    {
+        this.keyTime = keyTime;
+    }
+
+    public int getKeyTime()
+    {
+        return this.keyTime;
     }
 
 }

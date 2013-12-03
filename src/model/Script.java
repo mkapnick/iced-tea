@@ -21,7 +21,9 @@ public enum Script
     SNOW_SCRIPT(null),
     FINAL_SCRIPT(null);
 
-    private ArrayList<Sprite> sprites;
+    private ArrayList<Sprite>   sprites;
+    private int                 startTime;
+    private int                 endTime;
 
     Script(ArrayList<Sprite> sprites)
     {
@@ -36,6 +38,26 @@ public enum Script
     public ArrayList<Sprite> getSprites()
     {
         return this.sprites;
+    }
+
+    public void setStartTime(int startTime)
+    {
+        this.startTime = startTime;
+    }
+
+    public void setEndTime(int endTime)
+    {
+        this.endTime = endTime;
+    }
+
+    public int getStartTime()
+    {
+        return this.startTime;
+    }
+
+    public int getEndTime()
+    {
+        return this.endTime;
     }
 
 

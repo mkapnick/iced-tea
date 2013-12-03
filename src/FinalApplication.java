@@ -15,7 +15,7 @@ public class FinalApplication extends MultimediaApplication {
 		SwingUtilities.invokeAndWait(new FinalApplication(args, 640,700));
 	}
 	
-	public FinalApplication(String[] args, int height, int width) throws ParserConfigurationException, SAXException, IOException, UnsupportedAudioFileException, LineUnavailableException
+	public FinalApplication(String[] args, int height, int width) throws Exception, ParserConfigurationException, SAXException, IOException, UnsupportedAudioFileException, LineUnavailableException
 	{
 		super(args, new FinalApp(), height, width);
 	}

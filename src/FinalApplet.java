@@ -1,12 +1,10 @@
-import java.io.IOException;
+import app.MultimediaApplet;
+import org.xml.sax.SAXException;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.xml.parsers.ParserConfigurationException;
-
-import org.xml.sax.SAXException;
-
-import app.MultimediaApplet;
+import java.io.IOException;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,7 +15,7 @@ import app.MultimediaApplet;
  */
 public class FinalApplet extends MultimediaApplet
 {
-    public FinalApplet() throws ParserConfigurationException, SAXException, IOException, UnsupportedAudioFileException, LineUnavailableException
+    public FinalApplet() throws Exception, ParserConfigurationException, SAXException, IOException, UnsupportedAudioFileException, LineUnavailableException
     {
         super(new FinalApp());
     }

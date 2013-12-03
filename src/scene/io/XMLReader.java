@@ -106,6 +106,8 @@ public class XMLReader {
         Element                 element;
         String                  imageValue, keyTime;
         int                     index;
+        int                     current=0;
+        int                     maxKeyTime=-1, minKeyTime=1000000000;
 
         //Variables associated with a scene
         BufferedImage           spriteImage;
@@ -137,15 +139,24 @@ public class XMLReader {
                 keyTime = getValueOfNode(keyTimeTags, index, element);
                 System.out.println("Key time is: " + keyTime);
                 addKeyTime(keyTime, sprite, finder);
+                current = ((MovingSprite) sprite).getKeyTime();
+
+                if(current > maxKeyTime)
+                    maxKeyTime = current;
+
+                if(current < minKeyTime)
+                    minKeyTime = current;
+
                 index++;
             }
-
             ((MovingSprite) sprite).setEndState();
             sprites.add(sprite);
         }
 
         System.out.println("ok, parsed moving sprites");
         script.setSprites(sprites);
+        script.setStartTime(minKeyTime);
+        script.setEndTime(maxKeyTime);
     }
     private static void addKeyTime(String keyTime, Sprite sprite,ResourceFinder finder)
     {
@@ -186,6 +197,7 @@ public class XMLReader {
 
         }
 
+        ((MovingSprite) sprite).setKeyTime(time);
         ((MovingSprite) sprite).addKeyTime(time, x, y, r, s, c);
     }
 

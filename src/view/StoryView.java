@@ -1,5 +1,6 @@
 package view;
 
+import GUI.GuiContainer;
 import controller.SceneController;
 import event.Metronome;
 import scene.visual.Scene;
@@ -19,13 +20,15 @@ public class StoryView implements Sprite {
     private VisualizationView       view;
     private Stage                   stage;
     private Scene                   previousScene;
+    private GuiContainer            guiContainer;
 
-    public StoryView(SceneController controller, VisualizationView view, Stage stage)
+    public StoryView(SceneController controller, VisualizationView view, Stage stage, GuiContainer container)
     {
         this.controller         = controller;
         this.view               = view;
         this.stage              = stage;
         this.currentScene       = controller.getCurrentScene();
+        this.guiContainer       = container;
         //System.out.println("SIZE AGAIN IS: " + this.node.children().size());
         //controller.setCurrentContentToIndex(0);
     }
@@ -87,14 +90,22 @@ public class StoryView implements Sprite {
 
     @Override
     public void handleTick(int time) {
+
+        if(time >= model.Script.INTRO_SCRIPT.getEndTime()- 50 && time <= model.Script.INTRO_SCRIPT.getEndTime() + 50)
+        {
+            this.guiContainer.setButtonEnabled(true);
+        }
+
         Metronome   metronome;
 
         previousScene       = this.currentScene;
+
+
         this.currentScene   = controller.getCurrentScene();
-        
-       
+
+
         //controller.nextScene();
-       
+
         if(!currentScene.isOnStage())
         {
             if(this.currentScene != previousScene)
