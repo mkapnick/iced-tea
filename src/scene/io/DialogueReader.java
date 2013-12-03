@@ -21,16 +21,19 @@ public class DialogueReader{
 
 		private String professor;
 		private ResourceFinder finder;
+		private String fileName;
 		
-       public DialogueReader(String professor, ResourceFinder finder)
+       public DialogueReader(String professor, ResourceFinder finder, String file)
        {
     	   this.professor = professor;
     	   this.finder = finder;
+    	   this.fileName = file;
        }
 
     public Document getXML() throws ParserConfigurationException, SAXException, IOException
     {
-    	File dialogueFile = new File("harris.xml");
+    	
+    	File dialogueFile = new File(fileName);
     	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
     	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
     	Document doc = dBuilder.parse(dialogueFile);

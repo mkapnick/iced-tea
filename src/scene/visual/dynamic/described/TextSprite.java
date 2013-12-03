@@ -39,7 +39,7 @@ public abstract class TextSprite implements Sprite
 	{
 		this.text = text; 
 		
-		this.font = new Font("Copperplate Gothic Light", Font.PLAIN, 20);
+		this.font = new Font("Times New Roman", Font.PLAIN, 22);
 		this.color = Color.black;
 	}
 	

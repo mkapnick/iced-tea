@@ -1,14 +1,30 @@
-import app.AbstractMultimediaApp;
-import controller.SceneController;
 import factory.MenuFactory;
 import factory.SceneFactory;
 import io.ResourceFinder;
+
+import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.JPanel;
+import javax.xml.parsers.ParserConfigurationException;
+
 import model.Environment;
 import model.EventNode;
 import model.Script;
 import model.View;
+
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
+
 import scene.io.DialogueReader;
 import scene.visual.Scene;
 import scene.visual.content.MenuContent;
@@ -17,14 +33,8 @@ import view.MenuView;
 import view.StoryView;
 import visual.VisualizationView;
 import visual.dynamic.described.Stage;
-
-import javax.swing.*;
-import javax.xml.parsers.ParserConfigurationException;
-import java.awt.*;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
+import app.AbstractMultimediaApp;
+import controller.SceneController;
 
 /**
  * Created with IntelliJ IDEA.
@@ -43,11 +53,12 @@ public class FinalApp extends AbstractMultimediaApp
     private MenuView menuView;
     private ArrayList<Scene>        scenes;
     SceneController         sceneController;
+    private Clip clip;
 
-    public FinalApp() throws ParserConfigurationException, SAXException, IOException
+    public FinalApp() throws ParserConfigurationException, SAXException, IOException, UnsupportedAudioFileException, LineUnavailableException
     {
         stage = new Stage(50);
-        stage2 = new Stage(50);
+        stage2 = new Stage(25);
         stageView2 = stage2.getView();
         stageView = stage.getView();
         stageView.setBackground(new Color(158,209,144));
@@ -57,7 +68,15 @@ public class FinalApp extends AbstractMultimediaApp
         stageView.setBounds(0, 0, 640, 480);
         stageView2.setBounds(0, 480, 640, 480);
         
-        DialogueReader reader = new DialogueReader("Chris", ResourceFinder.createInstance());
+        DialogueReader reader = new DialogueReader("Mayfield", ResourceFinder.createInstance(), "mayfield.xml");
+        
+        FileInputStream bReader = new FileInputStream("cello_suite.wav");
+        ResourceFinder finder = ResourceFinder.createInstance();
+        InputStream is = getClass().getResourceAsStream("cello_suite.wav");
+        
+        AudioInputStream stream = AudioSystem.getAudioInputStream(is);
+        clip = AudioSystem.getClip();
+        clip.open(stream);
 		Document xml = reader.getXML();
 		menuContent = MenuFactory.createDialogue("Chris", xml, sceneController);
     }
@@ -75,6 +94,7 @@ public class FinalApp extends AbstractMultimediaApp
         System.out.println("Before stage start");
         stage.start();
         stage2.start();
+        clip.start();
         System.out.println("stage started");
         contentPane.setVisible(true);
         System.out.println("After");

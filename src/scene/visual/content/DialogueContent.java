@@ -56,7 +56,7 @@ public class DialogueContent extends MenuContent implements Sprite {
 			d2 = null;
 		}
 		
-		waitTime = 1500; //Delay at 1.5 seconds
+		waitTime = 3000; //Delay at 1.5 seconds
 
 	}
 	
@@ -75,13 +75,14 @@ public class DialogueContent extends MenuContent implements Sprite {
 		textRectangle.x = x;
 		textRectangle.y = y;
 		g2.fill(textRectangle);
+		g2.setColor(Color.black);
 		g2.draw(textRectangle);
-		d1.setLocation(x, y);
+		d1.setLocation(x, y + 30);
 		d1.render(g2);
 		
 		//Only render d2 if d1 is done rendering
 		if (d1.isFullyRendered() && d2 != null) {
-			d2.setLocation(x, y + d1.getFont().getSize() + 20);
+			d2.setLocation(x, 30 + y + d1.getFont().getSize() + 20);
 			d2.render(g2);
 		}
 	}

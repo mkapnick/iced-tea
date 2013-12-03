@@ -73,7 +73,7 @@ public class ChoiceContent extends MenuContent {
 		g2.draw(textRectangle);
 		for (int i = 0; i < text.length; i++)
 		{
-			if (isTopDownView) 	text[i].setLocation(x, y + (i * 2)  * text[i].getFont().getSize());
+			if (isTopDownView) 	text[i].setLocation(x, 30 + y + (i * 2)  * text[i].getFont().getSize());
 			else 				text[i].setLocation(i * text[i].getText().length() + i * 100, 0);
 			
 			text[i].render(g);
