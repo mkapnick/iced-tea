@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<scene>
+
+    <views>
+
+
+
+    </views>
+
+
+
+
+    <sprites>
+        <slidingSprites>
+
+        </slidingSprites>
+
+        <movingSprites>
+            <movingSprite>
+                <image>buildings_1_CITY.png</image>
+                <keyTime>500,640,-5.0,0.0,1.0,null</keyTime>
+                <keyTime>35000,-640,-5.0,0.0,1.0,null</keyTime>
+            </movingSprite>
+
+            <movingSprite>
+                <image>buildings_2_CITY.png</image>
+                <keyTime>17080,640,-5.0,0.0,1.0,null</keyTime>
+                <keyTime>51580,-640,-5.0,0.0,1.0,null</keyTime>
+            </movingSprite>
+
+            <movingSprite>
+                <image>buildings_3_CITY.png</image>
+                <keyTime>33660,640,-5.0,0.0,1.0,null</keyTime>
+                <keyTime>68160,-640,-5.0,0.0,1.0,null</keyTime>
+            </movingSprite>
+
+            <movingSprite>
+                <image>buildings_4_CITY.png</image>
+                <keyTime>50210,640,-5.0,0.0,1.0,null</keyTime>
+                <keyTime>84710,-640,-5.0,0.0,1.0,null</keyTime>
+            </movingSprite>
+
+            <movingSprite>
+                <image>buildings_5_CITY.png</image>
+                <keyTime>66710,640,-5.0,0.0,1.0,null</keyTime>
+                <keyTime>87476,-140,-5.0,0.0,1.0,null</keyTime>
+            </movingSprite>
+
+            <movingSprite>
+                <image>road_dashed_white_SIDEVIEW.png</image>
+                <keyTime>0, -100.0, 340.0, 0.0, 1.0,null</keyTime>
+                <keyTime>3000, 0.0, 340.0,0.0,1.0,null</keyTime>
+            </movingSprite>
+
+            <movingSprite>
+                <image>main_car_SIDEVIEW.png</image>
+                <keyTime>0,-200.0,370.0.0,0.0,1.0,null</keyTime>
+                <keyTime>1000, -100, 370.0, 0.0, 1.0,null</keyTime>
+                <keyTime>15000, -20, 370.0, 0.0, 1.0,null</keyTime>
+                <keyTime>20000, 200, 370, 0.0, 1.0,null</keyTime>
+                <keyTime>25000, 200, 370.0, 0.0, 1.0,null</keyTime>
+                <keyTime>30000, 200, 370.0, 0.0, 1.0,null</keyTime>
+
+            </movingSprite>
+
+            <movingSprite>
+                <image>stick_figure_1.png</image>
+                <keyTime>70476, 600, 410, 0.0, 1.0,null</keyTime>
+                <keyTime>87476, 500, 410, 0.0, 1.0,null</keyTime>
+                <keyTime>88480, 450, 410, 0.0, 1.0, stick_figure_2.png</keyTime>
+                <keyTime>89485, 400, 410, 0.0, 1.0, stick_figure_3.png</keyTime>
+                <keyTime>90490, 350, 410, 0.0, 1.0, stick_figure_4.png</keyTime>
+                <keyTime>91495, 300, 410, 0.0, 1.0, stick_figure_5.png</keyTime>
+                <keyTime>92500, 250, 410, 0.0, 1.0, stick_figure_6.png</keyTime>
+                <keyTime>93505, 200, 410, 0.0, 1.0, stick_figure_7.png</keyTime>
+           </movingSprite>
+
+        </movingSprites>
+    </sprites>
+
+</scene>

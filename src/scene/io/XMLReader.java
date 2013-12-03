@@ -2,22 +2,26 @@ package scene.io;
 
 import io.ImageReader;
 import io.ResourceFinder;
+
+import java.awt.image.BufferedImage;
+import java.io.InputStream;
+import java.util.ArrayList;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
 import model.Environment;
 import model.Script;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
 import scene.visual.dynamic.described.MovingSprite;
 import visual.dynamic.described.Sprite;
 import visual.statik.sampled.Content;
 import visual.statik.sampled.ContentFactory;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -28,28 +32,35 @@ import java.util.ArrayList;
  */
 public class XMLReader {
 
-    public static void parseXMLFile(String file, Environment env, Script script, ResourceFinder finder) throws Exception
+	ResourceFinder finder;
+	
+	public XMLReader()
+	{
+		finder = ResourceFinder.createInstance(this);
+	}
+	
+    public void parseXMLFile(String file, Environment env, Script script) throws Exception
     {
         //Declarations for parsing XML file
         DocumentBuilderFactory docBuilderFactory;
         DocumentBuilder docBuilder;
         Document doc;
-
+        InputStream stream = finder.findInputStream(file);
         //Initialize XML variables
         docBuilderFactory   = DocumentBuilderFactory.newInstance();
         docBuilder          = docBuilderFactory.newDocumentBuilder();
-        doc                 = docBuilder.parse (new File(file));
+        doc                 = docBuilder.parse (stream);
 
         doc.getDocumentElement().normalize();
 
         System.out.println("About to parse sliding sprites");
-        parseSlidingSprites(doc, env, finder);
+        parseSlidingSprites(doc, env);
         System.out.println("About to parse moving sprites");
-        parseMovingSprites(doc, script, finder);
+        parseMovingSprites(doc, script);
         System.out.println("Finished parsing");
     }
 
-    private static void parseSlidingSprites(Document doc, Environment env, ResourceFinder finder)
+    private void parseSlidingSprites(Document doc, Environment env)
     {
 
         NodeList                slidingSpriteList,imageTags, nameTag;
@@ -98,7 +109,7 @@ public class XMLReader {
         }
     }
 
-    private static void parseMovingSprites(Document doc, Script script, ResourceFinder finder)
+    private void parseMovingSprites(Document doc, Script script)
     {
         //Variables associated with the XML file
         NodeList                movingSpriteList, keyTimeTags, imageTag;
@@ -158,7 +169,7 @@ public class XMLReader {
         script.setStartTime(minKeyTime);
         script.setEndTime(maxKeyTime);
     }
-    private static void addKeyTime(String keyTime, Sprite sprite,ResourceFinder finder)
+    private void addKeyTime(String keyTime, Sprite sprite,ResourceFinder finder)
     {
         String []       times;
         int             time=0;
@@ -201,7 +212,7 @@ public class XMLReader {
         ((MovingSprite) sprite).addKeyTime(time, x, y, r, s, c);
     }
 
-    private static String getValueOfNode(NodeList tags, int index, Element element)
+    private String getValueOfNode(NodeList tags, int index, Element element)
     {
         NodeList    dummyList;
         Node        dummyNode;

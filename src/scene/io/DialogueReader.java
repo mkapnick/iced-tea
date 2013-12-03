@@ -4,6 +4,7 @@ import io.ResourceFinder;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -23,20 +24,20 @@ public class DialogueReader{
 		private ResourceFinder finder;
 		private String fileName;
 		
-       public DialogueReader(String professor, ResourceFinder finder, String file)
+       public DialogueReader(String professor, String file)
        {
     	   this.professor = professor;
-    	   this.finder = finder;
+    	   this.finder = ResourceFinder.createInstance(this);
     	   this.fileName = file;
        }
 
     public Document getXML() throws ParserConfigurationException, SAXException, IOException
     {
+    	InputStream is = finder.findInputStream(fileName);
     	
-    	File dialogueFile = new File(fileName);
     	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
     	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-    	Document doc = dBuilder.parse(dialogueFile);
+    	Document doc = dBuilder.parse(is);
     	
     	return doc;
     }

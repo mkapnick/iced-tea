@@ -25,7 +25,9 @@ public class GuiContainer implements ActionListener {
     private VisualizationView [] dialogueViews;
 
 
-    public GuiContainer(JPanel contentPane, Stage[] dialogueStages, VisualizationView [] views,  String label1, String label2, String label3)
+    public GuiContainer(JPanel contentPane, 
+    		Stage[] dialogueStages, VisualizationView [] views,  
+    		String label1, String label2, String label3)
     {
         this.contentPane    = contentPane;
         this.dialogueStages = dialogueStages;

@@ -16,7 +16,8 @@ public class ImageReader {
         image = null;
         try
         {
-            is = finder.findInputStream("/" + fileName);
+            is = finder.findInputStream(fileName);
+            System.out.println("The input stream: " + is);
             if(is != null)
             {
                 image = ImageIO.read(is);
@@ -31,10 +32,10 @@ public class ImageReader {
         return image;
     }
 
-    public static BufferedImage readFile (String fileName)
+    public BufferedImage readFile (String fileName)
     {
         ResourceFinder finder;
-        finder = ResourceFinder.createInstance();
+        finder = ResourceFinder.createInstance(this);
 
         return readFile(fileName, finder);
     }

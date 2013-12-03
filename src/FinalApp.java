@@ -85,7 +85,7 @@ public class FinalApp extends AbstractMultimediaApp
 
     private void setUpDialogue(String name, Stage sceneStage, VisualizationView view, String xmlFile) throws Exception
     {
-        DialogueReader reader = new DialogueReader(name, ResourceFinder.createInstance(), xmlFile);
+        DialogueReader reader = new DialogueReader(name, xmlFile);
         Document xml = reader.getXML();
         menuContent = MenuFactory.createDialogue(name, xml, sceneController);
         menuView = new MenuView(menuContent.getElement().getMenuController(), view);
@@ -98,7 +98,10 @@ public class FinalApp extends AbstractMultimediaApp
     {
 
         this.contentPane = (JPanel) rootPaneContainer.getContentPane();
-        this.guiContainer = new GuiContainer(this.contentPane, this.dialogueStages, this.dialogueStageView, "Pick up Prof. Harris", "Pick up Prof. Mayfield", "Pick up Prof. Fox");
+        this.guiContainer = new GuiContainer(this.contentPane, 
+        		this.dialogueStages, this.dialogueStageView, 
+        		"Pick up Prof. Harris", "Pick up Prof. Mayfield", 
+        		"Pick up Prof. Fox");
 
         startUp();
 

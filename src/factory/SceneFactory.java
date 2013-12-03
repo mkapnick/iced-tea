@@ -21,11 +21,13 @@ public class SceneFactory {
 
     {
         Scene scene;
+        XMLReader reader;
+        reader = new XMLReader();
         scene = null;
         try
         {
             System.out.println("ABOUT TO CALL XML PARSE FILE");
-            XMLReader.parseXMLFile(fileName, env, script, finder);
+            reader.parseXMLFile(fileName, env, script);
             System.out.println("Parsed XML file");
             scene = createScene(env,view, script, finder);
             System.out.println("Created scene!");
