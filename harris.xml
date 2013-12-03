@@ -1,0 +1,114 @@
+<content>
+    <dialogue>
+        <bern>Hey Nancy! How's "wit" going?</bern>
+        <prof>Good. Thanks for picking me up!</prof>
+        <bern>No problem. You want coffee, right?</bern>
+        <prof>Well...</prof>
+    </dialogue>
+    <choice>
+        <option value="That's why I'm in the car, right?">
+            <dialogue>
+                <bern>Yep! We're heading to "Think Coffee"</bern>
+                <prof>Oh...</prof>
+            </dialogue>
+            <choice>
+                <option value="That's nice.">
+                    <dialogue>
+                        <bern>I love Think Coffee. It's my favorite</bern>
+                        <prof>Yeah, it's okay. One time, I went there</prof>
+                        <prof>and got a free cup because  </prof>
+                        <prof>the nice server said I had a winning smile.</prof>
+                        <bern>That's sweet! Did you like the server?</bern>
+                        <prof>Hmm...</prof>
+                    </dialogue>
+                    <choice>
+                        <option value="He was very nice, yes!">
+                            <dialogue>
+                                <bern>NANCY! What about Arch??</bern>
+                                <prof>What do you mean, "what about Arch"??</prof>
+                                <bern>You shouldn't be attracted to other men!</bern>
+                                <prof>David...I don't have any feelings for the server.</prof>
+                                <bern>No?</bern>
+                                <prof>All I meant is that he was nice.</prof>
+                                <bern>Oh...Sorry...How's Arch?</bern>
+                                <prof>He's fantastic.</prof>
+                                <bern>Of course why wouldn't he be? Okay we're here.</bern>
+                                <prof>Thank God.</prof>
+                            </dialogue>
+                        </option>
+                        <option value="No! I hate being complimented!">
+                            <dialogue>
+                            <bern>Good job, Nancy, you passed the test.</bern>
+                            <prof>What?</prof>
+                            <bern>You must really love your husband.</bern>
+                            <prof>Why does that test my love for my husband?</prof>
+                            <bern>Well, let's say you answered 'Yes'.</bern>
+                            <prof>Yeah?</prof>
+                            <bern>That would mean you were in love with the server!</bern>
+                            <prof>WHAT?? Where do you get your reasoning?</prof>
+                            <bern>From...from...</bern>
+                            <prof>MIT? Princeton?</prof>
+                            <bern>No, no. My wife does that to me all the time.</bern>
+                            <prof>Oh...I see. I'm sorry then.</prof>
+                            <bern>Don't worry about it. Hey we're here!!!</bern>
+                            <prof>Yay?</prof>
+                            </dialogue>
+                        </option>
+                    </choice>
+                </option>
+                <option value="Ick, I hate that place.">
+                    <dialogue>
+                        <bern>Well, this game is only programmed</bern>
+                        <bern>to take us there, so...deal with it.</bern>
+                        <prof>:(</prof>
+                        <bern>What's wrong?</bern>
+                    </dialogue>
+                    <choice>
+                        <option value="This game sucks...">
+                            <dialogue>
+                               	<bern>Couldn't agree with you more. Sorry Nancy.</bern>
+                            	<prof>Not your fault, David. You gonna fail them?</prof>
+                            	<bern>Not sure yet. What do you think?</bern>
+                            	<prof>Well...</prof>	
+                            </dialogue>
+                            <choice>
+                                <option value="They should fail.">
+                                    <dialogue>
+                                        <bern>Hmm...</bern>
+                                        <prof>What?</prof>
+                                        <bern>I think they should get A+++!!</bern>
+                                        <prof>Oh...Why?</prof>
+                                        <bern>Because they just should!</bern>
+                                        <bern>My mind is telling me to say A+++, so A+!</bern>
+                                        <prof>David! It's the programmers!</prof>
+                                        <prof>They're in your head!</prof>
+                                        <bern>A+ A+ A+ A+ A+ A+...</bern>
+                                        <prof>It's too late...</prof>
+                                        <prof>Guess the programmers should get an A then.</prof>
+                                    </dialogue>
+                                </option>
+                                <option value="They should get A++++">
+                                    <dialogue>
+                                        <bern>Couldn't agree more!</bern>
+                                        <prof>Yep :)</prof>
+                                        <bern>Okay, we're here.</bern>
+                                        <prof>Damn, I didn't want to drink here, but okay.</prof>
+                                    </dialogue>
+                                </option>
+                            </choice>
+                            
+                        </option>
+                        <option value="You're being a jerk.">
+                            <dialogue>
+                                <bern>I am not! It's literally programmed this way!</bern>
+                                <prof>Oh, of course! :D</prof>
+                                <bern>Looks like we're here.</bern>
+                                <prof>DAMN THEE PROGRAMMERS I DIDNT WANT TO DRINK HERE.</prof>
+                            </dialogue>
+                        </option>
+                    </choice>
+                </option>
+            </choice>
+        </option>
+    </choice>
+</content>
