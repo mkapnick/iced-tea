@@ -49,8 +49,9 @@ public abstract class MenuContent implements Sprite {
 	}
 	public void setMenuController(MenuController controller)
 	{
-		this.menuController = menuController;
+		this.menuController = controller;
 	}
+	
 	public SceneController getSceneController()
 	{
 		return this.sceneController;

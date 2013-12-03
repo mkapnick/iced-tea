@@ -44,8 +44,10 @@ public class ChoiceContent extends MenuContent {
 		int whichClicked = whichClicked();
 		
 		if (whichClicked != -1) {
+			System.out.println("Which clicked: " + whichClicked);
 			menuController.setCurrentContentToIndex(whichClicked);
 			sceneController.nextScene();
+			System.out.println(sceneController.getCurrentScene());
 		}
 			
 		

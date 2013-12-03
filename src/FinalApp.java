@@ -41,6 +41,8 @@ public class FinalApp extends AbstractMultimediaApp
     private EventNode<SceneContent> content;
     private EventNode<MenuContent> menuContent;
     private MenuView menuView;
+    private ArrayList<Scene>        scenes;
+    SceneController         sceneController;
 
     public FinalApp() throws ParserConfigurationException, SAXException, IOException
     {
@@ -49,13 +51,15 @@ public class FinalApp extends AbstractMultimediaApp
         stageView2 = stage2.getView();
         stageView = stage.getView();
         stageView.setBackground(new Color(158,209,144));
+        scenes = new ArrayList<Scene>();
+        sceneController = new SceneController(scenes);
         //stage.setBackground();
         stageView.setBounds(0, 0, 640, 480);
         stageView2.setBounds(0, 480, 640, 480);
         
         DialogueReader reader = new DialogueReader("Chris", ResourceFinder.createInstance());
 		Document xml = reader.getXML();
-		menuContent = MenuFactory.createDialogue("Chris", xml);
+		menuContent = MenuFactory.createDialogue("Chris", xml, sceneController);
     }
 
     public void init()
@@ -83,12 +87,12 @@ public class FinalApp extends AbstractMultimediaApp
         ResourceFinder          finder;
         BufferedReader          br;
         InputStream             is;
-        ArrayList<Scene>        scenes;
+        
         StoryView               storyView;
-        SceneController         sceneController;
+      
 
         finder = ResourceFinder.createInstance(this);
-        scenes = new ArrayList<Scene>();
+       
         System.out.println("JUST BEFORE SCENE FACTORY CALL");
 
         //Construct all possible scenes
@@ -119,8 +123,9 @@ public class FinalApp extends AbstractMultimediaApp
         //build a tree that represents a story from these scenes
 
 
-        sceneController = new SceneController(scenes);
+        //sceneController = new SceneController(scenes);
         storyView   = new StoryView(sceneController,stageView, stage);
+        //System.out.println(menuContent.getElement());
         menuView = new MenuView(menuContent.getElement().getMenuController(), stageView2);
         menuView.setMouseListeners(stageView2);
 		menuView.setMouseMotionListeners(stageView2);

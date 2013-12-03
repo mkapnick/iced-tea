@@ -91,7 +91,10 @@ public class StoryView implements Sprite {
 
         previousScene       = this.currentScene;
         this.currentScene   = controller.getCurrentScene();
-
+        
+       
+        //controller.nextScene();
+       
         if(!currentScene.isOnStage())
         {
             if(this.currentScene != previousScene)

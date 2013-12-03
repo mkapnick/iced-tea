@@ -1,11 +1,15 @@
 package factory;
 
-import controller.MenuController;
+import java.awt.Color;
+import java.util.ArrayList;
+
 import model.EventNode;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
 import scene.visual.content.ChoiceContent;
 import scene.visual.content.DialogueContent;
 import scene.visual.content.MenuContent;
@@ -13,9 +17,8 @@ import scene.visual.dynamic.described.BasicTextSprite;
 import scene.visual.dynamic.described.ChoiceSprite;
 import scene.visual.dynamic.described.ScrollingTextSprite;
 import scene.visual.dynamic.described.TextSprite;
-
-import java.awt.*;
-import java.util.ArrayList;
+import controller.MenuController;
+import controller.SceneController;
 
 /**
  * Factory which both creates the EventNode tree, and constructs it
@@ -38,6 +41,7 @@ import java.util.ArrayList;
 public class MenuFactory 
 {
 	public static String professor;
+	public static SceneController sceneController;
 	
 	/**
 	 * Entry point of the parse of the xml file and constructs
@@ -48,11 +52,11 @@ public class MenuFactory
 	 * @return parent - the root EventNode, which contains all
 	 * 					children.
 	 */
-	public static EventNode<MenuContent> createDialogue(String prof, Document xml)
+	public static EventNode<MenuContent> createDialogue(String prof, Document xml, SceneController controller)
 	{
 		NodeList startingList;
 		professor = prof;
-		
+		sceneController = controller;
 		//Initialize the parent at "Root".
 		EventNode<MenuContent> parent = 
 				new EventNode<MenuContent>(new DialogueContent
@@ -60,7 +64,7 @@ public class MenuFactory
 
 
 		
-		parent.getElement().setController(new MenuController(parent));
+		parent.getElement().setMenuController(new MenuController(parent));
 		
 		//Get the child nodes of the root of the document
 		startingList = xml.getChildNodes();
@@ -144,7 +148,9 @@ public class MenuFactory
 				//Creating the content from the texts and placing
 				//in an EventNode.
 				contentNode = new EventNode<MenuContent>(content);
-				contentNode.getElement().setController(parent.getElement().getController());
+				contentNode.getElement().setMenuController(parent.getElement().getMenuController());
+				System.out.println("SCENE CONTROLLER: " + sceneController);
+				contentNode.getElement().setSceneController(sceneController);
 				
 				//Append this new node to the parent 
 				parent.addNode(contentNode);	
