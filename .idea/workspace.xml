@@ -2,29 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08fc825b-b34c-4e20-8d85-256100c7fc19" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/scene/visual/content/SceneContent.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/snowScene.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Fish.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/birds_eye_view_first_scene_no_car.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/city_theme_base.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main_car.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/side_road_dashed_white.png" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/scene/visual/SceneFactory.java" afterPath="$PROJECT_DIR$/src/factory/SceneFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/coffee_shop.png" afterPath="$PROJECT_DIR$/src/coffee_shop.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scene/visual/dynamic/described/ChoiceSprite.java" afterPath="$PROJECT_DIR$/src/scene/visual/dynamic/described/ChoiceSprite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scene/visual/content/DialogueContent.java" afterPath="$PROJECT_DIR$/src/scene/visual/content/DialogueContent.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/factory/StoryFactory.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FinalApp.java" afterPath="$PROJECT_DIR$/src/FinalApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FinalApplication.java" afterPath="$PROJECT_DIR$/src/FinalApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/factory/MenuFactory.java" afterPath="$PROJECT_DIR$/src/factory/MenuFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/MenuView.java" afterPath="$PROJECT_DIR$/src/view/MenuView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scene/visual/Scene.java" afterPath="$PROJECT_DIR$/src/scene/visual/Scene.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/SceneController.java" afterPath="$PROJECT_DIR$/src/controller/SceneController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scene/visual/dynamic/described/ScrollingTextSprite.java" afterPath="$PROJECT_DIR$/src/scene/visual/dynamic/described/ScrollingTextSprite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cityScene.xml" afterPath="$PROJECT_DIR$/cityScene.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/forestScene.xml" afterPath="$PROJECT_DIR$/forestScene.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/introScene.xml" afterPath="$PROJECT_DIR$/introScene.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mountainScene.xml" afterPath="$PROJECT_DIR$/mountainScene.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/StoryView.java" afterPath="$PROJECT_DIR$/src/view/StoryView.java" />
     </list>
     <ignored path="FinalProject349.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,9 +12,9 @@
     <file path="/fragment.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1384556505626" ignored="false" />
     <file path="/Scene.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1386005110030" ignored="false" />
     <file path="/Environment.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1385935099309" ignored="false" />
-    <file path="/Dummy.txt" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1385945978796" ignored="false" />
+    <file path="/Dummy.txt" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1386032188990" ignored="false" />
     <file path="/SceneFactory.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1385935231437" ignored="false" />
-    <file path="/FinalApp.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1386005219100" ignored="false" />
+    <file path="/FinalApp.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1386033320742" ignored="false" />
     <file path="/MovingSprite.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1385307494059" ignored="false" />
     <file path="/introScene.xml" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1385250172630" ignored="false" />
     <file path="/cityScene.xml" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1384964108854" ignored="false" />
@@ -53,9 +33,9 @@
     <file path="/SceneController.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1386009888288" ignored="false" />
     <file path="/SceneContent.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1385944460074" ignored="false" />
     <file path="/MenuView.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1385945941960" ignored="false" />
-    <file path="/StoryFactory.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1386008304641" ignored="false" />
+    <file path="/StoryFactory.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1386032539209" ignored="false" />
     <file path="$PROJECT_DIR$/src/scene/visual/dynamic/described/SlidingSprite.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1385948658594" ignored="false" />
-    <file path="/StoryView.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1386009670571" ignored="false" />
+    <file path="/StoryView.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1386033275999" ignored="false" />
     <file path="$PROJECT_DIR$/../FinalProject349/src/FinalApp.java" changelist="08fc825b-b34c-4e20-8d85-256100c7fc19" time="1385949401499" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -116,35 +96,22 @@
     <favorites_list name="FinalProject349" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.67849463">
+    <splitter split-orientation="horizontal" split-proportion="0.8130746">
       <split-first>
         <leaf>
-          <file leaf-file-name="FinalApp.java" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="FinalApp.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/FinalApp.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="78" column="58" selection-start="2201" selection-end="2212" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
+                <state line="120" column="59" selection-start="3925" selection-end="3925" vertical-scroll-proportion="2.3383086">
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="StoryFactory.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/factory/StoryFactory.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="38" column="21" selection-start="1116" selection-end="1116" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="StoryView.java" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="StoryView.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/view/StoryView.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="88" column="41" selection-start="2686" selection-end="2686" vertical-scroll-proportion="0.86206895">
+                <state line="99" column="57" selection-start="2947" selection-end="2947" vertical-scroll-proportion="0.0">
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -165,9 +132,7 @@
             <entry file="file://$PROJECT_DIR$/src/scene/visual/content/SceneContent.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state line="12" column="26" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -175,10 +140,8 @@
           <file leaf-file-name="SceneController.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/controller/SceneController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="51" column="4" selection-start="1044" selection-end="1044" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
+                <state line="51" column="4" selection-start="968" selection-end="968" vertical-scroll-proportion="0.0">
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -191,9 +154,7 @@
             <entry file="file://$PROJECT_DIR$/src/scene/visual/Scene.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state line="47" column="13" selection-start="1427" selection-end="1427" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -210,7 +171,7 @@
           <file leaf-file-name="DialogueContent.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/scene/visual/content/DialogueContent.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="28" column="18" selection-start="688" selection-end="688" vertical-scroll-proportion="0.0">
+                <state line="28" column="18" selection-start="790" selection-end="790" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -229,9 +190,7 @@
             <entry file="file://$PROJECT_DIR$/src/TextTester.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state line="50" column="54" selection-start="1485" selection-end="1485" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -248,7 +207,7 @@
           <file leaf-file-name="EventNode.java" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/model/EventNode.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="54" column="21" selection-start="1057" selection-end="1057" vertical-scroll-proportion="0.54241645">
+                <state line="54" column="21" selection-start="1057" selection-end="1057" vertical-scroll-proportion="0.032258064">
                   <folding />
                 </state>
               </provider>
@@ -286,17 +245,17 @@
         <option value="$PROJECT_DIR$/src/scene/visual/content/SceneContent.java" />
         <option value="$PROJECT_DIR$/src/FinalApplication.java" />
         <option value="$PROJECT_DIR$/src/scene/visual/Scene.java" />
-        <option value="$PROJECT_DIR$/src/FinalApp.java" />
+        <option value="$PROJECT_DIR$/src/controller/SceneController.java" />
         <option value="$PROJECT_DIR$/src/factory/StoryFactory.java" />
         <option value="$PROJECT_DIR$/src/view/StoryView.java" />
-        <option value="$PROJECT_DIR$/src/controller/SceneController.java" />
+        <option value="$PROJECT_DIR$/src/FinalApp.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="280" />
+    <option name="x" value="36" />
     <option name="y" value="22" />
-    <option name="width" value="1218" />
+    <option name="width" value="1239" />
     <option name="height" value="739" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -326,7 +285,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -341,7 +299,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="FinalProject349_DIALOGUE" />
+              <option name="myItemId" value="FinalProject349_DIALOGUE_3" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -351,7 +309,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="FinalProject349_DIALOGUE" />
+              <option name="myItemId" value="FinalProject349_DIALOGUE_3" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -365,7 +323,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="FinalProject349_DIALOGUE" />
+              <option name="myItemId" value="FinalProject349_DIALOGUE_3" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -373,70 +331,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FinalProject349" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FinalProject349_DIALOGUE" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scene" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="visual" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FinalProject349" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FinalProject349_DIALOGUE" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scene" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FinalProject349" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FinalProject349_DIALOGUE" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
+              <option name="myItemId" value="factory" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -452,9 +353,9 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -555,6 +456,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -580,19 +494,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -677,27 +578,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="280" y="22" width="1218" height="739" extended-state="0" />
+    <frame x="36" y="22" width="1239" height="739" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32833788" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32466063" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2364532" sideWeight="0.5295031" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22515528" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20984665" sideWeight="0.5295031" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22515528" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32833788" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32466063" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -819,32 +720,21 @@
     <entry file="file://$PROJECT_DIR$/src/scene/visual/Scene.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="47" column="13" selection-start="1427" selection-end="1427" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scene/visual/content/DialogueContent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="18" selection-start="688" selection-end="688" vertical-scroll-proportion="0.0">
+        <state line="28" column="18" selection-start="790" selection-end="790" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/EventNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="21" selection-start="1057" selection-end="1057" vertical-scroll-proportion="0.54241645">
+        <state line="54" column="21" selection-start="1057" selection-end="1057" vertical-scroll-proportion="0.032258064">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/factory/StoryFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="21" selection-start="1116" selection-end="1116" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -855,39 +745,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FinalApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="58" selection-start="2201" selection-end="2212" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scene/visual/content/SceneContent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="26" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/SceneController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="4" selection-start="1044" selection-end="1044" vertical-scroll-proportion="0.0">
+        <state line="51" column="4" selection-start="968" selection-end="968" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/StoryView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="57" selection-start="2947" selection-end="2947" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/StoryView.java">
+    <entry file="file://$PROJECT_DIR$/src/FinalApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="41" selection-start="2686" selection-end="2686" vertical-scroll-proportion="0.86206895">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="120" column="59" selection-start="3925" selection-end="3925" vertical-scroll-proportion="2.3383086">
+          <folding />
         </state>
       </provider>
     </entry>

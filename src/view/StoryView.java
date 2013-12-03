@@ -2,9 +2,7 @@ package view;
 
 import controller.SceneController;
 import event.Metronome;
-import model.EventNode;
 import scene.visual.Scene;
-import scene.visual.content.SceneContent;
 import visual.VisualizationView;
 import visual.dynamic.described.RuleBasedSprite;
 import visual.dynamic.described.Sprite;
@@ -17,19 +15,17 @@ import java.util.ArrayList;
 public class StoryView implements Sprite {
 
     private SceneController         controller;
+    private Scene                   currentScene;
     private VisualizationView       view;
     private Stage                   stage;
-    private EventNode<SceneContent> parentNode, curNode;
-    private int                     indexOfNode;
+    private Scene                   previousScene;
 
-    public StoryView(SceneController controller, VisualizationView view, Stage stage, EventNode<SceneContent> parent)
+    public StoryView(SceneController controller, VisualizationView view, Stage stage)
     {
         this.controller         = controller;
         this.view               = view;
         this.stage              = stage;
-        this.parentNode         = parent;
-        this.curNode            = parent;
-        this.indexOfNode= 0;
+        this.currentScene       = controller.getCurrentScene();
         //System.out.println("SIZE AGAIN IS: " + this.node.children().size());
         //controller.setCurrentContentToIndex(0);
     }
@@ -92,35 +88,25 @@ public class StoryView implements Sprite {
     @Override
     public void handleTick(int time) {
         Metronome   metronome;
-        Scene       curScene;
 
-        curScene    = controller.getCurrentScene();
+        previousScene       = this.currentScene;
+        this.currentScene   = controller.getCurrentScene();
 
-        if(!curScene.isOnStage())
+        if(!currentScene.isOnStage())
         {
-            System.out.println(curScene.getMovingSprites().size());
-            addContentsOfSceneToStage(curScene);
-        }
+            if(this.currentScene != previousScene)
+                removeAllSpritesFromStage(previousScene);
 
-
-        if(time >= 10000) //static right now
-        {
-            removeAllSpritesFromStage(curScene);
-            System.out.println("index of this node is: " + indexOfNode);
-            this.curNode   = this.parentNode.getChildAt(indexOfNode);
-
-
-            if(this.curNode == null)
-                System.out.println("this.node IS NULL!");
-
-            this.controller.nextScene(indexOfNode);
-            indexOfNode++;
+            addContentsOfSceneToStage(this.currentScene);
 
             metronome   = stage.getMetronome();
             metronome.reset();
-            stage.setBackground(this.controller.getCurrentScene().getBackgroundColor());
+            stage.setBackground(this.currentScene.getBackgroundColor());
             stage.start();
         }
+
+
+
     }
 
     @Override
