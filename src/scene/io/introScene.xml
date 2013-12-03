@@ -11,10 +11,8 @@
             <movingSprite>
                 <image>foreground_1_INTRO.png</image>
                 <keyTime>0,0,-850,0,1.0, null</keyTime>
-                <keyTime>50000,0,850,0,1.0, null</keyTime>
+                <keyTime>10000,0,850,0,1.0, null</keyTime>
             </movingSprite>
-
-            
 
             <movingSprite>
                 <image>foreground_road_INTRO.png</image>

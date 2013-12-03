@@ -109,6 +109,7 @@
                                         <prof>Guess the programmers should get an A then.</prof>
                                         <bern>Agreed. The end. We're here.</bern>
                                     </dialogue>
+                                   
                                 </option>
                                 <option value="They should get A++++">
                                     <dialogue>
@@ -128,6 +129,13 @@
                                 <bern>Looks like we're here.</bern>
                                 <prof>DAMN THEE PROGRAMMERS I DIDNT WANT TO DRINK HERE.</prof>
                             </dialogue>
+                            <choice>
+                                        <option value="The end...">
+                                            <dialogue>
+                                                <bern>The ending.</bern>
+                                            </dialogue>
+                                        </option>
+                                    </choice>
                         </option>
                     </choice>
                 </option>

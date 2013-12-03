@@ -103,7 +103,7 @@ public class DialogueContent extends MenuContent implements Sprite {
 			d2.handleTick(time);
 		
 		//Start tracking time since d2 finished
-		if (d2.isFullyRendered())
+		if (d2 != null && d2.isFullyRendered())
 			timeSoFar += time - curTime;
 		
 		//Advance to the text two text sprites in the dialogue

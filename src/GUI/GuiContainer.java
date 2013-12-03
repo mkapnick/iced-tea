@@ -1,11 +1,16 @@
 package GUI;
 
-import visual.VisualizationView;
-import visual.dynamic.described.Stage;
-
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import visual.VisualizationView;
+import visual.dynamic.described.Stage;
 
 /**
  * Created with IntelliJ IDEA.
@@ -43,7 +48,11 @@ public class GuiContainer implements ActionListener {
     public void createSimpleGui()
     {
         JPanel panel;
-
+        JLabel title;
+        
+        title = new JLabel("CS Professors in Cars Getting Coffee");
+        title.setFont(new Font("Arial", Font.ITALIC, 11));
+        
 
         panel = new JPanel();
         panel.setSize(200,200);
@@ -58,9 +67,12 @@ public class GuiContainer implements ActionListener {
         mayfieldButton.setEnabled(false);
         foxButton.setEnabled(false);
 
+        panel.setBackground(new Color(255, 248, 220));
+        panel.add(title);
         panel.add(nancyButton);
         panel.add(mayfieldButton);
         panel.add(foxButton);
+        
 
         nancyButton.setVisible(true);
         mayfieldButton.setVisible(true);
