@@ -67,7 +67,8 @@ public class FinalApp extends AbstractMultimediaApp
 
         startUp();
         JPanel contentPane = (JPanel) rootPaneContainer.getContentPane();
-        contentPane.setSize(600,400);
+        contentPane.setLayout(null);
+        //contentPane.setSize(600,400);
 
         contentPane.add(stageView);
         contentPane.add(stageView2);
@@ -121,7 +122,7 @@ public class FinalApp extends AbstractMultimediaApp
         //build a tree that represents a story from these scenes
         content     = StoryFactory.createAStory(scenes);
         storyView   = new StoryView(content.getElement().getSceneController(),stageView, stage, content);
-        menuView = new MenuView(menuContent.getElement().getController(), stageView);
+        menuView = new MenuView(menuContent.getElement().getController(), stageView2);
         menuView.setMouseListeners(stageView2);
 		menuView.setMouseMotionListeners(stageView2);
         stage2.add(menuView);

@@ -45,6 +45,8 @@ public class ChoiceSprite extends TextSprite implements MouseMotionListener, Mou
 		mouseX = evt.getX();
 		mouseY = evt.getY();
 		
+		//System.out.println(mouseX + "   " + mouseY);
+		
 		if (mouseX >= this.x && mouseX <= this.x + width &&
 			mouseY >= this.y && mouseY <= this.y + this.getFont().getSize())
 			result = true;
@@ -81,7 +83,7 @@ public class ChoiceSprite extends TextSprite implements MouseMotionListener, Mou
 
 	@Override
 	public void handleTick(int time) {
-        System.out.println("Waiting?");
+       // System.out.println("Waiting?");
 	}
 
 	@Override

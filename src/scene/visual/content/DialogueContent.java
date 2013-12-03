@@ -123,7 +123,7 @@ public class DialogueContent extends MenuContent implements Sprite {
 			
 			//Wait before advancing
 			if (timeSoFar >= waitTime)
-				controller.advanceContent();
+				menuController.advanceContent();
 		}
 		
 		curTime = time;

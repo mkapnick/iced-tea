@@ -6,6 +6,7 @@ import java.awt.geom.Rectangle2D;
 import scene.visual.dynamic.described.TextSprite;
 import visual.dynamic.described.Sprite;
 import controller.MenuController;
+import controller.SceneController;
 
 /**
  * Abstract representation of text that will be rendered to the screen.
@@ -21,7 +22,9 @@ public abstract class MenuContent implements Sprite {
 
 	protected TextSprite[] 	text;	//Text to be rendered
 	protected double 		x, y;	//Content's position
-	protected MenuController controller;
+	protected MenuController menuController;
+	protected SceneController sceneController;
+	
 	protected Rectangle2D.Double textRectangle;
 	protected Color rectangleColor;
 	
@@ -40,14 +43,23 @@ public abstract class MenuContent implements Sprite {
 		rectangleColor = new Color(0, 150, 150, 50);
 	}
 	
-	public MenuController getController()
+	public MenuController getMenuController()
 	{
-		return this.controller;
+		return this.menuController;
 	}
-	public void setController(MenuController controller)
+	public void setMenuController(MenuController controller)
 	{
-		this.controller = controller;
+		this.menuController = menuController;
 	}
+	public SceneController getSceneController()
+	{
+		return this.sceneController;
+	}
+	public void setSceneController(SceneController controller)
+	{
+		this.sceneController = controller;
+	}
+	
 	/**
 	 * 
 	 * @return the collection of text

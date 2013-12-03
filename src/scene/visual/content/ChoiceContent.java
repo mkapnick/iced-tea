@@ -4,9 +4,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
+import scene.visual.Scene;
 import scene.visual.dynamic.described.ChoiceSprite;
 import scene.visual.dynamic.described.TextSprite;
-import controller.MenuController;
 
 /**
  * Encapsulates all choices in a menu.
@@ -43,8 +43,11 @@ public class ChoiceContent extends MenuContent {
 		
 		int whichClicked = whichClicked();
 		
-		if (whichClicked != -1)
-			controller.setCurrentContentToIndex(whichClicked);
+		if (whichClicked != -1) {
+			menuController.setCurrentContentToIndex(whichClicked);
+			sceneController.nextScene();
+		}
+			
 		
 	}
 

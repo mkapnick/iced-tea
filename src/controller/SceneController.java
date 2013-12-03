@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.ArrayList;
+
 import model.EventNode;
 import scene.visual.Scene;
 import scene.visual.content.SceneContent;
@@ -10,8 +12,8 @@ import scene.visual.content.SceneContent;
  */
 public class SceneController {
 
-	private EventNode<SceneContent>curNode;
-	private EventNode<SceneContent> topNode;
+	private ArrayList<Scene> scenes;
+	private int	  curIndex;
 	
 	/**
 	 * This constructor should be passed the root node of a
@@ -20,10 +22,10 @@ public class SceneController {
 	 * @param sceneTree
 	 * The top node in the tree of SceneNodes.
 	 */
-	public SceneController(EventNode<SceneContent>sceneTree)
+	public SceneController(ArrayList<Scene> scenes)
 	{
-		this.curNode = sceneTree;
-		this.topNode = sceneTree;
+		this.scenes = scenes;
+		this.curIndex = 0;
 
 	}
 	
@@ -35,7 +37,7 @@ public class SceneController {
 	 */
 	public Scene getCurrentScene()
 	{
-		return curNode.getElement().getScene();
+		return scenes.get(curIndex);
 	}
 	
 	/**
@@ -45,9 +47,9 @@ public class SceneController {
 	 * @param index
 	 * The index of the next scene.
 	 */
-	public void nextScene(int index)
+	public void nextScene()
 	{
-		curNode = topNode.getChildAt(index);
+		curIndex++;
 	}
 
 	
@@ -57,7 +59,7 @@ public class SceneController {
 	 */
 	public void reset()
 	{
-		curNode = topNode;
+		curIndex = 0;
 	}
 	
 }
