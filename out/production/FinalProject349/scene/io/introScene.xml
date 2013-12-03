@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<scene>
+    <sprites>
+        <slidingSprites>
+
+
+        </slidingSprites>
+
+        <movingSprites>
+
+            <movingSprite>
+                <image>foreground_1_INTRO.png</image>
+                <keyTime>0,0,-850,0,1.0, null</keyTime>
+                <keyTime>10000,0,850,0,1.0, null</keyTime>
+            </movingSprite>
+
+            <movingSprite>
+                <image>foreground_road_INTRO.png</image>
+                <keyTime>0,135,-1000,0,1.0, null</keyTime>
+                <keyTime>1000,135,0,0,1.0, null</keyTime>
+            </movingSprite>
+
+            <movingSprite>
+                <image>main_car_BIRDSEYE.png</image>
+                <keyTime>500,350.0,700.0,0.0,1.0, null</keyTime>
+                <keyTime>5000, 350.0, 400.0, 0.0, 1.0, null</keyTime>
+                <keyTime>10000, 350.0, 305.0, 0.0, 1.0, null</keyTime>
+                <keyTime>15000, 350.0, 205.0, 0.0, 1.0, null</keyTime>
+                
+            </movingSprite>
+
+        </movingSprites>
+    </sprites>
+
+</scene>

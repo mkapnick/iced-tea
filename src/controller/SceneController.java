@@ -2,9 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 
-import model.EventNode;
 import scene.visual.Scene;
-import scene.visual.content.SceneContent;
 
 /**
  * @author Brian Brown, Daniel Hardgrove, Mike Kapnick

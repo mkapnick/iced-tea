@@ -1,11 +1,14 @@
 package view;
 
 /**
- * Created with IntelliJ IDEA.
- * User: michaelk18
- * Date: 11/26/13
- * Time: 10:49 AM
- * To change this template use File | Settings | File Templates.
+ *
+ * @author Mike Kapnick
+ * @version 1.0
+ *
+ * BirdsEye is responsible for keeping track
+ * of each sliding sprite that is of type View.BIRDSEYE.
+ * Encapsulates the rules for a view of type View.BIRDSEYE
+ *
  */
 public class BirdsEye implements ViewBehavior {
 
@@ -15,6 +18,9 @@ public class BirdsEye implements ViewBehavior {
     private double  y;
     private int     index;
 
+    /*
+    * Initializes variables according to what it means to be BIRDSEYE
+    */
     public BirdsEye()
     {
         this.changeContent  = false;
@@ -25,6 +31,10 @@ public class BirdsEye implements ViewBehavior {
 
     }
 
+    /*
+     * After every tick from the SlidingSprite class, the location must be
+     * updated
+     */
     @Override
     public void setLocation(double x, double y)
     {
@@ -33,6 +43,10 @@ public class BirdsEye implements ViewBehavior {
 
     }
 
+    /*
+     * Checks the location after every tick from the SlidingSprite and
+     * updates as necessary
+     */
     @Override
     public double[] checkLocation(double maxX, double maxY, int size)
     {

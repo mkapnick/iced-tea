@@ -7,12 +7,15 @@ import visual.statik.sampled.Content;
 import java.awt.geom.Point2D;
 
 /**
- * Created with IntelliJ IDEA.
- * User: michaelk18
- * Date: 11/16/13
- * Time: 9:12 AM
- * To change this template use File | Settings | File Templates.
+ * Creates a sampled sprite with key times
+ * @author Mike Kapnick
+ * @version 1.0
+ *
+ * This work complies with the JMU Honor Code
+ * 12/3/13
+ *
  */
+
 public class MovingSprite extends SampledSprite
 {
     private Content content;
@@ -34,20 +37,38 @@ public class MovingSprite extends SampledSprite
 
     }
 
+    /*
+     * Always set the end state of these moving sprites to remain on the stage
+     */
     public void setEndState()
     {
         setEndState(REMAIN);
     }
+
+    /*
+     * Gets the content associated with the sprite
+     */
 
     public TransformableContent getContent()
     {
         return this.content;
     }
 
+    /*
+     * Each moving sprite has many key times associated with itself. Every key time we
+     * parse in the xml file, we set the keyTime to which ever instance is being built
+     * in the XML reader class.
+     *
+     */
+
     public void setKeyTime(int keyTime)
     {
         this.keyTime = keyTime;
     }
+
+    /*
+     * Gets the key time for a particular instance of this class
+     */
 
     public int getKeyTime()
     {

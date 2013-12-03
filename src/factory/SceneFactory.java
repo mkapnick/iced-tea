@@ -16,20 +16,23 @@ import visual.statik.sampled.ContentFactory;
 import java.util.ArrayList;
 
 /**
- * Creates individual scenes
- * 
  * @author Mike Kapnick
  * @version 1.0
- * 
- * This work complies with the JMU Honor Code
- * 12/3/13
  *
+ * The SceneFactory method is responsible for returning a fully constructed
+ * Scene object. In order for the SceneFactory to construct
+ * a Scene object, it must take in an Environment, View, Script, and a fileName.
+ * Previously we made use of the resourcefinder object, but we don't make use
+ * of it anymore (With more time, we would have gotten rid of it).
  */
 public class SceneFactory {
 
 	/**
-	 * Factory method for creating scenes
-	 * 
+	 * Factory method for creating scenes.
+     * The createScene method creates an instance of the XMLReader class to
+     * parse the xml file passed in. This method returns a fully constructed
+     * Scene object
+     *
 	 * @param env
 	 * @param view
 	 * @param script
@@ -59,6 +62,12 @@ public class SceneFactory {
         return scene;
     }
 
+    /*
+    * The Environment enumeration only keeps track of the name of the image
+    * that represents a foreground, background, or ground. Thus, the role
+    * of this method is to transform the String values into TransformableContent
+    * objects that are ready to be turned into a SlidingSprite object.
+    */
     private static Scene createScene(Environment env, View view, 
     						Script script, ResourceFinder finder)
 
@@ -82,7 +91,6 @@ public class SceneFactory {
 
         if(foreground != null)
         {
-            System.out.println(foreground.get(0));
             for (int i = 0; i < foreground.size(); i++)
             {
                 content = contentFactory.createContent(foreground.get(i),3,

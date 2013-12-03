@@ -1,11 +1,13 @@
 package view;
 
 /**
- * Created with IntelliJ IDEA.
- * User: michaelk18
- * Date: 11/26/13
- * Time: 10:51 AM
- * To change this template use File | Settings | File Templates.
+ *
+ * @author Mike Kapnick
+ * @version 1.0
+ *
+ * Each view has a certain behavior that it performs (differently).
+ * These methods define what it takes to be of type ViewBehavior
+ *
  */
 public interface ViewBehavior {
 

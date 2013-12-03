@@ -1,11 +1,14 @@
 package view;
 
 /**
- * Created with IntelliJ IDEA.
- * User: michaelk18
- * Date: 11/26/13
- * Time: 10:49 AM
- * To change this template use File | Settings | File Templates.
+ *
+ * @author Mike Kapnick
+ * @version 1.0
+ *
+ * InCar is responsible for keeping track
+ * of each sliding sprite that is of type View.InCar.
+ * Encapsulates the rules for a view of type View.InCar
+ *
  */
 public class InCar implements ViewBehavior
 {
@@ -15,6 +18,9 @@ public class InCar implements ViewBehavior
     private double  y;
     private int     index;
 
+    /*
+  * Initializes variables according to what it means to be InCar
+  */
     public InCar()
     {
         this.changeContent  = false;
@@ -24,6 +30,10 @@ public class InCar implements ViewBehavior
         this.y              = 0;
     }
 
+    /*
+     * After every tick from the SlidingSprite class, the location must be
+     * updated
+     */
     @Override
     public void setLocation(double x, double y) {
         this.x = x;

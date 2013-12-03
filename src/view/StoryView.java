@@ -13,6 +13,15 @@ import java.awt.*;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Mike Kapnick
+ * @version 1.0
+ *
+ * A StoryView is responsible for creating the actual story
+ * between scenes.
+ *
+ */
 public class StoryView implements Sprite {
 
     private SceneController         controller;
@@ -22,6 +31,11 @@ public class StoryView implements Sprite {
     private Scene                   previousScene;
     private GuiContainer            guiContainer;
 
+    /*
+     * To construct a story view, one must pass in a SceneController object
+     * (which keeps track of the current scene and the list of all scenes),
+     * a VisualizationView object, a stage, and a GuiContainer
+     */
     public StoryView(SceneController controller, VisualizationView view, Stage stage, GuiContainer container)
     {
         this.controller         = controller;
@@ -29,10 +43,16 @@ public class StoryView implements Sprite {
         this.stage              = stage;
         this.currentScene       = controller.getCurrentScene();
         this.guiContainer       = container;
-        //System.out.println("SIZE AGAIN IS: " + this.node.children().size());
-        //controller.setCurrentContentToIndex(0);
+
     }
 
+    /*
+     * In order to add a scene to the stage, one must loop
+     * through all of the sprites (rule based and tweening)
+     * and add each sprite individually to the stage. Takes
+     * in the scene to add to the stage
+     *
+     */
     private void addContentsOfSceneToStage(Scene currentScene)
     {
         ArrayList<Sprite> movingSprites;
@@ -62,6 +82,11 @@ public class StoryView implements Sprite {
         currentScene.setOnStage(true);
     }
 
+    /*
+     * Removes all sprites associated with a scene
+     * from the stage
+     */
+
     private void removeAllSpritesFromStage(Scene currentScene)
     {
         ArrayList<Sprite> movingSprites;
@@ -88,6 +113,11 @@ public class StoryView implements Sprite {
     }
 
 
+    /*
+     * The handleTick method is responsible for transitioning
+     * between scenes (adding and removing scenes from the stage)
+     * and creating a story
+     */
     @Override
     public void handleTick(int time) {
 
@@ -97,14 +127,8 @@ public class StoryView implements Sprite {
         }
 
         Metronome   metronome;
-
         previousScene       = this.currentScene;
-
-
         this.currentScene   = controller.getCurrentScene();
-
-
-        //controller.nextScene();
 
         if(!currentScene.isOnStage())
         {
@@ -118,9 +142,6 @@ public class StoryView implements Sprite {
             stage.setBackground(this.currentScene.getBackgroundColor());
             stage.start();
         }
-
-
-
     }
 
     @Override

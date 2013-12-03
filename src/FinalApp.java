@@ -1,26 +1,14 @@
+import GUI.GuiContainer;
+import app.AbstractMultimediaApp;
+import controller.SceneController;
+import factory.MenuFactory;
+import factory.SceneFactory;
 import io.ResourceFinder;
-
-import java.awt.Color;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.FloatControl;
-import javax.swing.JPanel;
-import javax.xml.parsers.ParserConfigurationException;
-
 import model.Environment;
 import model.EventNode;
 import model.Script;
 import model.View;
-
 import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
-
 import scene.io.DialogueReader;
 import scene.visual.Scene;
 import scene.visual.content.MenuContent;
@@ -28,11 +16,16 @@ import view.MenuView;
 import view.StoryView;
 import visual.VisualizationView;
 import visual.dynamic.described.Stage;
-import GUI.GuiContainer;
-import app.AbstractMultimediaApp;
-import controller.SceneController;
-import factory.MenuFactory;
-import factory.SceneFactory;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
+import javax.swing.*;
+import java.awt.*;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.util.ArrayList;
 
 /**
  * Initializes our final app and starts the stages
@@ -62,7 +55,7 @@ public class FinalApp extends AbstractMultimediaApp
         sceneStage = new Stage(50);
         sceneStageView = sceneStage.getView();
         
-        sceneStageView.setBounds(0, 0, 640, 480);
+        sceneStageView.setBounds(0, 0, 610, 480);
         sceneStageView.setBackground(new Color(158,209,144));
         
         scenes = new ArrayList<Scene>();
@@ -92,7 +85,7 @@ public class FinalApp extends AbstractMultimediaApp
         {
             dialogueStages[i]        = new Stage(70);
             dialogueStageView[i]    = dialogueStages[i].getView();
-            dialogueStageView[i].setBounds(0,480,640,480);
+            dialogueStageView[i].setBounds(0,480,610,480);
         }
     }
 
@@ -156,7 +149,8 @@ public class FinalApp extends AbstractMultimediaApp
         finder = ResourceFinder.createInstance(this);
         audioIs = finder.findInputStream("cs1-1pre.mid");
         
-        try {
+        try
+        {
 	        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream
 	        									(audioIs);
 	        Clip clip = AudioSystem.getClip();

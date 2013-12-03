@@ -1,11 +1,15 @@
 package view;
 
+
 /**
- * Created with IntelliJ IDEA.
- * User: michaelk18
- * Date: 11/26/13
- * Time: 10:49 AM
- * To change this template use File | Settings | File Templates.
+ *
+ * @author Mike Kapnick
+ * @version 1.0
+ *
+ * A SideView is responsible for keeping track
+ * of each sliding sprite that is of type View.SideView.
+ * Encapsulates the rules for a view of type View.SideView
+ *
  */
 public class SideView implements ViewBehavior {
 
@@ -15,6 +19,9 @@ public class SideView implements ViewBehavior {
     private double  y;
     private int     index;
 
+    /*
+     * Initializes variables according to what it means to be a SideView
+     */
     public SideView()
     {
         this.changeContent  = false;
@@ -24,6 +31,10 @@ public class SideView implements ViewBehavior {
         this.y              = 0;
     }
 
+    /*
+     * After every tick from the SlidingSprite class, the location must be
+     * updated
+     */
     @Override
     public void setLocation(double x, double y)
     {
@@ -32,6 +43,10 @@ public class SideView implements ViewBehavior {
 
     }
 
+    /*
+     * Checks the location after every tick from the SlidingSprite and
+     * updates as necessary
+     */
     @Override
     public double[] checkLocation(double maxX, double maxY, int size) {
         changeContent = false;

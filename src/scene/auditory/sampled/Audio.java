@@ -1,11 +1,9 @@
 package scene.auditory.sampled;
 
 /**
- * Created with IntelliJ IDEA.
- * User: michaelk18
- * Date: 11/15/13
- * Time: 6:03 PM
- * To change this template use File | Settings | File Templates.
+ * The Audio class is responsible for creating the sound in our App
+ * As of now, the sound is created in FinalApp, which is bad design!
+ * It was the last piece of code we implemented.
  */
 public class Audio {
 }

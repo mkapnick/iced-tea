@@ -1,0 +1,125 @@
+<content>
+    <dialogue>
+        <bern>Hey, Mr. Google.</bern>
+        <prof>Hey, Mr...MIT guy.</prof>
+        <bern>Ready for some awesome coffee?</bern>
+        <prof>Querying brain data...</prof>
+    </dialogue>
+    <choice>
+        <option value="Affirmative. Coffee. (Click)">
+            <dialogue>
+                <bern>Why are you talking like that?</bern>
+                <prof>I'm just messing with ya, Bern.</prof>
+                <bern>Good. I don't like it.</bern>
+                <prof>Sorry bra.</prof>
+                <bern>Don't do that either.</bern>
+                <prof>Oh, okay...feeling boring eh?</prof>
+                <bern>Trust me, I like my fair share of robotics,</bern>
+                <bern>but I don't go and pretend to be one.</bern>
+                <prof>Well you just killed the mood.</prof>
+                <bern>I just want coffee. Don't you?</bern>
+            </dialogue>
+            <choice>
+                <option value="Yeah. Let's move on.">
+                    <dialogue>
+                        <bern>Good. Have you heard?</bern>
+                        <prof>Heard what? That the bird is the word?</prof>
+                        <bern>No, the com--- Wait, what?</bern>
+                        <prof>The bird is the word. I say</prof>
+                        <prof>Bird bird bird, bird is the word..</prof>
+                        <bern>What the heck are you talking about?</bern>
+                        <prof>Hum hum hummm, humm hum hum hummm</prof>
+                        <bern>What is that from?</bern>
+                        <prof>Well...</prof>
+                    </dialogue>
+                    <choice>
+                        <option value="Family Guy">
+                            <dialogue>
+                            <bern>Oh, I don't watch that show.</bern>
+                            <prof>Me neither.</prof>
+                            <bern>You're being weird, Chris.</bern>
+                            <prof>Yeah...Wanna buy a CS hoodie?</prof>
+                            <bern>Let's just get to the shop.</bern>
+                            <prof>Ok.</prof>
+                            </dialogue>
+                            <choice>
+                                <option value="Go to coffee shop">
+                                    <dialogue>
+                                        <bern>THE end?</bern>
+                                        <prof>The end.</prof>
+                                    </dialogue>
+                                </option>
+                            </choice>
+                        </option>
+                        <option value="Yo mama">
+                            <dialogue>
+                                <bern>I'm about to boot you out of this car.</bern>
+                                <prof>Why?</prof>
+                                <bern>Really? You're asking why?</bern>
+                                <prof>What? I'm just having fun.</prof>
+                                <bern>This is not fun. I wanted to get coffee.</bern>
+                                <prof>Fine, I will be civil.</prof>
+                            </dialogue>
+                            <choice>
+                                <option value="COFFEE TIME">
+                                    <dialogue>
+                                        <bern>Here!</bern>
+                                        <prof>We have arrived.</prof>
+                                    </dialogue>
+                                </option>
+                            </choice>
+                        </option>
+                    </choice>
+                </option>
+                <option value="Computing...Please wait">
+                    <dialogue>
+                        <bern>I'm waiting...</bern>
+                        <prof>...</prof>
+                        <prof>...</prof>
+                        <prof>... ...</prof>
+                        <prof>Yes! Let's get coffee!</prof>
+                        <bern>Finally, what do you think of my radio?</bern>
+                    </dialogue>
+                    <choice>
+                        <option value="Bach's pieces have always been alright.">
+                            <dialogue>
+                                <bern>I'm partial to Mozart too</bern>
+                                <prof>I really like the sound of midi.</prof>
+                                <bern>Midi's...cool too as well.</bern>
+                                <prof>Better than Mozart or Bach</prof>
+                                <bern>Can't believe you said that. Coffee?</bern>
+                            </dialogue>
+                            <choice>
+                                <option value="Coffee time.">
+                                    <dialogue>
+                                        <bern>Here</bern>
+                                        <prof>Here.</prof>
+                                    </dialogue>
+                                </option>
+                            </choice>
+                        </option>
+                        <option value="Computing...Please Wait">
+                            <dialogue>
+                            <bern>******</bern>
+                            <prof>... ...</prof>
+                            <prof>... .....</prof>
+                            <bern>I'm waiting, Chris.</bern>
+                            <prof>Query results size = 0. Try again later.</prof>
+                            <bern>Are we there yet?</bern>
+                            <prof>Should be.</prof>
+                            </dialogue>
+                            <choice>
+                                <option value="End this.">
+                                    <dialogue>
+                                        <bern>We're here, although I don't wanna.</bern>
+                                        <prof>SYSTEM ERROR. TERMINATING</prof>
+                                    </dialogue>
+                                </option>
+                            </choice>
+                        </option>
+                    </choice>
+                </option>
+            </choice>
+        </option>
+    </choice>
+</content>

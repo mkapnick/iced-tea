@@ -1,11 +1,6 @@
 import app.MultimediaApplication;
-import org.xml.sax.SAXException;
 
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.IOException;
 
 
 public class FinalApplication extends MultimediaApplication {

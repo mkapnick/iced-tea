@@ -9,6 +9,22 @@ import visual.statik.TransformableContent;
 
 import java.util.ArrayList;
 
+/*
+ * Creates a sampled sprite with key times
+ * @author Mike Kapnick
+ * @version 1.0
+ *
+ * This work complies with the JMU Honor Code
+ * 12/3/13
+ *
+ * Sliding sprites are our rule based sprites. Sliding sprites aren't used
+ * in any of the xml files for each scene, but this was code we thought could
+ * be necessary and helpful to have in the future. Sliding sprites are rule based sprites.
+ * Rules depend on the current view of the app. Views can either be birdseye or sideview or
+ * in car. Because of this fact, we delegate the rules at runtime to a ViewBehavior object,
+ * which can be instantiated as either a BirdsEye, SideView, or InCar class
+ *
+ */
 public class SlidingSprite extends AbstractSlidingSprite
 {
     private ViewBehavior    viewBehavior;
@@ -17,7 +33,7 @@ public class SlidingSprite extends AbstractSlidingSprite
     public SlidingSprite(View view, ArrayList<TransformableContent> tc, int speed, double x, double y)
     {
         super(tc);
-        decorate(view);
+        setCurrentView(view);
         this.view           = view;
         this.maxX           = x;
         this.maxY           = y;
@@ -28,6 +44,10 @@ public class SlidingSprite extends AbstractSlidingSprite
         setVisible(true);
     }
 
+    /* The rules for a sliding sprite are different according to the view the app
+     * is currently in. Thus, the handle tick method delegates to a ViewBehavior
+     * object, and the rules are determined at runtime.
+     */
     @Override
     public void handleTick(int time)
     {
@@ -56,7 +76,11 @@ public class SlidingSprite extends AbstractSlidingSprite
         setLocation(location[0], location[1]);
     }
 
-    private void decorate(View v)
+    /*
+     * Instantiates the viewBehavior object according
+     * to the current view the app is in
+     */
+    private void setCurrentView(View v)
     {
         switch (v)
         {
