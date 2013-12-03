@@ -53,11 +53,8 @@ public class XMLReader {
 
         doc.getDocumentElement().normalize();
 
-        System.out.println("About to parse sliding sprites");
         parseSlidingSprites(doc, env);
-        System.out.println("About to parse moving sprites");
         parseMovingSprites(doc, script);
-        System.out.println("Finished parsing");
     }
 
     private void parseSlidingSprites(Document doc, Environment env)
@@ -72,7 +69,6 @@ public class XMLReader {
         slidingSpriteList   = doc.getElementsByTagName("slidingSprite");
         index               = 0;
 
-        System.out.println(slidingSpriteList.getLength());
         //Parse all Sliding sprites in the XML file
         for(int i = 0; i < slidingSpriteList.getLength(); i++)
         {
@@ -148,7 +144,6 @@ public class XMLReader {
             while (index < keyTimeTags.getLength())
             {
                 keyTime = getValueOfNode(keyTimeTags, index, element);
-                System.out.println("Key time is: " + keyTime);
                 addKeyTime(keyTime, sprite, finder);
                 current = ((MovingSprite) sprite).getKeyTime();
 
@@ -164,7 +159,6 @@ public class XMLReader {
             sprites.add(sprite);
         }
 
-        System.out.println("ok, parsed moving sprites");
         script.setSprites(sprites);
         script.setStartTime(minKeyTime);
         script.setEndTime(maxKeyTime);
@@ -196,7 +190,6 @@ public class XMLReader {
 
             if(!content.equalsIgnoreCase("null"))
             {
-                System.out.println("Doesn't equal null! String is " + content);
                 spriteImage     = ImageReader.readFile(content, finder);
                 c               = contentFactory.createContent(spriteImage, true);
             }
@@ -204,7 +197,6 @@ public class XMLReader {
         catch (Exception e)
         {
             //Something wrong with the XML file here
-            System.out.println("Something wrong with xml file");
 
         }
 

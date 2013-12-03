@@ -5,8 +5,26 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * Reads image files and returns BufferedImages.
+ * Factory Class.
+ * 
+ * @author Mike Kapnick
+ * @version 1.0
+ * 
+ * This work complies with the JMU Honor COde
+ * 12/3/13
+ *
+ */
 public class ImageReader {
 
+	/**
+	 * Reads an image
+	 * 
+	 * @param fileName
+	 * @param finder
+	 * @return
+	 */
     public static BufferedImage readFile(String fileName, ResourceFinder finder)
     {
         InputStream is;
@@ -26,7 +44,8 @@ public class ImageReader {
         }
         catch (IOException io)
         {
-            System.out.println("Could not read in image " + fileName +". Inside the ImageReader class");
+            System.out.println("Could not read in image " + fileName +
+            		". Inside the ImageReader class");
         }
 
         return image;

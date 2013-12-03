@@ -13,11 +13,13 @@ import visual.VisualizationView;
 import visual.dynamic.described.Stage;
 
 /**
- * Created with IntelliJ IDEA.
- * User: michaelk18
- * Date: 12/2/13
- * Time: 9:22 PM
- * To change this template use File | Settings | File Templates.
+ * Container for the GUI buttons and the JLabel
+ * 
+ * @author Brian Brown, Mike Kapnick
+ * @version 1.0
+ * 
+ * This work complies with the JMU Honor Code
+ * 12/3/13
  */
 public class GuiContainer implements ActionListener {
 
@@ -30,6 +32,16 @@ public class GuiContainer implements ActionListener {
     private VisualizationView [] dialogueViews;
 
 
+    /**
+     * Initializes variables
+     * 
+     * @param contentPane
+     * @param dialogueStages
+     * @param views
+     * @param label1
+     * @param label2
+     * @param label3
+     */
     public GuiContainer(JPanel contentPane, 
     		Stage[] dialogueStages, VisualizationView [] views,  
     		String label1, String label2, String label3)
@@ -45,6 +57,9 @@ public class GuiContainer implements ActionListener {
 
     }
 
+    /**
+     * Creates the buttons and labels for the gui
+     */
     public void createSimpleGui()
     {
         JPanel panel;
@@ -83,6 +98,10 @@ public class GuiContainer implements ActionListener {
 
     }
 
+    /**
+     * Decides if the button should be clickable yet.
+     * @param enable
+     */
     public void setButtonEnabled(boolean enable)
     {
 
@@ -92,6 +111,10 @@ public class GuiContainer implements ActionListener {
 
     }
 
+    /**
+     * Shows the button or not.
+     * @param visible
+     */
     public void setButtonVisible(boolean visible)
     {
         this.nancyButton.setVisible(visible);
@@ -99,7 +122,9 @@ public class GuiContainer implements ActionListener {
         this.foxButton.setVisible(visible);
     }
 
-    @Override
+    /**
+     * Depending on which button is clicked, load a particular stage
+     */
     public void actionPerformed(ActionEvent actionEvent)
     {
         if(actionEvent.getActionCommand().equalsIgnoreCase(this.nancyButton.getActionCommand()))

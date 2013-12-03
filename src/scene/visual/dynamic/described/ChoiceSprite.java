@@ -6,7 +6,8 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.font.FontRenderContext;
 
-public class ChoiceSprite extends TextSprite implements MouseMotionListener, MouseListener {
+public class ChoiceSprite extends TextSprite implements 
+									MouseMotionListener, MouseListener {
 
 	private Color defaultColor, hoverColor, curColor;
 	private boolean wasClicked;

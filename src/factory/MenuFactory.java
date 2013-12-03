@@ -52,7 +52,8 @@ public class MenuFactory
 	 * @return parent - the root EventNode, which contains all
 	 * 					children.
 	 */
-	public static EventNode<MenuContent> createDialogue(String prof, Document xml, SceneController controller)
+	public static EventNode<MenuContent> createDialogue(String prof,
+								Document xml, SceneController controller)
 	{
 		NodeList startingList;
 		professor = prof;
@@ -68,7 +69,6 @@ public class MenuFactory
 		parent.getElement().setSceneController(controller);
 		//Get the child nodes of the root of the document
 		startingList = xml.getChildNodes();
-        System.out.println(startingList.toString());
 		
 		//Begin the parse, and construct the EventNode tree.
 		buildChildren(parent, startingList);
@@ -83,7 +83,8 @@ public class MenuFactory
 	 * 				   this previous active node.
 	 * @param nodeList - the children of the parent.
 	 */
-	private static String buildChildren(EventNode<MenuContent> parent, NodeList nodeList)
+	private static String buildChildren(EventNode<MenuContent> parent, 
+										NodeList nodeList)
 	{	
 		//Create method variables here----------------------------------------
 		Node currentNode = null;
@@ -97,7 +98,8 @@ public class MenuFactory
 			
 			currentNode = nodeList.item(j); //Set the current node
 			currentNodeName = currentNode.getNodeName();
-			childList = currentNode.getChildNodes(); // The child nodes of current 
+			childList = currentNode.getChildNodes(); // The child nodes of 
+													 // current 
 			
 			//Recurse if we have a content
 			if (currentNodeName.equals("content"))
@@ -126,10 +128,10 @@ public class MenuFactory
 					
 					for (int i = 0; i < textForContent.length; i++)
 					{
-						textForContent[i] = new ScrollingTextSprite(texts.get(i), true);
+						textForContent[i] = new ScrollingTextSprite
+											(texts.get(i), true);
 					}
 
-                    System.out.println("length is: " + textForContent.length);
 					content = new DialogueContent(textForContent);
 				}
 				//Calls the getValueFrom method for options
@@ -141,15 +143,16 @@ public class MenuFactory
 					{
 						textForContent[i] = new ChoiceSprite(texts.get(i));
 					}
-					content = new ChoiceContent(true, Color.blue, Color.yellow, textForContent);
+					content = new ChoiceContent(true, Color.blue, 
+												Color.yellow, textForContent);
 					
 				}
 				
 				//Creating the content from the texts and placing
 				//in an EventNode.
 				contentNode = new EventNode<MenuContent>(content);
-				contentNode.getElement().setMenuController(parent.getElement().getMenuController());
-				System.out.println("SCENE CONTROLLER: " + sceneController);
+				contentNode.getElement().setMenuController
+									(parent.getElement().getMenuController());
 				contentNode.getElement().setSceneController(sceneController);
 				
 				//Append this new node to the parent 
@@ -191,7 +194,6 @@ public class MenuFactory
 			if (textNodes.getLength() > 0)
 			{
 				curText = profToUse + textNodes.item(0).getNodeValue();
-                System.out.println("cur text is: " +curText);
 				text.add(curText);
 			}
 		}
@@ -209,9 +211,7 @@ public class MenuFactory
 	private static ArrayList<String> getValueFrom(NodeList list)
 	{
 		ArrayList<String> text = new ArrayList<String>();
-		String curText = "";
 		Element curNode = null;
-		NodeList textNodes;
 		
 		for (int i = 0; i < list.getLength(); i++)
 		{
@@ -220,8 +220,6 @@ public class MenuFactory
 				text.add(curNode.getAttribute("value"));
 			}
 		}
-
-        System.out.println("-----------------------DONE-------------------------");
 		return text;
 	}
 }

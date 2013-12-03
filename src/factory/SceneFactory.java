@@ -15,33 +15,52 @@ import visual.statik.sampled.ContentFactory;
 
 import java.util.ArrayList;
 
+/**
+ * Creates individual scenes
+ * 
+ * @author Mike Kapnick
+ * @version 1.0
+ * 
+ * This work complies with the JMU Honor Code
+ * 12/3/13
+ *
+ */
 public class SceneFactory {
 
-    public static Scene createScene(Environment env, View view, Script script, ResourceFinder finder, String fileName)
+	/**
+	 * Factory method for creating scenes
+	 * 
+	 * @param env
+	 * @param view
+	 * @param script
+	 * @param finder
+	 * @param fileName
+	 * @return
+	 */
+    public static Scene createScene(Environment env, View view, 
+    		Script script, ResourceFinder finder, String fileName)
 
     {
         Scene scene;
         XMLReader reader;
         reader = new XMLReader();
         scene = null;
+        
         try
         {
-            System.out.println("ABOUT TO CALL XML PARSE FILE");
             reader.parseXMLFile(fileName, env, script);
-            System.out.println("Parsed XML file");
             scene = createScene(env,view, script, finder);
-            System.out.println("Created scene!");
         }
         catch(Exception e)
         {
             //scene will just be null
-            System.out.println("Exception thrown");
         }
 
         return scene;
     }
 
-    private static Scene createScene(Environment env, View view, Script script, ResourceFinder finder)
+    private static Scene createScene(Environment env, View view, 
+    						Script script, ResourceFinder finder)
 
     {
         Scene                           scene;
@@ -50,7 +69,7 @@ public class SceneFactory {
         AbstractSlidingSprite           rbSprite;
         RuleBasedSprite []              slidingSprites;
         ArrayList<TransformableContent> listOfContents;
-        ArrayList<String>               foreground, background;
+        ArrayList<String>               foreground;
         int                             index;
 
         // Sliding Sprites
@@ -66,7 +85,8 @@ public class SceneFactory {
             System.out.println(foreground.get(0));
             for (int i = 0; i < foreground.size(); i++)
             {
-                content = contentFactory.createContent(foreground.get(i),3, false);
+                content = contentFactory.createContent(foreground.get(i),3,
+                			false);
                 listOfContents.add(content);
             }
         }
@@ -76,22 +96,6 @@ public class SceneFactory {
             rbSprite = new SlidingSprite(view,listOfContents, 3, 640, 480);
             slidingSprites[index] = rbSprite;
         }
-
-        /*if (env.getBackground() != null)
-
-        {
-            content             = contentFactory.createContent(env.getBackground(), false);
-            rbSprite            = new SlidingSprite(content, 3, 640,480);
-            slidingSprites[++index] = rbSprite;
-        }
-
-        if(env.getGround() != null)
-
-        {
-            content             = contentFactory.createContent(env.getGround(), false);
-            rbSprite            = new SlidingSprite(content, 3, 640,480);
-            slidingSprites[++index] = rbSprite;
-        }*/
 
         scene = new Scene(slidingSprites, script.getSprites(), env, null, null);
         return scene;

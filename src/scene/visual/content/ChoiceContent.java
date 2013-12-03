@@ -27,7 +27,8 @@ public class ChoiceContent extends MenuContent {
 		this(vert, Color.BLACK, Color.BLUE, text);
 	}
 	
-	public ChoiceContent(boolean vert, Color defaultColor, Color hoverColor, TextSprite... text)
+	public ChoiceContent(boolean vert, Color defaultColor, 
+			Color hoverColor, TextSprite... text)
 	{
 		super(text);
 		this.defaultColor = defaultColor;
@@ -73,8 +74,10 @@ public class ChoiceContent extends MenuContent {
 		g2.draw(textRectangle);
 		for (int i = 0; i < text.length; i++)
 		{
-			if (isTopDownView) 	text[i].setLocation(x, 30 + y + (i * 2)  * text[i].getFont().getSize());
-			else 				text[i].setLocation(i * text[i].getText().length() + i * 100, 0);
+			if (isTopDownView) 	text[i].setLocation
+					(x, 30 + y + (i * 2)  * text[i].getFont().getSize());
+			else 				text[i].setLocation
+					(i * text[i].getText().length() + i * 100, 0);
 			
 			text[i].render(g);
 			

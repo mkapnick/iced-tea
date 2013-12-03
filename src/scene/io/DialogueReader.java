@@ -31,7 +31,7 @@ public class DialogueReader{
     	   this.fileName = file;
        }
 
-    public Document getXML() throws ParserConfigurationException, SAXException, IOException
+    public Document getXML() throws Exception
     {
     	InputStream is = finder.findInputStream(fileName);
     	

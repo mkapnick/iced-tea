@@ -9,7 +9,11 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
+/**
+ * 
+ * @author Mike Kapnick
+ *
+ */
 public class Scene
 {
 

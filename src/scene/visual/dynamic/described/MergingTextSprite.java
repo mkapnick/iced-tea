@@ -2,6 +2,11 @@ package scene.visual.dynamic.described;
 
 import java.awt.Graphics;
 
+/**
+ * Merges sprites from the left and right
+ * @author Daniel Hardgrove
+ *
+ */
 public class MergingTextSprite extends TextSprite {
 
 	public static final int VERTICAL = 0;
@@ -15,8 +20,10 @@ public class MergingTextSprite extends TextSprite {
 		super(text);
 		this.speed = speed;
 		
-		half1 = new SlidingTextSprite(text.substring(0, text.length() / 2), SlidingTextSprite.LEFT, 1);
-		half2 = new SlidingTextSprite(text.substring(text.length() / 2), SlidingTextSprite.RIGHT, 1);
+		half1 = new SlidingTextSprite
+		(text.substring(0, text.length() / 2), SlidingTextSprite.LEFT, 1);
+		half2 = new SlidingTextSprite
+		(text.substring(text.length() / 2), SlidingTextSprite.RIGHT, 1);
 	}
 
 	@Override

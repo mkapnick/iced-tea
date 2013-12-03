@@ -7,8 +7,11 @@ import scene.visual.Scene;
 import scene.visual.content.SceneContent;
 
 /**
- * @author brianbrown
+ * @author Brian Brown, Daniel Hardgrove, Mike Kapnick
  * Contains the EventNode<SceneContent>tree and handles scene changing.
+ * 
+ * This work complies with the JMU Honor Code
+ * 12/3/13
  */
 public class SceneController {
 
